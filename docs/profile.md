@@ -56,13 +56,17 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Philron Hozier
 #####About
-
+>Currently a Junior @UMass Amherst pursuing a BS Computer Science degree. My interest in CS is the design of software and user experience.  I have some past experience developing two, rather small, mobile applications with a friend in Objective C for iOS (teacher absentee app, music lyric app).    
 
 #####Comp. Science Courses
-
+* CMPSCI 121 (Intro to Java)
+* CMPSCI 220 (Programming Methodology -- Scala)
+* CMPSCI 230 (Computer Systems Principles)
+* CMPSCI 250 (Discrete Math)
 
 #####Add. Courses
-
+* CMPSCI 240 (Reasoning Under Uncertainty)
+* STATS 515 Equiv. (Prob. & Stats for Engineers)
 
 ###Tyler Caldwell
 #####About

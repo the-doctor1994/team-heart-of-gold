@@ -3,7 +3,7 @@
 * some fancy logo here
 
 --------------------
-This is our web startup overview.
+>*Heart Of Gold* aims to lift additionally stresses associated with higher learning. Educational growth is accompanied by various sources of stress, such as predicting one's own final courses' grades and finding people to study with, which we aim to make less stressful and even pleasant.
 
 The Team
 =======

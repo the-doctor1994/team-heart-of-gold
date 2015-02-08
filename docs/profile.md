@@ -7,7 +7,7 @@ This is our web startup overview.
 
 The Team
 =======
-####Brenton Chasse 
+###Brenton Chasse 
 #####About
 >Senior Computer Systems Engineering student persuing a minor in Computer Science.  
 Currently working for and has accepted a full time job offer with IBM. Within "Software  

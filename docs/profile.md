@@ -66,10 +66,15 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Tyler Caldwell
 #####About
-
+>Junior comp sci/econ dual-degree. Interested in software engineering and computational social science.
 
 #####Comp. Science Courses
-
+* CMPSCI 121
+* CMPSCI 187
+* CMPSCI 230
+* CMPSCI 250
+* CMPSCI 325
 
 #####Add. Courses
-
+* ECON 203H (Microeconomics)
+* ECON 309 (Game Theory)

@@ -24,7 +24,7 @@ JavaScript and the Dojo toolkit for front end development.
 * EC-ENG 373 (Object Oriented Software Design)
 * EC-ENG 570 (System Software Design)
 
-###Tyler Caldwell
+###Gary White
 #####About
 
 
@@ -44,7 +44,7 @@ JavaScript and the Dojo toolkit for front end development.
 #####Add. Courses
 
 
-###Gary White
+###Main Khan
 #####About
 
 
@@ -64,7 +64,7 @@ JavaScript and the Dojo toolkit for front end development.
 #####Add. Courses
 
 
-###Main Khan
+###Tyler Caldwell
 #####About
 
 
@@ -72,5 +72,4 @@ JavaScript and the Dojo toolkit for front end development.
 
 
 #####Add. Courses
-
 

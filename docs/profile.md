@@ -1,9 +1,7 @@
-<!img src="Images/logo1.png" alt="Heart of Gold" height="132" width="110">
-<!--- ![Heart of Gold](Images/logo1.png) this is how to comment out -->
 #Team Heart Of Gold
 ####Start Digging
 
---------------------
+<hr>
 <table border="0" width="100%">
 <tr>
 <td width="75%">

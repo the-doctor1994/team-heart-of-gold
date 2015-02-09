@@ -1,11 +1,11 @@
-#Team Heart Of Gold
+#Team Heart of Gold
 ####Start Digging
 
 <hr>
 <table border="0" width="100%">
 <tr>
 <td width="75%">
-<i>Heart Of Gold</i> aims to ease unnecessary stress associated with higher learning. Educational growth is often accompanied by various sources of stress, such as predicting one's own grades and finding people to study with. Processes which we aim to simplify and streamline to make life easier.
+<i>Heart of Gold</i> aims to ease unnecessary stress associated with higher learning. Educational growth is often accompanied by various sources of stress, such as predicting one's own grades and finding people to study with. Processes which we aim to simplify and streamline to make life easier.
 </td>
 <td align="right">
 <img src="Images/logo1.png" alt="Heart of Gold" height="132" width="110">

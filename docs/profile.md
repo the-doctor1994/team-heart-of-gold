@@ -1,9 +1,10 @@
 #Heart Of Gold (startup name)
 ####Slogan goes here
-* some fancy logo here
+<img src="../Images/logo1.png" alt="Heart of Gold" height="132" width="110">
+<!--- ![Heart of Gold](../Images/logo1.png) -->
 
 --------------------
->*Heart Of Gold* aims to lift additionally stresses associated with higher learning. Educational growth is accompanied by various sources of stress, such as predicting one's own final courses' grades and finding people to study with, which we aim to make less stressful and even pleasant.
+>*Heart Of Gold* aims to ease unnecessary stress associated with higher learning. Educational growth is often accompanied by various sources of stress, such as predicting one's own grades and finding people to study with. Processes which we aim to simplify and streamline to make life easier.
 
 The Team
 =======
@@ -44,7 +45,7 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Grayson Kempster
 #####About
-
+>Junior Computer Science major with a focus on physics. Good at creative problem solving. Experience with Java, HTML, C, and UNIX. Interested in database management, graphic design, and function design.
 
 #####Comp. Science Courses
 

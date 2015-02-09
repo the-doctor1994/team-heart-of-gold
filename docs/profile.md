@@ -1,7 +1,7 @@
-#Heart Of Gold (startup name)
+#Team Heart Of Gold
 ####Slogan goes here
-<img src="../Images/logo1.png" alt="Heart of Gold" height="132" width="110">
-<!--- ![Heart of Gold](../Images/logo1.png) -->
+<img src="Images/logo1.png" alt="Heart of Gold" height="132" width="110">
+<!--- ![Heart of Gold](Images/logo1.png) this is how to comment out -->
 
 --------------------
 >*Heart Of Gold* aims to ease unnecessary stress associated with higher learning. Educational growth is often accompanied by various sources of stress, such as predicting one's own grades and finding people to study with. Processes which we aim to simplify and streamline to make life easier.

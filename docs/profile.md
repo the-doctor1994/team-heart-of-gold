@@ -54,13 +54,18 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Main Khan
 #####About
-
+Currently a sopomore seeking a double major in Computer Science and Computational Mathematics. Inerested in working on front end for this project.
 
 #####Comp. Science Courses
-
+* CMPSCI 187  (Data Structures)
+* CMPSCI 197U (Intro to UNIX)
+* CMPSCI 220  (Programming Methodology)
+* CMPSCI 230  (Computer Systems)
+* CMPSCI 240  (Reasoning Under Uncertainty)
+* CMPSCI 250  (Discrete Math)
 
 #####Add. Courses
-
+* MATH 235 (Linear Algebra)
 
 ###Philron Hozier
 #####About

@@ -41,21 +41,29 @@ JavaScript and the Dojo toolkit for front end development.
 
 #####Add. Courses
 
-* PHYS - 286 Modern Physics
+* PHYS - 284 Modern Physics
 
 ###Grayson Kempster
 #####About
 >Junior Computer Science major with a focus on physics. Good at creative problem solving. Experience with Java, HTML, C, and UNIX. Interested in database management, graphic design, and function design.
 
 #####Comp. Science Courses
-
+* CS 121
+* CS 187
+* CS 197U
+* CS 220
+* CS 230
+* CS 326
 
 #####Add. Courses
-
+* Physics 151
+* Physics 152
+* Physics 284
+* Physics 422
 
 ###Main Khan
 #####About
-Currently a sopomore seeking a double major in Computer Science and Computational Mathematics. Inerested in working on front end for this project.
+Currently a Sophomore seeking a double major in Computer Science and Computational Mathematics. Interested in working on front end for this project.
 
 #####Comp. Science Courses
 * CMPSCI 187  (Data Structures)

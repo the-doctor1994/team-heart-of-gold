@@ -16,9 +16,9 @@
 #The Team
 ###Brenton Chasse 
 #####About
->Senior Computer Systems Engineering student persuing a minor in Computer Science.  
+>Senior Computer Systems Engineering student pursuing a minor in Computer Science.  
 Currently working for and has accepted a full time job offer with IBM. Within "Software  
-Group", is a part of developing a web app refered to as "Verse". Familiar with using  
+Group", is a part of developing a web app referred to as "Verse". Familiar with using  
 JavaScript and the Dojo toolkit for front end development.
 
 #####Comp. Science Courses
@@ -33,7 +33,7 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Gary White
 #####About
->Had experience working on large-scale projects and documentation from 320, fair amount of Web Development experience in Javascript, HTML, CSS, XAML, XML, PHP, and SQL. Mostly interested in UI design for this project.
+>Had experience working on large-scale projects and documentation from 320, fair amount of Web Development experience in JavaScript, HTML, CSS, XAML, XML, PHP, and SQL. Mostly interested in UI design for this project.
 
 #####Comp. Science Courses
 

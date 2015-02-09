@@ -26,13 +26,21 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Gary White
 #####About
-
+>Had experience working on large-scale projects and documentation from 320, fair amount of Web Development experience in Javascript, HTML, CSS, XAML, XML, PHP, and SQL. Mostly interested in UI design for this project.
 
 #####Comp. Science Courses
 
+* CS 187
+* CS 197U
+* CS 220
+* CS 230
+* CS 240
+* CS 250
+* CS 320
 
 #####Add. Courses
 
+* PHYS - 286 Modern Physics
 
 ###Grayson Kempster
 #####About

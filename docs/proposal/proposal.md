@@ -11,7 +11,10 @@ CMPSCI 121 (Intro to Java), CMPSCI 250 (Discrete Math), CMPSCI 377 (Operating Sy
 *Brenton Chasse 02/22/15*
 
 ###**Gary White** - Frontend/UI
+I am a junior Computer Science major, with prior team working experience from Software Engineering in CMPSCI 326. Most of my role in that project was making sure that the user interface and the backend were able to communicate well. Portions that I worked on front end things were exciting to me because I was interested in being able to tie pieces together. I am excited to be part of this team and this project.
 
+*Gary White 02/22/15*
+ 
 ###**Grayson Kempster** - Backend/Databases
 
 ###**Main Khan** - Networking/Data Parsing

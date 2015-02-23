@@ -18,6 +18,7 @@ I am a junior Computer Science major, with prior team working experience from So
 ###**Grayson Kempster** - Backend/Databases
 
 ###**Main Khan** - Networking/Data Parsing
+I am a sophomore Computer Science and Computational Mathematics double major under the software engineering track. I enjoy working on the user experience and user interface aspects of development. I'm looking forward to work on a large scale group  project such as this one.  
 
 ###**Philron Hozier** - Frontend/UI
 

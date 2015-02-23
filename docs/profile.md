@@ -51,7 +51,7 @@ JavaScript and the Dojo toolkit for front end development.
 
 ###Grayson Kempster
 #####About
->Junior Computer Science major with a focus on physics. Good at creative problem solving. Experience with Java, HTML, C, and UNIX. Interested in database management, graphic design, and function design.
+>I am a Junior Computer Science major with a focus on physics. I work as an RA in Washington Tower in the SouthWest residence area. I was raised in a small town called Hopedale in MA where I earned the rank of Eagle Scout in the local Boy Scout troop. I am good at creative problem solving, and have experience with Java, HTML, C, and UNIX. In terms of this project I am interested in database management, graphic design, and function design.
 
 #####Comp. Science Courses
 * CS 121

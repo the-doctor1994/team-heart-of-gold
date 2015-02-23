@@ -16,7 +16,7 @@ I am a junior Computer Science major, with prior team working experience from So
 *Gary White 02/22/15*
  
 ###**Grayson Kempster** - Backend/Databases
-I am a Junior Computer Science major with a focus on physics. I work as an RA in Washington Tower in the SouthWest residence area. I was raised in a small town called Hopedale in MA where I earned the rank of Eagle Scout in the local Boy Scout troop. I am good at creative problem solving, and have experience with Java, HTML, C, and UNIX. In terms of this project I am interested in database management, graphic design, and function design.
+I am a Junior Computer Science major with a focus on physics. I work as an RA in Washington Tower in the SouthWest residence area. I was raised in a small town called Hopedale in MA where I earned the rank of Eagle Scout in the local Boy Scout troop. I am good at creative problem solving, and have experience with Java, JavaScript, HTML, C, and UNIX. In terms of this project I am interested in database management, graphic design, and function design.
 
 *Grayson Kempster 02/23/15*
 
@@ -45,13 +45,15 @@ Just as existing matching services believe that connecting people based on what 
 //Something about why we think that our app/solution is thebomb.com and no one else can do something better
 
 ##Product Description
-When a new user visits our site, they will be greeted with an intuitive and simple interface that will guide them through the creation of their profile. Here our users will enter basic information, such as their name, age, and major, followed by more personal information such as a short bio, currently enrolled courses, and preferred study habits. 
+When a new user visits our site, they will be greeted with an intuitive and simple interface that will guide them through the creation of their profile. Here our users will enter basic information, such as their name, age, and major, followed by more personal information such as a short bio, currently enrolled courses, and preferred study habits(music, location, willing travel distance, learning type). 
 
-Once a user has created their profile, we will begin creating matches and suggesting study partners for them. Using our algorithms, we will rank the user's matches on a scale of more to less "study compatible." This line-up of matches is then presented to the user through their mobile/full browser. From this point, our user's have the final decision as to whether or not they want to connect with a suggested match, or to pass on the matched study partner. Users will only be notified of another user's choice if they both say yes; thus making them "study buddies." Only then will they be able to send each other messages.
+Once a user has created their profile, we will begin creating matches and suggesting study partners for them. Using our algorithms, we will rank the user's matches on a scale of more to less "study compatible." This line-up of matches is then presented to the user through their mobile/full browser. From this point, our user's have the final decision as to whether or not they want to connect with a suggested match, or to pass on the matched study partner. Users will only be notified of another user's choice if they both say yes; thus making them "study buddies." Only then will they be able to contact each other to organize a meeting.
 
 ##What Void Do We Fill?
+In the world of college social media there are many networks, all of them unique; all of them with a clear purpose. Networks for posting pictures anonymously(or not), posting "tweets" anonymously(or not), meeting up with or talking to people who find you attractive, and even for trying to affirm your brand to prospective employers and the professional community. But no such network exists for enriching your academic experience. This, is the void we aim to fill.
 
 ##Timeline
+Brenton? experience on dev milestones?
 
 ##Cost Estimate
 |  Expense  | Rate                                   | Total     |

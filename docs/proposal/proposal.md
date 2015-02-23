@@ -2,7 +2,7 @@
 
 ##Team Members
 ###**Brenton Chasse** - Backend/Databases
-I am a senior Computer Systems Engineering student pursuing a minor in Computer Science. I work for and have accepted a full time job offer with IBM. Within "Software Group", I am part of developing a web app referred to as "Verse" where I have become familiar with using JavaScript and the Dojo toolkit for front end development.
+I am a senior Computer Systems Engineering student pursuing a minor in Computer Science. I work for and have accepted a full time job offer with IBM. Within "Software Group", I am part of a team developing a web app referred to as "Verse" where I have become familiar with using JavaScript and the Dojo toolkit for front end development.
 
 I will be designing and implementing the database and associated backend support.
 
@@ -16,6 +16,9 @@ I am a junior Computer Science major, with prior team working experience from So
 *Gary White 02/22/15*
  
 ###**Grayson Kempster** - Backend/Databases
+I am a Junior Computer Science major with a focus on physics. I work as an RA in Washington Tower in the SouthWest residence area. I was raised in a small town called Hopedale in MA where I earned the rank of Eagle Scout in the local Boy Scout troop. I am good at creative problem solving, and have experience with Java, HTML, C, and UNIX. In terms of this project I am interested in database management, graphic design, and function design.
+
+*Grayson Kempster 02/23/15*
 
 ###**Main Khan** - Networking/Data Parsing
 

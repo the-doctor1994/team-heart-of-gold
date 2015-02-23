@@ -23,6 +23,8 @@ I am a Junior Computer Science major with a focus on physics. I work as an RA in
 ###**Main Khan** - Networking/Data Parsing
 I am a sophomore Computer Science and Computational Mathematics double major under the software engineering track. I enjoy working on the user experience and user interface aspects of development. I'm looking forward to work on a large scale group  project such as this one.  
 
+*Main Khan 02/23/15*
+
 ###**Philron Hozier** - Frontend/UI
 
 ###**Tyler Caldwell** - Networking/Data Parsing

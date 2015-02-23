@@ -21,7 +21,7 @@ I am a Junior Computer Science major with a focus on physics. I work as an RA in
 *Grayson Kempster 02/23/15*
 
 ###**Main Khan** - Networking/Data Parsing
-I am a Sophomore Computer Science and Computational Mathematics double major under the software engineering track. I enjoy working on the user experience and user interface aspects of development. I'm looking forward to working on a large scale group project such as this one.  
+I am a Sophomore Computer Science and Computational Mathematics double major under the software engineering track. I enjoy working on the user experience and user interface aspects of development. Over the summer I worked on Foldit, a game that uses crowdsourcing to research protein folding. I'm looking forward to working on a large scale group project such as this one.  
 
 *Main Khan 02/23/15*
 

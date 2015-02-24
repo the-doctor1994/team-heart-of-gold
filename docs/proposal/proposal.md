@@ -1,5 +1,6 @@
 #Heart of Gold
 ##Study Buddy
+<img src = "logo1.png" alt = "Heart of Gold" height = "132" width = "110">
 
 ##Team Members
 ###**Brenton Chasse** - Backend/Databases

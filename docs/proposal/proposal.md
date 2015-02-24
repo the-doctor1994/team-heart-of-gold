@@ -1,4 +1,5 @@
-#Heart of Gold - 
+#Heart of Gold
+##Study Buddy
 
 ##Team Members
 ###**Brenton Chasse** - Backend/Databases

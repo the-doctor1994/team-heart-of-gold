@@ -28,6 +28,7 @@ I am a Sophomore Computer Science and Computational Mathematics double major und
 *Main Khan 02/23/15*
 
 ###**Philron Hozier** - Frontend/UI
+Currently a Junior @UMass Amherst pursuing a BS Computer Science degree. My interest in CS is the design of software and user experience. I have some past experience developing two, rather small, mobile applications with a friend in Objective C for iOS (teacher absentee app, music lyric app).
 
 ###**Tyler Caldwell** - Networking/Data Parsing
 I am a junior CS-BA/Econ major. I'm interested in software engineering and data analysis in the financial sector. I've worked for BNY Mellon and State Street Bank, and this summer I'll be working at Fidelity Investments in a data science role.
@@ -44,10 +45,6 @@ People learn in very different ways, but most students understand the value of s
 By cataloguing our users' classes and preferences, we provide a consolidated network for finding matches tailored to individual academic needs. For example, people who prefer to study in silence are less likely to be matched with someone who prefers studying with background noise. Similarly, those who prefer to learn visually are more likely to be matched with those who prefer the same.
 
 Just as existing matching services believe that connecting people based on what will make them attracted to each other as friends or more will increase one's happiness; we at Heart of Gold believe that matching people based on their studying habits and current courses will provide academic benefits.
-
-//Final blurb about exactly what we want to do. possibly unneeded.
-
-//Something about why we think that our app/solution is thebomb.com and no one else can do something better
 
 ##Product Description
 When a new user visits our site, they will be greeted with an intuitive and simple interface that will guide them through the creation of their profile. Here our users will enter basic information, such as their name, age, and major, followed by more personal information such as a short bio, currently enrolled courses, and preferred study habits (music, location, willing travel distance, learning type). 

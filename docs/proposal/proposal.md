@@ -1,6 +1,6 @@
 #Heart of Gold
-##Study Buddy
-<img src = "logo1.png" alt = "Heart of Gold" height = "132" width = "110">
+<img src = "../Images/logo1.png" alt = "Heart of Gold" height = "132" width = "110">
+##"Study Buddy"
 
 ##Team Members
 ###**Brenton Chasse** - Backend/Databases
@@ -30,6 +30,8 @@ I am a Sophomore Computer Science and Computational Mathematics double major und
 ###**Philron Hozier** - Frontend/UI
 Currently a Junior @UMass Amherst pursuing a BS Computer Science degree. My interest in CS is the design of software and user experience. I have some past experience developing two, rather small, mobile applications with a friend in Objective C for iOS (teacher absentee app, music lyric app).
 
+*Philron Hozier 02/23/15*
+
 ###**Tyler Caldwell** - Networking/Data Parsing
 I am a junior CS-BA/Econ major. I'm interested in software engineering and data analysis in the financial sector. I've worked for BNY Mellon and State Street Bank, and this summer I'll be working at Fidelity Investments in a data science role.
 
@@ -44,15 +46,24 @@ People learn in very different ways, but most students understand the value of s
 
 By cataloguing our users' classes and preferences, we provide a consolidated network for finding matches tailored to individual academic needs. For example, people who prefer to study in silence are less likely to be matched with someone who prefers studying with background noise. Similarly, those who prefer to learn visually are more likely to be matched with those who prefer the same.
 
-Just as existing matching services believe that connecting people based on what will make them attracted to each other as friends or more will increase one's happiness; we at Heart of Gold believe that matching people based on their studying habits and current courses will provide academic benefits.
+Just as existing matching services such as [Tinder](http://www.gotinder.com/) believe that connecting people based on what will make them attracted to each other as friends or more will increase one's happiness; we at Heart of Gold believe that matching people based on their studying habits and current courses will provide academic benefits.
+
+*Tyler Caldwell 02/22/15*  
+*Brenton Chasse 02/22/15*  
+*Grayson Kempster 02/23/15*
 
 ##Product Description
 When a new user visits our site, they will be greeted with an intuitive and simple interface that will guide them through the creation of their profile. Here our users will enter basic information, such as their name, age, and major, followed by more personal information such as a short bio, currently enrolled courses, and preferred study habits (music, location, willing travel distance, learning type). 
 
 Once a user has created their profile, we will begin creating matches and suggesting study partners for them. Using our algorithms, we will rank the user's matches on a scale of more to less "study compatible." This line-up of matches is then presented to the user through their mobile/full browser. From this point, our users have the final decision as to whether or not they want to connect with a suggested match, or to pass on the matched study partner. Users will only be notified of another user's choice if they both say yes; thus making them "study buddies." Only then will they be able to contact each other to organize a meeting.
 
+*Brenton Chasse 02/22/15*  
+*Grayson Kempster 02/23/15*
+
 ##What Void Do We Fill?
 In the world of college social media there are many networks, all of them unique; all of them with a clear purpose. Networks for posting pictures anonymously(or not), posting "tweets" anonymously (or not), meeting up with or talking to people who find you attractive, and even for trying to affirm your brand to prospective employers and the professional community. But no such network exists for enriching your academic experience. This, is the void we aim to fill.
+
+*Grayson Kempster 02/23/15*
 
 ##Timeline
 The initial research for the application is already well-established, and is nearing completion. By February 28th, this should be complete. Research has included surface-level market research (ensuring the originality of the product, examining similar or potentially competing products) as well as some brainstorming about actual implementation (platforms, frameworks, libraries, toolkits, etc.).
@@ -61,7 +72,7 @@ Design will begin immediately following the completion of research. Final design
 
 The basic interface should be functional by March 27th. This will include basic frontend functionality.
 
-The interface should be rougly functional in conjunction with the backend by April 09th, and the application should be functioning on a basic level.
+The interface should be roughly functional in conjunction with the backend by April 09th, and the application should be functioning on a basic level.
 
 By April 16th the application should be mostly functional, and the implementation of the final features will be finished up.
 

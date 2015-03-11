@@ -10,6 +10,11 @@
 ###**Main Khan**        - Networking/Data Parsing
 ###**Tyler Caldwell**   - Networking/Data Parsing
 
+##Disclaimer
+<!--
+Status of the functional specification, what it does and does not discuss
+-->
+
 ##Project Idea Summary
 <!---
 Just a basic run-through
@@ -23,6 +28,10 @@ To be updated throughout the semester
 We need (at least) 8 use cases
 -->
 ##Non-Goals
+<!--
+A list
+-->
+##Open Issues
 <!--
 A list
 -->
@@ -44,3 +53,4 @@ proceeds
 <!-- We have to make weekly team meeting notes for each week since the second
      assignment was released in the docs/Notes directory -->
 <!-- Include any prototype code or research we've done up to this point -->
+<!-- Describe log-in and authentication functionality too -->

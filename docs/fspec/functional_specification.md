@@ -37,7 +37,6 @@ To be updated throughout the semester
 
 
 ##Non-Goals
-* We are not going to implement a messaging client. StudyBuddy will be used strictly for exchanging email addresses or phone numbers.
 * We are not planning on implementing GPS location services, although that could be a feature in future implementations. We plan on keeping the location aspect limited to inputs for University of enrollment, and distance willing to travel.
 * We are not currently planning on adding features for managing existing study groups. StudyBuddy is meant to be a study-match-making application rather than a team management application (of which there are already many).
 

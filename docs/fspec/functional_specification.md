@@ -14,6 +14,9 @@
 <!--
 Status of the functional specification, what it does and does not discuss
 -->
+By no means does this functional specification outline how our site will behave and appear to the user in our final application. Implemented features may be adapted, modified, expanded, added, and removed as we develop our web application and further our understand the needs in the niche that our application seeks to fulfill. In our development, we strive to provide a simple, intuitive, and visually pleasing user interface which provides high quality and robust user interactions. As we develop, we will update this document so that the specifications listed will be accurate to our final application.
+
+*Brenton Chasse, 03/12/15*
 
 ##Project Idea Summary
 <!---
@@ -38,9 +41,10 @@ To be updated throughout the semester
 
 ##Non-Goals
 * We are not planning on implementing GPS location services, although that could be a feature in future implementations. We plan on keeping the location aspect limited to inputs for University of enrollment, and distance willing to travel.
+* Distance willing to travel will be based on a local/regional/state basis, not on physical location. Harvesting relative location data for all possible universities is overkill since it would simply emulate gps location services.
 * We are not currently planning on adding features for managing existing study groups. StudyBuddy is meant to be a study-match-making application rather than a team management application (of which there are already many).
 
-*Tyler Caldwell and Main Khan, 03/11/15*
+*Tyler Caldwell, Main Khan and Brenton Chasse, 03/12/15*
 
 ##Open Issues
 <!--

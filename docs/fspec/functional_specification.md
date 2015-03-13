@@ -7,7 +7,7 @@
 
 ###**Brenton Chasse**   - Backend/Databases - Dojo Sempai
 
-<b>Bio:</b>  Brenton is a Senior Computer Systems Engineering student pursuing a minor in Computer Science. This developer is familliar with using the Dojo Javascript toolkit for front end web applicaiton development. He looks forwared to furthering his knowledge of the Dojo toolkit by using it on top of node.js on the back end.
+<b>Bio:</b>  Brenton is a Senior Computer Systems Engineering student pursuing a minor in Computer Science. This developer is familiar with using the Dojo Javascript toolkit for front end web application development. He looks forward to furthering his knowledge of the Dojo toolkit by using it on top of node.js on the back end.
 
 ###**Grayson Kempster** - Backend/Databases
 
@@ -19,7 +19,7 @@
 
 ###**Philron Hozier**   - Frontend/UI
 
-<b>Bio:</b> Philron is urrently a Junior at UMass Amherst pursuing a BS Computer Science degree. He is interested in CS is the design of software and user experience.  This developer has past experience developing two, rather small, mobile applications in Objective-C for iOS (teacher absentee app, music lyric app). 
+<b>Bio:</b> Philron is currently a Junior at UMass Amherst pursuing a BS Computer Science degree. He is interested in CS is the design of software and user experience.  This developer has past experience developing two, rather small, mobile applications in Objective-C for iOS (teacher absentee app, music lyric app).
 
 ###**Main Khan**        - Networking/Data Parsing
 
@@ -36,6 +36,10 @@
 Just a basic run-through
 -->
 <b>"StudyBuddy"</b> aims to ease unnecessary stress associated with higher learning. Educational growth is usually accompanied by various sources of stress, such as worrying about grades or finding people to study with. Processes which we aim to simplify and streamline to make life easier for those who have enough to worry about.
+
+When a new user visits our site, they will be greeted with an intuitive and simple interface that will guide them through the creation of their profile. Here our users will enter basic information, such as their name, age, and major, followed by more personal information such as a short bio, currently enrolled courses, and preferred study habits (music, location, willing travel distance, learning type).
+
+Once a user has created their profile, we will begin creating matches and suggesting study partners for them. Using our algorithms, we will rank the user's matches on a scale of more to less "study compatible." This line-up of matches is then presented to the user through their mobile/full browser. From this point, our users have the final decision as to whether or not they want to connect with a suggested match, or to pass on the matched study partner. Users will only be notified of another user's choice if they both say yes; thus making them "study buddies." Only then will they be able to contact each other to organize a meeting.
 
 *Grayson Kempster, 03/12/15*
 
@@ -102,8 +106,8 @@ A list of things we know we want the database to be able to do
 		* State
 		* Graduation Year
 		* Major
-	* <b>Courses</b>:
-		* Course:
+	* Courses:
+		* <b>Course</b>:
 			* Goal grade
 			* Level of current comprehension
 	* <b>Preferences</b>:

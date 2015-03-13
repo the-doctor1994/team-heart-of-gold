@@ -93,7 +93,7 @@ A list of things we know we want the database to be able to do
 	* Display Name - uuid [could be real name (facebook integration -> anti-trolling)]
 	* <b>Contact Information</b>:
 		* Real Name
-		* Prefered method of contact (what contact info to share once matched)
+		* Preferred method of contact (what contact info to share once matched)
 		* Cell Phone Number
 		* School email
 		* Personal email (email address used for username recovery/backup password recovery)
@@ -105,7 +105,7 @@ A list of things we know we want the database to be able to do
 	* <b>Courses</b>:
 		* Course:
 			* Goal grade
-			* Level of current comprehention
+			* Level of current comprehension
 	* <b>Preferences</b>:
 		* <b>Study method preferences</b>:
 			* user preference here

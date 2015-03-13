@@ -41,7 +41,7 @@ When a new user visits our site, they will be greeted with an intuitive and simp
 
 Once a user has created their profile, we will begin creating matches and suggesting study partners for them. Using our algorithms, we will rank the user's matches on a scale of more to less "study compatible." This line-up of matches is then presented to the user through their mobile/full browser. From this point, our users have the final decision as to whether or not they want to connect with a suggested match, or to pass on the matched study partner. Users will only be notified of another user's choice if they both say yes; thus making them "study buddies." Only then will they be able to contact each other to organize a meeting.
 
-*Grayson Kempster, 03/12/15*
+*Grayson Kempster, 03/13/15*
 
 ##Disclaimer
 <!--
@@ -92,7 +92,7 @@ A list
 <!--
 A list of things we know we want the database to be able to do 
 -->
-Bolded bulleted lines indicate that the bullet's nested contents should be wrapped with an object.  
+Bold/bulleted lines indicate that the bullet's nested contents should be wrapped with an object.
 * Client side queries should be observable and should have events when the query changes on the server side
 * <b>Buddy object contains</b>:
 	* Display Name - uuid [could be real name (facebook integration -> anti-trolling)]
@@ -119,7 +119,7 @@ Bolded bulleted lines indicate that the bullet's nested contents should be wrapp
 			* user preference here
 			* user preference here
 
-*Brenton Chasse and Grayson Kempster, 03/12/15*
+*Brenton Chasse and Grayson Kempster, 03/13/15*
 
 ##User-Perspective Flowchart
 <!--

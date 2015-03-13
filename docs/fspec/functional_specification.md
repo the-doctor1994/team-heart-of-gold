@@ -86,28 +86,28 @@ A list
 A list of things we know we want the database to be able to do 
 -->
 * Client side queries should be observable and should have events when the query changes on the server side
-* Buddy object contains:
-	* Display Name [could be real name (facebook integration -> anti-trolling)]
-	* Contact Information:
+* <b>Buddy object contains</b>:
+	* Display Name - uuid [could be real name (facebook integration -> anti-trolling)]
+	* <b>Contact Information</b>:
 		* Real Name
 		* Prefered method of contact (what contact info to share once matched)
 		* Cell Phone Number
 		* School email
 		* Personal email (email address used for username recovery/backup password recovery)
-	* University:
+	* <b>University</b>:
 		* Name
 		* State
 		* Graduation Year
 		* Major
-	* Courses:
+	* <b>Courses</b>:
 		* Course:
 			* Goal grade
 			* Level of current comprehention
-	* Preferences:
-		* Study method preferences:
+	* <b>Preferences</b>:
+		* <b>Study method preferences</b>:
 			* user preference here
 			* user preference here
-		* Study location preferences:
+		* <b>Study location preferences</b>:
 			* user preference here
 			* user preference here
 

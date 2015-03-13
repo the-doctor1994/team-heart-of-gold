@@ -78,6 +78,8 @@ A list
 * Do we want to support older browser versions?
 * How will we ensure that two people see the same real time message stream while messaging?
 * Is there demand for matching "StudyBuddies" of different Universities? (i.e.: UMass student matching with a Smith College student)
+* Matching between sessions of the same class?
+* Separate "grade calculator" element included?
 
 *Brenton Chasse and Grayson Kempster, 03/13/15*
 

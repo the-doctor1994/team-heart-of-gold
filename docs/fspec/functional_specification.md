@@ -19,14 +19,6 @@
 
 *Brenton Chasse, 3/13/15*
 
-##Disclaimer
-<!--
-Status of the functional specification, what it does and does not discuss
--->
-By no means does this functional specification outline how our site will behave and appear to the user in our final application. Implemented features may be adapted, modified, expanded, added, and removed as we develop our web application and further our understand the needs in the niche that our application seeks to fulfill. In our development, we strive to provide a simple, intuitive, and visually pleasing user interface which provides high quality and robust user interactions. As we develop, we will update this document so that the specifications listed will be accurate to our final application.
-
-*Brenton Chasse, 03/12/15*
-
 ##Project Idea Summary
 <!---
 Just a basic run-through
@@ -34,6 +26,14 @@ Just a basic run-through
 <i>Study Buddy</i> aims to ease unnecessary stress associated with higher learning. Educational growth is usually accompanied by various sources of stress, such as worrying about grades or finding people to study with. Processes which we aim to simplify and streamline to make life easier for those who have enough to worry about.
 
 *Grayson Kempster, 03/12/15*
+
+##Disclaimer
+<!--
+Status of the functional specification, what it does and does not discuss
+-->
+By no means does this functional specification outline how our site will behave and appear to the user in our final application. Implemented features may be adapted, modified, expanded, added, and removed as we develop our web application and further our understand the needs in the niche that our application seeks to fulfill. In our development, we strive to provide a simple, intuitive, and visually pleasing user interface which provides high quality and robust user interactions. As we develop, we will update this document so that the specifications listed will be accurate to our final application.
+
+*Brenton Chasse, 03/12/15*
 
 ##Revision History
 <!--

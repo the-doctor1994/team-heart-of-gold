@@ -22,6 +22,10 @@ By no means does this functional specification outline how our site will behave 
 <!---
 Just a basic run-through
 -->
+<i>Study Buddy</i> aims to ease unnecessary stress associated with higher learning. Educational growth is usually accompanied by various sources of stress, such as worrying about grades or finding people to study with. Processes which we aim to simplify and streamline to make life easier for those who have enough to worry about.
+
+*Grayson Kempster, 03/12/15*
+
 ##Revision History
 <!--
 To be updated throughout the semester

@@ -81,6 +81,38 @@ A list
 
 *Brenton Chasse and Grayson Kempster, 03/13/15*
 
+##Known Database Requirements
+<!--
+A list of things we know we want the database to be able to do 
+-->
+* Client side queries should be observable and should have events when the query changes on the server side
+* Buddy object contains:
+	* Display Name [could be real name (facebook integration -> anti-trolling)]
+	* Contact Information:
+		* Real Name
+		* Prefered method of contact (what contact info to share once matched)
+		* Cell Phone Number
+		* School email
+		* Personal email (email address used for username recovery/backup password recovery)
+	* University:
+		* Name
+		* State
+		* Graduation Year
+		* Major
+	* Courses:
+		* Course:
+			* Goal grade
+			* Level of current comprehention
+	* Preferences:
+		* Study method preferences:
+			* user preference here
+			* user preference here
+		* Study location preferences:
+			* user preference here
+			* user preference here
+
+*Brenton Chasse and Grayson Kempster, 03/12/15*
+
 ##User-Perspective Flowchart
 <!--
 -->

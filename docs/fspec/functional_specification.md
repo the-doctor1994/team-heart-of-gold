@@ -50,6 +50,13 @@ To be updated throughout the semester
 <!--
 A list
 -->
+* Do we want to support older browser versions?
+* How will we ensure that two people see the same real time message stream while messaging?
+* Is there demand for matching studdy buddies of different Universities? (i.e.: UMass student matching with a Smith College student)
+* Should we attempt to suggest matches to our users?
+* Should users be presented with random match options?
+* Should we take the "Tinder" approach and suggest matches to a user (user 1) based on whether or not an user (user 2) already requested to match with user 1?
+
 ##User-Perspective Flowchart
 <!--
 -->

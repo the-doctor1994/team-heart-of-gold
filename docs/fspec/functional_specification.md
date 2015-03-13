@@ -1,14 +1,23 @@
 #Heart of Gold
 <img src = "../Images/logo1.png" alt = "Heart of Gold" height = "132" width = "110">
+
 ##"Study Buddy"
 
 ##Team
-###**Brenton Chasse**   - Backend/Databases
+###**Brenton Chasse**   - Backend/Databases - Dojo Sempai
+###*Bio:*  Brenton is a Senior Computer Systems Engineering student pursuing a minor in Computer Science. This developer is familliar with using the Dojo Javascript toolkit for front end web applicaiton development. He looks forwared to furthering his knowledge of the Dojo toolkit by using it on top of node.js on the back end.
 ###**Grayson Kempster** - Backend/Databases
+###*Bio:* Grayson is a Junior Computer Science major with a focus on physics. He work as an RA in the Washington Tower of the SouthWest residence area. This developer was raised in a small town called Hopedale in MA where I earned the rank of Eagle Scout in the local Boy Scout troop. I am good at creative problem solving, and have experience with Java, HTML, C, and UNIX. In terms of this project I am interested in database management, graphic design, and function design.
 ###**Gary White**       - Frontend/UI
+###*Bio:* Gary has experience working on large-scale projects, including their documentation, from cs320. This developer has a fair amount of Web Development experience using the following languages and protocols: JavaScript, HTML, CSS, XAML, XML, PHP, and SQL. Gary is most interested in UI design for this project.
 ###**Philron Hozier**   - Frontend/UI
+###*Bio:* Philron is urrently a Junior @UMass Amherst pursuing a BS Computer Science degree. He is interested in CS is the design of software and user experience.  This developer has past experience developing two, rather small, mobile applications in Objective-C for iOS (teacher absentee app, music lyric app). 
 ###**Main Khan**        - Networking/Data Parsing
+###*Bio:* Main is currently a Sophomore seeking a double major in Computer Science and Computational Mathematics. He is interested in working on front end for this project.
 ###**Tyler Caldwell**   - Networking/Data Parsing
+###*Bio:* Tyler is a Junior comp sci/econ dual-degree student at UMass. He is interested in software engineering and computational social science.
+
+*Brenton Chasse, 3/13/15*
 
 ##Disclaimer
 <!--
@@ -56,10 +65,9 @@ A list
 -->
 * Do we want to support older browser versions?
 * How will we ensure that two people see the same real time message stream while messaging?
-* Is there demand for matching studdy buddies of different Universities? (i.e.: UMass student matching with a Smith College student)
-* Should we attempt to suggest matches to our users?
-* Should users be presented with random match options?
-* Should we take the "Tinder" approach and suggest matches to a user (user 1) based on whether or not an user (user 2) already requested to match with user 1?
+* Is there demand for matching Study Buddies of different Universities? (i.e.: UMass student matching with a Smith College student)
+
+*Brenton Chasse and Grayson Kempster, 03/13/15*
 
 ##User-Perspective Flowchart
 <!--

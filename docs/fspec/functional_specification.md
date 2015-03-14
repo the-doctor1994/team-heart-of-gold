@@ -132,11 +132,16 @@ The Flowchart is outlined in the slideshow included with this specification.
 ##Wireframes
 <img src = "../Images/Login.png" alt = "Heart of Gold" height = "450" width = "253">
 <img src = "../Images/Profile.png" alt = "Heart of Gold" height = "450" width = "253">
+
+<br>1. Login - The user is first greeted by a minimal login interface. The interface is concise and allows the user to choose between 'Sign Up' or 'Login.'  
+*Technical note: We may or may not use OAuth standards for application login.*
+
+2. User Profile - The user 
 <br><br>
 <img src = "../Images/Messenger_Overview.png" alt = "Heart of Gold" height = "450" width = "253">
 <img src = "../Images/Messenger.png" alt = "Heart of Gold" height = "450" width = "253">
 
-Philron Hozier, 03/13/15
+*Philron Hozier, 03/13/15*
 
 
 <!--

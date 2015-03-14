@@ -47,9 +47,11 @@ Once a user has created their profile, we will begin creating matches and sugges
 <!--
 Status of the functional specification, what it does and does not discuss
 -->
-By no means does this functional specification outline how our site will behave and appear to the user in our final application. Implemented features may be adapted, modified, expanded, added, and removed as we develop our web application and further our understand the needs in the niche that our application seeks to fulfill. In our development, we strive to provide a simple, intuitive, and visually pleasing user interface which provides high quality and robust user interactions. As we develop, we will update this document so that the specifications listed will be accurate to our final application.
+By no means does this functional specification outline how our site will behave and appear to the user in our final application. Think of what follows as a work in progress. An evolution of sorts. Implemented features may be adapted, modified, expanded, added, and removed as we develop our web application and further our understand the needs in the niche that our application seeks to fulfill. In our development, we strive to provide a simple, intuitive, and visually pleasing user interface which provides high quality and robust user interactions. As we develop, we will update this document so that the specifications listed will be accurate to our final application. This is not meant to be a technical manual, but an explanation of user experience. The fluidity of this functional specification benefits all.
 
-*Brenton Chasse, 03/12/15*
+
+*Brenton Chasse, 03/12/15*<br>
+*Philron Hozier, 03/13/15*
 
 ##Revision History
 <!--
@@ -140,7 +142,7 @@ The Flowchart is outlined in the slideshow included with this specification.
 <img src = "../Images/Messenger.png" alt = "Heart of Gold" height = "450" width = "253">
 <br>
 3. Messenger Overview - The user is able to communicate with other students in mutual course "hubs." The shared interest spaces helps users to find others who are interested in forming study sessions quickly.<br>
-4. Messenger - The user is able to message indivdual "buddies" to discuss upcoming events, chart out new study groups and more! An application holds true to its orginal intent. It provides space for students who are looking for fellow students to study with a connection to open communication. 
+4. Messenger - The user is able to message indivdual "buddies" to discuss upcoming events, chart out new study groups and more! An application holds true to its orginal intent. It provides space for students who are looking for fellow students to study with a connection to open communication.  
 
 
 *Philron Hozier, 03/13/15*

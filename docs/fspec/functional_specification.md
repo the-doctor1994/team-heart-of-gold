@@ -85,6 +85,7 @@ A list
 * Is there demand for matching "StudyBuddies" of different Universities? (i.e.: UMass student matching with a Smith College student)
 * Matching between sessions of the same class?
 * Separate "grade calculator" element included?
+* dropdown to match existing classes that students entered before you?
 
 *Brenton Chasse and Grayson Kempster, 03/13/15*
 

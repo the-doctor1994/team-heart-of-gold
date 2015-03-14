@@ -19,7 +19,7 @@
 
 ###**Philron Hozier**   - Frontend/UI
 
-<b>Bio:</b> Philron is currently a Junior at UMass Amherst pursuing a BS Computer Science degree. He is interested in CS is the design of software and user experience.  This developer has past experience developing two, rather small, mobile applications in Objective-C for iOS (teacher absentee app, music lyric app).
+<b>Bio:</b> Philron is currently a Junior at UMass Amherst pursuing a BS Computer Science degree. My attraction to design is what drives my interests in user interface, software development and the user's experience.   This developer has past experience developing two, rather small, mobile applications in Objective-C for iOS (teacher absentee app, music lyric app).
 
 ###**Main Khan**        - Networking/Data Parsing
 
@@ -127,10 +127,12 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 -->
 ##Wireframes
 <img src = "../Images/Login.png" alt = "Heart of Gold" height = "450" width = "253">
-<img src = "../Images/Profile.png" alt = "Heart of Gold" height = "400" width = "225">
+<img src = "../Images/Profile.png" alt = "Heart of Gold" height = "450" width = "253">
 <br><br>
 <img src = "../Images/Messenger_Overview.png" alt = "Heart of Gold" height = "450" width = "253">
 <img src = "../Images/Messenger.png" alt = "Heart of Gold" height = "450" width = "253">
+
+Philron Hozier, 03/13/15
 
 
 <!--

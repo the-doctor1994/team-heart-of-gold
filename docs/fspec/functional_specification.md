@@ -125,6 +125,10 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 ##User-Perspective Flowchart
 <!--
 -->
+The Flowchart is outlined in the slideshow included with this specification.
+
+*Gary White 3/13/2015*
+
 ##Wireframes
 <img src = "../Images/Login.png" alt = "Heart of Gold" height = "450" width = "253">
 <img src = "../Images/Profile.png" alt = "Heart of Gold" height = "450" width = "253">

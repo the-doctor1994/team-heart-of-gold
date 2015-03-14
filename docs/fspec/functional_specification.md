@@ -125,6 +125,13 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 <!--
 -->
 ##Wireframes
+<img src = "../Images/Login.png" alt = "Heart of Gold" height = "450" width = "253">
+<img src = "../Images/Profile.png" alt = "Heart of Gold" height = "400" width = "225">
+<br><br>
+<img src = "../Images/Messenger_Overview.png" alt = "Heart of Gold" height = "450" width = "253">
+<img src = "../Images/Messenger.png" alt = "Heart of Gold" height = "450" width = "253">
+
+
 <!--
 At least 5, with explanation as to how it meets user needs, and a list of
 open issues for aspects of the application that will be answered as development

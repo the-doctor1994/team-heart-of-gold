@@ -85,13 +85,12 @@ The final implementation of the application will be completed by April 28th.
 ##Cost Estimate
 |  Expense  | Rate                                   | Total     |
 |:----------|:---------------------------------------|:----------|
-|Wage       |$40/hr, 6 developers, full time 3 months|120,000    |
+|Wage       |$25/hr, 6 developers, 30hrs/wk, 3 months|45,000     |
 |Space      |$1200/month                             |3600       |
-|Hardware   |One-time $9000                          |9000       |
-|Advertising|$2000/month                             |6000       |
+|Hardware   |$80/month, 3 months                     |240        |
 |Legal      |$2600                                   |2600       |
 |Domain     |$20/year                                |20         |
 |Hosting    |$15/year                                |15         |
-|**TOTAL**: |                                        |**141,235**|
+|**TOTAL**: |                                        |**51,475** |
 
 *Tyler Caldwell 02/22/15*

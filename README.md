@@ -12,3 +12,6 @@
 > The functional specification of our "Study Buddy" app is described breifly in a slideshow provided in PDF Format in the directory docs/fspec/slides
 > There is also a markdown document that goes slightly more into detail about the specfic implementation we plan to use for the web application. We have multiple layouts that we may pursue for the actual UI, which we will test and set as neccessary throughout development.
 > git commits will show what work has been contributed by whom, but the functional specification in it's entirety is brought to you by team heart of gold. We hope you love our product proposal, and we hope to hear from the venture capitalists soon.
+
+# Design Specification
+> Our design specification is located in docs/dspec/dspec.md and there is a slideshow component located at docs/dspec/slides.pdf

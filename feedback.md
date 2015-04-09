@@ -9,6 +9,12 @@ comments and guidance on your project.
 ***
 
 
+# Project 3
+
+**Overall:** I thought your submission was good overall. I appreciated the Key & Peele reference with the names in the use cases section. The wireframe and flowchart looked good. In your open issues, I notice a few of your issues were messaging related. You might want to check out Socket.io . I think it might solve most of your messaging system issues.
+
+Overall **thumbs up**
+
 # Project: Proposal
 
 **Overall:**  The formatting of everything is nice. The bios were ok. I like the idea of being able to find people to study with for classes--especially for classes that are certainly tough like 250 and 311. I am looking forward to seeing how this is going to turn out. 

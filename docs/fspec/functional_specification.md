@@ -95,7 +95,8 @@ A list
 <!--
 A list of things we know we want the database to be able to do 
 -->
-Bold/bulleted lines indicate that the bullet's nested contents should be wrapped with an object.
+Bold/bulleted lines indicate that the bullet's nested contents should be wrapped with an object.  
+
 * Client side queries should be observable and should have events when the query changes on the server side
 * <b>Buddy object contains</b>:
 	* Display Name - uuid [could be real name (facebook integration -> anti-trolling)]

@@ -4,7 +4,7 @@
 ##<i>"StudyBuddy"</i>
 
 
-#Technical Speicification
+#Technical Specification
 
 ##Database Modules/Components:
 <!--
@@ -55,9 +55,27 @@ This javascript file will export the following fuctions:
 List out different components you will need - List out how you plan to implement them and what they will need to interact with to make the application function
 -->
 
-###
-###
-###
+###index.js
+
+A router which will provide GET methods for
+* the home page view, for login,
+* for profile creation
+	* this may be through Ajax for a dynamic form
+* and for password recovery,
+as well as POST methods for
+* authentication
+* processing information for user creation, from the profBuilder form
+
+###users.js
+
+A router which will (after users have signed in) provide GET methods for
+* the main user view (home),
+* logout,
+* user editing/deletion,
+* matching,
+* and chat.
+
+*Tyler Caldwell and Main Khan, 4/10/15*
 
 ##Frontend/UI Components:
 <!--

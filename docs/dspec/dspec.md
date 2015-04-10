@@ -10,11 +10,45 @@
 <!--
 List out different components you will need - List out how you plan to implement them and what they will need to interact with to make the application function
 -->
+###package.json
 
+This Json file will contain the necessary information about our application, as well as keep track of our dependencies:
 
+* express
+* mysql
 
+###user.sql
 
+This mySQL database file will create a table for a user which includes:
 
+* id (unique per user - email if using facebook integration)
+* name (Real first name)
+* age
+* profile picture
+* active (or time of last logout)
+* bio
+* school
+* courses
+* studyPreferences
+* chatHistory
+* matches (people similar to this user)
+* pending buddies (one way request to be buddies, not yet confirmed buddies)
+* buddies (matches that have been reciprocated)
+
+###user.js
+
+This javascript file will export the following fuctions:
+
+* find
+	* Returns a specific user from the database (self - based off of unique auth id)
+* update
+	* Allow for existing database entry to be updated
+		* Update ripples user changes through to all dependencies in the database (matches are updated)
+* insert
+	* Allow for non pre-existing user to be entered into the database
+		* Update for all pre-existing user matches is performed
+
+*Brenton Chasse and Grayson Kempster, 04/10/15*
 
 ##Information Tranfer/Data Translation Components:
 <!--

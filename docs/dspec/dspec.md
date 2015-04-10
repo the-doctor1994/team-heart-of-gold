@@ -55,6 +55,9 @@ This javascript file will export the following fuctions:
 List out different components you will need - List out how you plan to implement them and what they will need to interact with to make the application function
 -->
 
+###
+###
+###
 
 ##Frontend/UI Components:
 <!--

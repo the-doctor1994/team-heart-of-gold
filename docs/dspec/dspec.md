@@ -107,11 +107,25 @@ Use of the dojo toolkit will provide a collective of client-side functions enabl
 	* can be viewed as a layout engine for creating dynamic and interactive layouts 
 	* (Dojo's Dijit Library)  <br><br>
 
+This multi-purposed .js file will include support for:
 
-One of the most central uses of this javascript file will involve its ability to inject new/updated content into the user's current .html page client-side. 
+* controlling a unifying theme across all of user's application pages: 
+	* index.html, profBuilder.html, home.html, matcher.html, chat.html, edituser.html
+* updating application titles through DOM traversal
+* updating application headers through DOM traversal
+* updating application footers through DOM traversal
+* updating application body through DOM traversal
 
 
 This is a base-level component and has no dependencies
+
+
+>One of the most central uses of this javascript file will involve its ability to inject new/updated content into the user's current .html page client-side. 
+
+*Philron Hozier, 4/10/15*
+
+
+
 
 ###index.html
 

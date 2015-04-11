@@ -99,10 +99,17 @@ This is a base level component and has no dependencies
 
 Use of the dojo toolkit will provide a collective of client-side functions enabling (but limited to)
 
-* manipulation of the DOM tree (core)
-* data to be brought in and out (core) 
-* creation of UI templates (digit)
+* manipulation of the DOM tree 
+	* (Dojo's Core Library)
+* data to be brought in and out 
+	* (Dojo's Core Library)
+* creation of UI templates 
 	* can be viewed as a layout engine for creating dynamic and interactive layouts 
+	* (Dojo's Dijit Library)  <br><br>
+
+
+One of the most central uses of this javascript file will involve its ability to inject new/updated content into the user's current .html page client-side. 
+
 
 This is a base-level component and has no dependencies
 

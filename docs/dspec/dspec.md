@@ -97,7 +97,7 @@ This is a base level component and has no dependencies
 
 :SUBJECT TO CHANGE: This file will have scripting that is used for a wide range of functionality on the website, and there may be other .js files that are made for the login and registration screens.
 
-Use of the dojo toolkit will provide a collective of client-side functions enabling (but limited to)
+Use of the dojo toolkit will provide a collective of client-side functions enabling (but not limited to)
 
 * manipulation of the DOM tree 
 	* (Dojo's Core Library)

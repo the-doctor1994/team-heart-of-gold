@@ -111,19 +111,16 @@ This multi-purposed .js file will include support for:
 
 * controlling a unifying theme across all of user's application pages: 
 	* index.html, profBuilder.html, home.html, matcher.html, chat.html, edituser.html
-* updating application titles through DOM traversal
-* updating application headers through DOM traversal
-* updating application footers through DOM traversal
-* updating application body through DOM traversal
+* updating application titles through DOM traversal (using dojo/dom-attr, dojo/html)
+* updating application headers through DOM traversal (using dojo/dom-attr, dojo/html)
+* updating application footers through DOM traversal (using dojo/dom-attr, dojo/html)
+* updating application body through DOM traversal (using dojo/dom-attr, dojo/html)
 
 
 This is a base-level component and has no dependencies
 
 
 >One of the most central uses of this javascript file will involve its ability to inject new/updated content into the user's current .html page client-side. 
-
-*Philron Hozier, 4/10/15*
-
 
 
 
@@ -182,5 +179,8 @@ This module will require:
 >studystyle.css
 >doj.js
 >backend protocol/Data translation for the information on the page
+
+*Philron Hozier, 4/10/15* <br>
+*Gary White, 4/10/15*
 
 

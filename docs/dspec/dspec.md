@@ -59,7 +59,8 @@ List out different components you will need - List out how you plan to implement
 
 A router which will provide GET methods for
 
-* the home page view, for login,
+* the home page view,
+* for login,
 * for profile creation
 	* this may be through Ajax for a dynamic form
 * and for password recovery,

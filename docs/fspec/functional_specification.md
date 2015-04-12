@@ -87,7 +87,7 @@ A list
 * Is there demand for matching "StudyBuddies" of different Universities? (i.e.: UMass student matching with a Smith College student)
 * Matching between sessions of the same class?
 * Separate "grade calculator" element included?
-* dropdown to match existing classes that students entered before you?
+* drop down to match existing classes that students entered before you?
 
 *Brenton Chasse and Grayson Kempster, 03/13/15*
 
@@ -138,12 +138,12 @@ The Flowchart is outlined in the slideshow included with this specification.
 
 <br>1. Login - The user is first greeted by a minimal login interface. The interface is concise and allows the user to choose between 'Sign Up' or 'Login.'  
 *Technical note: We may or may not use OAuth standards for application login.*
-<br><br> 2. User Profile - The user is able to create custom views of thier "StudyBuddy" profile. More importantly, the user is able to list classes currently being taken, thier major and their extracurricular interests.  These specifications are included to meet the user's needs.<br><br> 
+<br><br> 2. User Profile - The user is able to create custom views of their "StudyBuddy" profile. More importantly, the user is able to list classes currently being taken, their major and their extracurricular interests.  These specifications are included to meet the user's needs.<br><br> 
 <img src = "../Images/Messenger_Overview.png" alt = "Heart of Gold" height = "450" width = "253">
 <img src = "../Images/Messenger.png" alt = "Heart of Gold" height = "450" width = "253">
 <br>
 3. Messenger Overview - The user is able to communicate with other students in mutual course "hubs." The shared interest spaces helps users to find others who are interested in forming study sessions quickly.<br>
-4. Messenger - The user is able to message indivdual "buddies" to discuss upcoming events, chart out new study groups and more! An application holds true to its orginal intent. It provides space for students who are looking for fellow students to study with a connection to open communication.  
+4. Messenger - The user is able to message individual "buddies" to discuss upcoming events, chart out new study groups and more! An application holds true to its original intent. It provides space for students who are looking for fellow students to study with a connection to open communication.  
 
 
 *Philron Hozier, 03/13/15*

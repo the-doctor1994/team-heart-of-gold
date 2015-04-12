@@ -4,11 +4,12 @@
 ##<i>"StudyBuddy"</i>
 
 
-#Technical Speicification
+#Technical Specification
 
 ##Database Modules/Components:
 <!--
-List out different components you will need - List out how you plan to implement them and what they will need to interact with to make the application function
+List out different components you will need - List out how you plan to implement them and what they will need to 
+interact with to make the application function
 -->
 
 
@@ -16,9 +17,14 @@ List out different components you will need - List out how you plan to implement
 
 
 
-##Information Tranfer/Data Translation Components:
+##Information Transfer/Data Translation Components:
 <!--
-List out different components you will need - List out how you plan to implement them and what they will need to interact with to make the application function
+List out different components you will need - List out how you plan to implement them and what they will need to 
+interact with to make the application function
+
+ROUTE HANDLING, DOJO/STORE/JsonRest, DOJO/STORE/Memory
+FRONT END DOJO, (REQUIRES JsonRest), HANDLES HTTP REQUESTS RELATED TO THE CLIENTS ABSTRACTION OF THE DATABASE
+MIDDLEWARE ROUTES MUST IMPLEMENT THE RESTFUL API THAT JsonRest IS EXPECTING TO BE PRESENT
 -->
 
 ###
@@ -27,7 +33,8 @@ List out different components you will need - List out how you plan to implement
 
 ##Frontend/UI Components:
 <!--
-List out different components you will need - List out how you plan to implement them and what they will need to interact with to make the application function
+List out different components you will need - List out how you plan to implement them and what they will need to 
+interact with to make the application function
 -->
 
 ###studystyle.css
@@ -44,7 +51,7 @@ This is a base-level component and has no dependencies
 
 ###index.html
 
-This html document will be the first thing a user sees when they visit the applicaiton, and it will have a login option, with an included integration for password recovery and creating a new login registration if it necessary.
+This html document will be the first thing a user sees when they visit the application, and it will have a login option, with an included integration for password recovery and creating a new login registration if it necessary.
 
 This module will require:
 >studystyle.css
@@ -57,9 +64,9 @@ This module will require:
 This document will basically be the long-form version of being able to build a profile for a user. The data will be submitted to the database by form after the user completes the document.
 
 This module will require:
->studystyle.css
->doj.js
->backend management for adding a new user/checking if they exist
+>studystyle.css  
+>doj.js  
+>backend management for adding a new user/checking if they exist  
 >Data translation of this information, ajax protocols most likely
 
 ###home.html
@@ -67,8 +74,8 @@ This module will require:
 This document will have a List of new matches, old matches, classes that are being taken etc.
 
 This module will require:
->studystyle.css
->doj.js
+>studystyle.css  
+>doj.js  
 >backend protocol/Data translation for the information on the page
 
 ###matcher.html
@@ -76,8 +83,8 @@ This module will require:
 This will be the actual "matching" portion of the application that will present matches based on attributes the user has added in their profile.
 
 This module will require:
->studystyle.css
->doj.css
+>studystyle.css  
+>doj.css  
 >backend protocol/Data Translation for the information on the page
 
 ###chat.html
@@ -85,8 +92,8 @@ This module will require:
 This wil be a dynamic view that will allow someone to chat with their matches and set up meetings to study with them. It will allow you to choose a match, which will open a chat window. The user will only be able to chat with one other user at a time.
 
 This module will require:
->studystyle.css
->doj.js
+>studystyle.css  
+>doj.js  
 >backend protocol/Data translation for the information on the page
 
 ###edituser.html
@@ -94,8 +101,8 @@ This module will require:
 Since the idea is to be able to add multiple classes to study for, there will be a document that allows a user to add another class to their profile. The user will also be able to edit their profile from this view.
 
 This module will require:
->studystyle.css
->doj.js
+>studystyle.css  
+>doj.js  
 >backend protocol/Data translation for the information on the page
 
 

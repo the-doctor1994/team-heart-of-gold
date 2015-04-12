@@ -11,11 +11,45 @@
 List out different components you will need - List out how you plan to implement them and what they will need to 
 interact with to make the application function
 -->
+###package.json
 
+This Json file will contain the necessary information about our application, as well as keep track of our dependencies:
 
+* express
+* mysql
 
+###user.sql
 
+This mySQL database file will create a table for a user which includes:
 
+* id (unique per user - email if using facebook integration)
+* name (Real first name)
+* age
+* profile picture
+* active (or time of last logout)
+* bio
+* school
+* courses
+* studyPreferences
+* chatHistory
+* matches (people similar to this user)
+* pending buddies (one way request to be buddies, not yet confirmed buddies)
+* buddies (matches that have been reciprocated)
+
+###user.js
+
+This javascript file will export the following fuctions:
+
+* find
+	* Returns a specific user from the database (self - based off of unique auth id)
+* update
+	* Allow for existing database entry to be updated
+		* Update ripples user changes through to all dependencies in the database (matches are updated)
+* insert
+	* Allow for non pre-existing user to be entered into the database
+		* Update for all pre-existing user matches is performed
+
+*Brenton Chasse and Grayson Kempster, 04/10/15*
 
 ##Information Transfer/Data Translation Components:
 <!--
@@ -27,9 +61,32 @@ FRONT END DOJO, (REQUIRES JsonRest), HANDLES HTTP REQUESTS RELATED TO THE CLIENT
 MIDDLEWARE ROUTES MUST IMPLEMENT THE RESTFUL API THAT JsonRest IS EXPECTING TO BE PRESENT
 -->
 
-###
-###
-###
+###index.js
+
+A router which will provide GET methods for
+
+* the home page view,
+* for login,
+* for profile creation
+	* this may be through Ajax for a dynamic form
+* and for password recovery,
+
+as well as POST methods for
+
+* authentication
+* processing information for user creation, from the profBuilder form
+
+###users.js
+
+A router which will (after users have signed in) provide GET methods for
+
+* the main user view (home),
+* logout,
+* user editing/deletion,
+* matching,
+* and chat.
+
+*Tyler Caldwell and Main Khan, 4/10/15*
 
 ##Frontend/UI Components:
 <!--
@@ -47,7 +104,32 @@ This is a base level component and has no dependencies
 
 :SUBJECT TO CHANGE: This file will have scripting that is used for a wide range of functionality on the website, and there may be other .js files that are made for the login and registration screens.
 
+Use of the dojo toolkit will provide a collective of client-side functions enabling (but not limited to)
+
+* manipulation of the DOM tree 
+	* (Dojo's Core Library)
+* data to be brought in and out 
+	* (Dojo's Core Library)
+* creation of UI templates 
+	* can be viewed as a layout engine for creating dynamic and interactive layouts 
+	* (Dojo's Dijit Library)  <br><br>
+
+This multi-purposed .js file will include support for:
+
+* controlling a unifying theme across all of user's application pages: 
+	* index.html, profBuilder.html, home.html, matcher.html, chat.html, edituser.html
+* updating application titles through DOM traversal (using dojo/dom-attr, dojo/html)
+* updating application headers through DOM traversal (using dojo/dom-attr, dojo/html)
+* updating application footers through DOM traversal (using dojo/dom-attr, dojo/html)
+* updating application body through DOM traversal (using dojo/dom-attr, dojo/html)
+
+
 This is a base-level component and has no dependencies
+
+
+>One of the most central uses of this javascript file will involve its ability to inject new/updated content into the user's current .html page client-side. 
+
+
 
 ###index.html
 
@@ -104,5 +186,8 @@ This module will require:
 >studystyle.css  
 >doj.js  
 >backend protocol/Data translation for the information on the page
+
+*Philron Hozier, 4/10/15* <br>
+*Gary White, 4/10/15*
 
 

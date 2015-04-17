@@ -1,10 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
+// require(["dojo/router"], function(router){
+//   router.register("/something/:id", function(evt){
+//     // Will fire when the hash matches
+//     // evt.params.id will contain what is passed in :id
+//   });
+
+//   // Startup must be called in order to "activate" the router
+//   router.startup();
+// });
+
 // # Server Side Routes For Users Not Logged In
 
 // ## home
-// The home page view
+// The home page view that will allow users to log in or create a new account
 router.get('/', function (req, res){
 
 });
@@ -34,7 +44,7 @@ router.post('/auth', function(req, res){
 });
 
 // ## process
-// Processes information to create a new accoutn
+// Processes information to create a new account
 router.post('/process', function(req,res){
 
 });

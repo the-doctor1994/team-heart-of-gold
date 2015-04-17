@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+// # Server Side Routes For Users Not Logged In
+
 // ## home
 // The home page view
 router.get('/', function (req, res){
@@ -36,3 +38,5 @@ router.post('/auth', function(req, res){
 router.post('/process', function(req,res){
 
 });
+
+module.exports = router;

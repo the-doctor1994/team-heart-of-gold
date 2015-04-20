@@ -45,7 +45,7 @@ app.use('/user', users);
 app.use('/index', index);
 
 app.get('/', function (req, res) {
-  res.redirect('/user/login');
+  res.redirect('/index/login');
 });
 
 

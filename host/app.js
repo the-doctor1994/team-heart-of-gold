@@ -15,7 +15,7 @@ var bodyParser		= require('body-parser');
 
 // Our user-defined routes/middleware:
 var users		= require('./routes/users');
-var admin		= require('./routes/admin');
+var index		= require('./routes/index');
 
 // Create the express application:
 var app			= express();
@@ -42,7 +42,7 @@ app.use(flash());
 
 // Using our routes/middleware:
 app.use('/user', users);
-app.use('/admin', admin);
+app.use('/index', index);
 
 app.get('/', function (req, res) {
   res.redirect('/user/login');

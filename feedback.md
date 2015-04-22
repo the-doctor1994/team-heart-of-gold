@@ -8,6 +8,11 @@ allowed to modify and update this file with information that will
 comments and guidance on your project.
 ***
 
+# Project 4
+
+**Overall:** Your design specification was alright. You seem to have everything needed, but it looks like things are a little barren. It would have been nice to have seen more detail on "how" things will be implemented. I do like that you nicely listed out the dependencies for pages. Your team notes look mostly fine, but you NEED to include the participants of the meeting.
+
+**Grade:** Thumbs up
 
 # Project 3
 

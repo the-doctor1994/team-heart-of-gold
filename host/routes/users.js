@@ -1,3 +1,20 @@
+require([
+		"dojo/store/Memory",
+		"dojo/store/JsonRest"
+		],
+		
+	function(Memory){
+		/* some data */
+		var store = new JsonRest({
+			target: /* some resource */
+		});
+		store = new Memory({}); /* some stuff */
+});
+
+
+
+
+
 // var express = require('express');
 // var router  = express.Router();
 
@@ -5,9 +22,14 @@
 
 // idk if we actually need all of these yet I'm just following an example
 
+/*
 var userMemoryStore = new dojo.store.Memory();
 var userJsonRestStore = new dojo.store.JsonRest({});
-var userStore = new dojo.store.Cache(userJsonRestStore, userMemoryStore);
+var userStore = new dojo.store.Cache(userJsonRestStore, userMemoryStore);
+var userDataStore = new dojox.data.JsonRestStore({
+	target: "something",
+	idAttribute: "something"
+});
 
 require([
 		"dojo/router",
@@ -31,11 +53,12 @@ require([
 			JsonRest) {
 
 			var store = new JsonRest({
-				target: "" /*something*/
+				target: ""
 			});
 
 			
 });
+*/
 
 /*
 // ## home

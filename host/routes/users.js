@@ -1,9 +1,11 @@
 require([
 		"dojo/store/Memory",
-		"dojo/store/JsonRest"
+		"dojo/store/JsonRest",
+		"dojo/store/Observable",
+		"dojo/store/Cache"
 		],
 		
-	function(Memory){
+	function(Memory, JsonRest, Observable, Cache){
 		/* some data */
 		var store = new JsonRest({
 			target: /* some resource */

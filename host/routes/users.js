@@ -1,12 +1,53 @@
-var express = require('express');
-var router  = express.Router();
+// var express = require('express');
+// var router  = express.Router();
 
 // # User Server-Side Routes
 
+// idk if we actually need all of these yet I'm just following an example
+
+var userMemoryStore = new dojo.store.Memory();
+var userJsonRestStore = new dojo.store.JsonRest({});
+var userStore = new dojo.store.Cache(userJsonRestStore, userMemoryStore);
+
+require([
+		"dojo/router",
+		"dojo/dom",
+		"dojo/on",
+		"dojo/request",
+		"dojo/json",
+		"dojo/domReady!",
+		"dojo/query",
+		"dojo/store/JsonRest",
+		"dojo/store/Memory"],
+		
+		function(
+			router,
+			dom,
+			on,
+			request,
+			json,
+			domReady!,
+			query,
+			JsonRest) {
+
+			var store = new JsonRest({
+				target: "" /*something*/
+			});
+
+			
+});
+
+/*
 // ## home
 // The main user view which will contain notifications and links to other views.
 router.get('/home', function(req, res) {
-	
+	// grab user from the request's session
+	var user = req.session.user;
+
+	// 
+	if (user !== undefined) {
+
+	}
 });
 
 // ## logout
@@ -31,9 +72,10 @@ router.get('/match', function(req, res) {
 
 // ## chat
 // Renders the chat view which allows the user to chat with users who they have
-// matched with if they are online.
+// matched with.
 router.get('/chat', function(req, res) {
 
 });
 
 module.exports = router;
+*/

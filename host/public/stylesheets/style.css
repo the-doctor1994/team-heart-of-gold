@@ -1,8 +1,77 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+hr {
+	width:95%;
+	text-align:left;
+	margin-left:0;
+	color:#A30000;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
+h2 {
+	color: #A30000;	
+}
+h3{
+	color: #A30000;
+}
+p {
+	color:#B2B2B2;
+}
+h4 {
+	margin: 0px;
+	color:#B2B2B2;
+}
 a {
-  color: #00B7FF;
+	color:#EBC633;
+}
+a:hover{
+	color:#FF9933;
+}
+#foot{	
+	position: relative;
+	text-align: center;
+	color: #b2b2b2;
+	font-size: .8em;
+	bottom: -15%;
+}
+#container{
+	position: relative;
+	margin-left:30%;
+	margin-top:2.5%;
+	width: 35%;
+	height: 90%;
+	box-shadow: 0px 0px 15px #888888;
+	padding-left: .5%;
+	padding-right: .5%;
+	padding-top:.5%;
+}
+#fadein{
+	position:fixed;
+	opacity: 0;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #A30000;
+	background-color: white;
+	font-weight: bold;
+	color: #A30000;
+}
+#fadeout{
+	position:fixed;
+	opacity: 1;
+	border-width: 3px;
+	border-style: solid;
+	border-color: B2B2B2;
+	background-color: white;
+	font-weight: bold;
+	color: #b2b2b2;
+}
+input:not([type=submit]){
+	border-style: solid;
+	border-color: #E6E6E6;
+	color: #E6E6E6;
+}
+input:not([type=submit]):focus{
+	border-color: #EBC633;
+	border-style: solid;
+	box-shadow: 2px;
+	color: #E6E6E6;
 }

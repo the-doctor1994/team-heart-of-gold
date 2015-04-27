@@ -16,12 +16,6 @@ router.get('/home', function(req, res) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
 	}
-	else {
-		res.render('main', { title   : 'User Main',
-			message : message,
-			username : user.username,
-			password : user.password });
-	}
 });
 
 // ## logout
@@ -31,7 +25,6 @@ router.get('/logout', function(req, res) {
 	if (user === undefined || online[user.uid] === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
-		return;
 	}
 
 	if (online[user.uid] !== undefined) {
@@ -49,12 +42,6 @@ router.get('/edit', function(req, res) {
 	if (user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
-		return;
-	}
-	else {
-		res.render('edituser', { title	: 'Edit Profile'
-			// stuff related to the ejs file
-		})
 	}
 });
 
@@ -65,12 +52,6 @@ router.get('/match', function(req, res) {
 	if (user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
-		//return;
-	}
-	else {
-		res.render('matcher', { title	: 'Matching'
-			// stuff related to the ejs file
-		})
 	}
 });
 
@@ -81,12 +62,6 @@ router.get('/chat', function(req, res) {
 	if (user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
-		//return;
-	}
-	else {
-		res.render('chat', { title	: 'Chat'
-			// stuff related to the ejs file
-		})
 	}
 });
 

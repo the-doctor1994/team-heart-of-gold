@@ -52,9 +52,9 @@ router.get('/edit', function(req, res) {
 		return;
 	}
 	else {
-		res.render('edituser', { title	: 'Edit Profile',
+		res.render('edituser', { title	: 'Edit Profile'
 			// stuff related to the ejs file
-		}
+		})
 	}
 });
 
@@ -65,12 +65,12 @@ router.get('/match', function(req, res) {
 	if (user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
-		return;
+		//return;
 	}
 	else {
-		res.render('matcher', { title	: 'Matching',
+		res.render('matcher', { title	: 'Matching'
 			// stuff related to the ejs file
-		}
+		})
 	}
 });
 
@@ -81,12 +81,12 @@ router.get('/chat', function(req, res) {
 	if (user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
-		return;
+		//return;
 	}
 	else {
-		res.render('chat' { title	: 'Chat',
+		res.render('chat', { title	: 'Chat'
 			// stuff related to the ejs file
-		}
+		})
 	}
 });
 

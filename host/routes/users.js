@@ -68,7 +68,24 @@ router.post('/auth', function(req, res) {
 
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined) {
-		res.redirect('/index/login');
+		db.query({username: username, password: password, online: true}, function(error, user) {
+			if (error) {
+				req.flash('auth', error);
+				res.redirect('/index/login');
+			}
+			else {
+				if (user.length > 1) {
+					// uh oh
+				}
+				else if (user.length === 0) {
+					res.redirect('/index/login');
+				}
+				else {
+					req.session.user = user[0];
+					res.redirect('/user/home');
+				}
+			}
+		}
 	}
 	else {
 		// Pull the values from the form.

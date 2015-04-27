@@ -12,7 +12,7 @@ router.get('/home', function(req, res) {
 	var user = req.session.user;
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 	else {
 		res.render('main', { title   : 'User Main',
@@ -64,27 +64,44 @@ router.post('/auth', function(req, res) {
 	var user = req.session.user;
 
 	// do the check as described in the `exports.login` function.
-	if (user !== undefined) {
-		res.redirect('/user/main');
+	if (user !== undefined){
+	 db.query({username: username, password: password, online: true}, function(error, user){
+	 	if(error){
+	 		req.flash('auth', error)
+	 		res.redirect('/user/home');
+	 	}
+	 	else{
+	 		if (user.length > 1){
+	 			//oh my
+	 		}
+	 		else if (user.length === 0{
+	 			res.redirect('/index/login');
+	 		}
+	 		else{
+	 			req.session.user = user[0];
+	 			res.redirect('/user/home');
+	 		}
+	 	}
+	 });
 	}
 	else {
 		// Pull the values from the form.
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		db.query(username, password, function(error, user) {
+		db.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.
 				req.flash('auth', error);
-				res.redirect('/user/login');
+				res.redirect('/index/login');
 			}
 			else {
 				user.online = true;
 				db.put(user, function(user){
 					req.session.user = user;
-					// Redirect to main.
-					res.redirect('/user/main');
+					// Redirect to home.
+					res.redirect('/user/home');
 				});
 			}
 		});

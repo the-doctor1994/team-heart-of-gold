@@ -1,5 +1,6 @@
 var express = require('express');
 var router  = express.Router();
+var db = require('../lib/db');
 
 // A logged in "database":
 var online = {};
@@ -82,7 +83,7 @@ router.post('/auth', function(req, res) {
 		var password = req.body.password;
 		// Perform the user lookup.
 		// This should actually be a db query.
-		userlib.lookup(username, password, function(error, user) {
+		db.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.

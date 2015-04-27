@@ -1,11 +1,11 @@
-var mysql = require('mysql');
+var mysql = require('node-mysql');
 
 var environment_settings = {
 	dbConnectionSettings: {
-    host: 'localhost',
-  	user: 'ourDBuser',
-		password: 'ourDBpassword',
-	  database: 'ourDBname',
+    host: 'mysql3.000webhost.com',
+  	user: 'a9606264_root',
+		password: 'squiddy18',
+	  database: 'a9606264_users',
 		connectionLimit: 10,
  	 	supportBigNumbers: true
 	}

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../lib/db');
 
 require(["dojo/router"], function(router){
   router.register("/something/:id", function(evt){
@@ -82,7 +83,7 @@ router.post('/auth', function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		userlib.lookup(username, password, function(error, user) {
+		db.query(username, password, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.

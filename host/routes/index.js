@@ -1,15 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
-require(["dojo/router"], function(router){
-  router.register("/something/:id", function(evt){
-    // Will fire when the hash matches
-    // evt.params.id will contain what is passed in :id
-  });
-
-  //Startup must be called in order to "activate" the router
-  router.startup();
-});
+var db = require('../lib/db');
 
 // ##### Server Side Routes For Users Not Logged In ##########
 
@@ -19,7 +10,7 @@ router.get('/home', function(req, res) {
 	var message = req.flash('auth') || 'Login Successful';
 	// added session support
 	var user = req.session.user;
-	if (user === undefined || online[user.uid] === undefined) {
+	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
 	}
@@ -41,11 +32,10 @@ router.get('/login', function(req, res){
 	var user  = req.session.user;
 
 	// TDR: If the user is already logged in - we redirect to the
-	// main application view. We must check both that the `userid`
-	// and the `online[userid]` are undefined. The reason is that
+	// main application view. We must check that the database has the user marked as online. The reason is that
 	// the cookie may still be stored on the client even if the
 	// server has been restarted.
-	if (user !== undefined && online[user.uid] !== undefined) {
+	if (user !== undefined) { //&& NEEDS MOAR AUTH#########
 		res.redirect('/user/main');
 	}
 	else {
@@ -68,13 +58,13 @@ router.get('/forgot-password', function(req,res){
 });
 
 // ## auth
-// Performs basic user authentication
+// Performs basic user authentication fo login
 router.post('/auth', function(req, res) {
 	// redirect if logged in:
 	var user = req.session.user;
 
 	// do the check as described in the `exports.login` function.
-	if (user !== undefined && online[user.uid] !== undefined) {
+	if (user !== undefined) {
 		res.redirect('/user/main');
 	}
 	else {
@@ -82,7 +72,7 @@ router.post('/auth', function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		userlib.lookup(username, password, function(error, user) {
+		db.query(username, password, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.
@@ -90,11 +80,12 @@ router.post('/auth', function(req, res) {
 				res.redirect('/user/login');
 			}
 			else {
-				req.session.user = user;
-				// Store the user in our in memory database.
-				online[user.uid] = user;
-				// Redirect to main.
-				res.redirect('/user/main');
+				user.online = true;
+				db.put(user, function(user){
+					req.session.user = user;
+					// Redirect to main.
+					res.redirect('/user/main');
+				});
 			}
 		});
 	}
@@ -103,7 +94,7 @@ router.post('/auth', function(req, res) {
 // ## process
 // Processes information to create a new account  ##### might not need #####
 router.post('/process', function(req,res){
-
+	res.redirect('/user/login');
 });
 
 module.exports = router;

@@ -42,6 +42,8 @@ a:hover{
 	margin-top:2.5%;
 	width: 35%;
 	height: 70%; /*adjusts 'card' length*/
+	min-width: 250px;
+	min-height: 500px;
 
 	/*box-shadow: 0px 0px 15px #888888;*/
 /*	padding-left: .5%;
@@ -61,6 +63,8 @@ a:hover{
 	margin-top:2.5%;
 	width: 35%;
 	padding:5px 50px 5px; /* .was 50*/
+	min-width: 250px;
+
 
 	color: #FFF;
 	transition: box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -106,6 +110,10 @@ input:not([type=submit]):focus{
 	color: #E6E6E6;
 }
 
+div{
+		/*position: absolute;*/
+
+}
 
 
 

@@ -79,7 +79,7 @@ a:hover{
 }
 
 #fadein{
-	position:fixed;
+	position:absolute;
 	opacity: 0;
 	border-width: 3px;
 	border-style: solid;
@@ -89,7 +89,7 @@ a:hover{
 	color: #A30000;
 }
 #fadeout{
-	position:fixed;
+	position:absolute;
 	opacity: 1;
 	border-width: 3px;
 	border-style: solid;

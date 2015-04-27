@@ -27,3 +27,20 @@ require([
 		
 		
 	});
+
+//moved this here from index.js anc user.js -Grayson
+
+require([
+		"dojo/store/Memory",
+		"dojo/store/JsonRest",
+		"dojo/store/Observable",
+		"dojo/store/Cache"
+	],
+
+	function(Memory, JsonRest, Observable, Cache){
+		/* some data */
+		var store = new JsonRest({
+			target: ""/* some resource */
+		});
+		store = new Memory({}); /* some stuff */
+	});

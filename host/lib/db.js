@@ -35,9 +35,19 @@ exports.query = function(queryObj, callback) {
 	});
 };
 
-
-
-
+exports.delete = function(username, callback){
+  var sql = "DELETE FROM users WHERE username = " + username;
+  pool.getConnection( function(error, connection) {
+    if(error) { console.log(error); callback(error);
+      return;
+    }
+    connection.query(sql, function(error) {
+      connection.release();
+      if(error) { console.log(error);}
+      callback(error);
+    });
+  });
+};
 
 /*
 // # User Library

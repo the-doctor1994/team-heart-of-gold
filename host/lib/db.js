@@ -1,3 +1,45 @@
+var mysql = require('mysql');
+
+var environment_settings = {
+	dbConnectionSettings: {
+    host: 'localhost',
+  	user: 'ourDBuser',
+		password: 'ourDBpassword',
+	  database: 'ourDBname',
+		connectionLimit: 10,
+ 	 	supportBigNumbers: true
+	}
+};
+
+environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
+
+exports.query = function(queryObj, callback) {
+  var queryProperties = queryObj.getKeys();
+  var sql = "SELECT * FROM users WHERE";
+  var queryValues = [];
+  var i = 0;
+  queryProperties.forEach( function(index, property) {
+    sql += " " + property.toString() + "=?";
+    queryValues[i] = queryProperties[property];
+  });
+	//var sql = "SELECT * FROM users WHERE username=?";
+
+	pool.getConnection( function(error, connection) {
+		if(error) { console.log(error); callback(true); return; }
+		
+		connection.query(sql, queryValues, function(error, results) {
+			connection.release();
+			if(error) { console.log(error); callback(true); return; }
+			callback(false, results);
+		});
+	});
+};
+
+
+
+
+
+/*
 // # User Library
 //****************************************************************************
 //**********THIS IS JUST A TEMPLATE. DO NOT KEEP THIS CODE***************
@@ -12,14 +54,6 @@ function User(username, password, uid, priv) {
   if(priv === 'admin'){this.priviledge = 'admin';}
   this.isAdmin = (this.priviledge === "admin");
 }
-
-// This is our stub database until we look at a real database!
-var userdb = [
-  new User('tim',   'mit', 1, 'user'),
-  new User('hazel', 'lezah', 2, 'user'),
-  new User('caleb', 'belac', 3, 'user'),
-  new User('admin', 'nimda', 4, 'admin')
-];
 
 //
 // ## lookup function
@@ -64,3 +98,4 @@ exports.add = function(name, pass, admin, cb){
   }
 };
 
+./

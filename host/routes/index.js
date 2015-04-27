@@ -2,17 +2,6 @@ var express = require('express');
 var router = express.Router();
 var db = require('../lib/db');
 
-//         		PROBABLY DONT NEED
-// require(["dojo/router"], function(router){
-//   router.register("/something/:id", function(evt){
-//     // Will fire when the hash matches
-//     // evt.params.id will contain what is passed in :id
-//   });
-
-//   //Startup must be called in order to "activate" the router
-//   router.startup();
-// });
-
 // ##### Server Side Routes For Users Not Logged In ##########
 
 // ## home
@@ -21,7 +10,7 @@ router.get('/home', function(req, res) {
 	var message = req.flash('auth') || 'Login Successful';
 	// added session support
 	var user = req.session.user;
-	if (user === undefined || online[user.uid] === undefined) {
+	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/user/login');
 	}
@@ -43,11 +32,10 @@ router.get('/login', function(req, res){
 	var user  = req.session.user;
 
 	// TDR: If the user is already logged in - we redirect to the
-	// main application view. We must check both that the `userid`
-	// and the `online[userid]` are undefined. The reason is that
+	// main application view. We must check that the database has the user marked as online. The reason is that
 	// the cookie may still be stored on the client even if the
 	// server has been restarted.
-	if (user !== undefined && online[user.uid] !== undefined) {
+	if (user !== undefined) { //&& NEEDS MOAR AUTH#########
 		res.redirect('/user/main');
 	}
 	else {
@@ -76,7 +64,7 @@ router.post('/auth', function(req, res) {
 	var user = req.session.user;
 
 	// do the check as described in the `exports.login` function.
-	if (user !== undefined && online[user.uid] !== undefined) {
+	if (user !== undefined) {
 		res.redirect('/user/main');
 	}
 	else {
@@ -92,11 +80,12 @@ router.post('/auth', function(req, res) {
 				res.redirect('/user/login');
 			}
 			else {
-				req.session.user = user;
-				// Store the user in our in memory database.
-				online[user.uid] = user;
-				// Redirect to main.
-				res.redirect('/user/main');
+				user.online = true;
+				db.put(user, function(user){
+					req.session.user = user;
+					// Redirect to main.
+					res.redirect('/user/main');
+				});
 			}
 		});
 	}

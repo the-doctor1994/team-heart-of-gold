@@ -12,7 +12,7 @@ router.get('/home', function(req, res) {
 	var user = req.session.user;
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 });
 
@@ -22,11 +22,11 @@ router.get('/logout', function(req, res) {
 	var user = req.session.user;
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 
 	delete req.session.user;
-	res.redirect('/user/login');
+	res.redirect('/index/login');
 });
 
 // ## edit
@@ -35,7 +35,7 @@ router.get('/logout', function(req, res) {
 router.get('/edit', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 });
 
@@ -45,7 +45,7 @@ router.get('/edit', function(req, res) {
 router.get('/match', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 });
 
@@ -55,7 +55,7 @@ router.get('/match', function(req, res) {
 router.get('/chat', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 });
 
@@ -68,7 +68,7 @@ router.post('/auth', function(req, res) {
 
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined) {
-		res.redirect('/user/main');
+		res.redirect('/index/login');
 	}
 	else {
 		// Pull the values from the form.
@@ -80,14 +80,14 @@ router.post('/auth', function(req, res) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.
 				req.flash('auth', error);
-				res.redirect('/user/login');
+				res.redirect('/index/login');
 			}
 			else {
 				user.online = true;
 				db.put(user, function(user){
 					req.session.user = user;
 					// Redirect to main.
-					res.redirect('/user/main');
+					res.redirect('/index/login');
 				});
 			}
 		});

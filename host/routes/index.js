@@ -1,15 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-require(["dojo/router"], function(router){
-  router.register("/something/:id", function(evt){
-    // Will fire when the hash matches
-    // evt.params.id will contain what is passed in :id
-  });
+//         		PROBABLY DONT NEED
+// require(["dojo/router"], function(router){
+//   router.register("/something/:id", function(evt){
+//     // Will fire when the hash matches
+//     // evt.params.id will contain what is passed in :id
+//   });
 
-  //Startup must be called in order to "activate" the router
-  router.startup();
-});
+//   //Startup must be called in order to "activate" the router
+//   router.startup();
+// });
 
 // ##### Server Side Routes For Users Not Logged In ##########
 
@@ -68,7 +69,7 @@ router.get('/forgot-password', function(req,res){
 });
 
 // ## auth
-// Performs basic user authentication
+// Performs basic user authentication fo login
 router.post('/auth', function(req, res) {
 	// redirect if logged in:
 	var user = req.session.user;
@@ -103,7 +104,7 @@ router.post('/auth', function(req, res) {
 // ## process
 // Processes information to create a new account  ##### might not need #####
 router.post('/process', function(req,res){
-
+	res.redirect('/user/login');
 });
 
 module.exports = router;

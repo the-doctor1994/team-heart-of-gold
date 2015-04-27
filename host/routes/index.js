@@ -8,7 +8,7 @@ require([
 	function(Memory, JsonRest, Observable, Cache){
 		/* some data */
 		var store = new JsonRest({
-			target: /* some resource */
+			target: ""/* some resource */
 		});
 		store = new Memory({}); /* some stuff */
 });

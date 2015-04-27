@@ -8,7 +8,7 @@ require([
 	function(Memory, JsonRest, Observable, Cache){
 		/* some data */
 		var store = new JsonRest({
-			target: /* some resource */
+			target: ""/* some resource */
 		});
 		store = new Memory({}); /* some stuff */
 });
@@ -32,7 +32,9 @@ var userDataStore = new dojox.data.JsonRestStore({
 	target: "something",
 	idAttribute: "something"
 });
+var userStore = new dojo.store.Cache(userJsonRestStore, userMemoryStore);
 
+//this require is not assigned to anything?
 require([
 		"dojo/router",
 		"dojo/dom",
@@ -50,7 +52,7 @@ require([
 			on,
 			request,
 			json,
-			domReady!,
+			domReady,
 			query,
 			JsonRest) {
 

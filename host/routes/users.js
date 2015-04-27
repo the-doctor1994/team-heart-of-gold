@@ -85,7 +85,7 @@ router.post('/auth', function(req, res) {
 					res.redirect('/user/home');
 				}
 			}
-		}
+		});
 	}
 	else {
 		// Pull the values from the form.

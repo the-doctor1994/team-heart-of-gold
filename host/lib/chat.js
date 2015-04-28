@@ -1,14 +1,14 @@
 var mysql = require('node-mysql');
 
 var environment_settings = {
-	dbConnectionSettings: {
-      host: 'localhost',
-      user: 'ourDBuser',
-      password: 'ourDBpassword',
-      database: 'ourDBname',
-      connectionLimit: 10,
-      supportBigNumbers: true
-	}
+  dbConnectionSettings: {
+    host: 'localhost',
+    user: 'ourDBuser',
+    password: 'ourDBpassword',
+    database: 'ourDBname',
+    connectionLimit: 10,
+    supportBigNumbers: true
+  }
 };
 
 environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
@@ -16,12 +16,12 @@ environment_settings.connection_pool = mysql.createPool(environment_settings.dbC
 exports.get = function(username, callback) {
   var sql = "SELECT * FROM users WHERE username=";
   sql.concat(username);
-  
+
   pool.getConnection( function(error, connection) {
     if(error) { console.log(error); callback(error);
       return;
     }
-    
+
     connection.query(sql, queryValues, function(error, user) {
       connection.release();
       if(error) { console.log(error); callback(error);
@@ -62,29 +62,29 @@ exports.add = function(newUser, callback) {
 exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);
   var queryValues = [];
-  
+
   var sql = "SELECT * FROM users WHERE";
   queryKeys.forEach( function(key, index, keyArray) {
     sql.concat(" ", key, "=?");
     queryValues[index] = queryObj[key];
   });
 
-	pool.getConnection( function(error, connection) {
-		if(error) { console.log(error); callback(error); return; }
-		
-		connection.query(sql, queryValues, function(error, results) {
-			connection.release();
-			if(error) { console.log(error); callback(error); return; }
-			callback(error, results);
-		});
-	});
+  pool.getConnection( function(error, connection) {
+    if(error) { console.log(error); callback(error); return; }
+
+    connection.query(sql, queryValues, function(error, results) {
+      connection.release();
+      if(error) { console.log(error); callback(error); return; }
+      callback(error, results);
+    });
+  });
 };
 
 //to modify existing entries in the users table
 exports.put = function(updatedUser, callback) {
   var columnKeys = Object.keys(updatedUser);
   var columnValues = [];
-  
+
   var sql = "UPDATE users SET";
   columnKeys.forEach( function(key, index, keyArray) {
     if(key === "username"){
@@ -104,7 +104,7 @@ exports.put = function(updatedUser, callback) {
       console.log(error); callback(error);
       return;
     }
-    
+
     connection.query(sql, queryValues, function(error, numRowsChanged) {
       connection.release();
       if(error) {

@@ -106,7 +106,7 @@ exports.put = function(updatedUser, callback) {
         console.log(error); callback(true);
         return;
       }
-      callback(false, updatedUser);
+      callback(false);
     });
   });
 };

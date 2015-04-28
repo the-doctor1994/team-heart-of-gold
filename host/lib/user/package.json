@@ -1,8 +1,0 @@
-{
-    "name"     : "user",
-    "version" : "0.0.1",
-    "author"   : "Team Heart of Gold",
-    "description" : "Study Buddy",
-    "main": "./user.js"
-}
-

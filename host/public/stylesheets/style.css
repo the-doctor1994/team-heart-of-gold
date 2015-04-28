@@ -1,4 +1,4 @@
-body {font-family: Garamond}
+body {font-family: Garamond }
 
 hr {
 	width:95%;
@@ -69,6 +69,11 @@ a:hover{
 	background:/*#e91e63;*//*#009688;#91092A;*/
 }
 
+#container.wel{ /*added to manage the 'welcome.html page'*/
+	height: 40%; /*adjusts 'card' length*/
+	background:url(https://lilithluciferandlarry.files.wordpress.com/2013/07/crumpled_lined_white_paper.jpg);
+}
+
 #fadein{
 	position:fixed;
 	opacity: 0;
@@ -100,3 +105,7 @@ input:not([type=submit]):focus{
 	box-shadow: 2px;
 	color: #E6E6E6;
 }
+
+
+
+

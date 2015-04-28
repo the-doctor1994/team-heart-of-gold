@@ -3,9 +3,9 @@ var mysql = require('mysql');
 var environment_settings = {
 	dbConnectionSettings: {
     host: 'localhost',
-  	user: 'ourDBuser',
-		password: 'ourDBpassword',
-	  database: 'ourDBname',
+  	user: 'roor',
+		password: '',
+	  database: 'users',
 		connectionLimit: 10,
  	 	supportBigNumbers: true
 	},

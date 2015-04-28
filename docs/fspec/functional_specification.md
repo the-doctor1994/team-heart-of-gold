@@ -105,7 +105,7 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 		* //Preferred method of contact// (what contact info to share once matched) DELETED: 4/27/2015 ""
 		* //Cell Phone Number// DELETED: 4/27/2015 BRENTON CHASSE AND GARY WHITE
 		* //School email// DELETED: 4/27/2015 ""
-		* Personal email (email address used for username recovery/backup password recovery)
+		* Personal email (email address used for username) recovery/backup password recovery)
 	* <b>University</b>:
 		* Name
 		* State
@@ -122,6 +122,7 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 		* <b>Study location preferences</b>:
 			* user preference here
 			* user preference here
+
 
 *Brenton Chasse and Grayson Kempster, 03/13/15*
 

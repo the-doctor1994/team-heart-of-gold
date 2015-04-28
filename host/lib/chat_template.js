@@ -27,10 +27,7 @@ exports.get = function(uid, callback) {
     });
   });
 };
-/**
- * This needs to be updated to add a convo object, not a user object
- **/
-/*
+
 exports.add = function(newUser, callback) {
   var queryKeys = Object.keys(newUser);
   var queryValues = [];
@@ -57,7 +54,6 @@ exports.add = function(newUser, callback) {
     });
   });
 };
-*/
 
 exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);

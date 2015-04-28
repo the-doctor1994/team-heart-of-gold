@@ -1,3 +1,6 @@
+@import url('nav.css');  /*nav bar styling*/
+
+
 body {font-family: Garamond }
 
 hr {
@@ -110,7 +113,10 @@ input:not([type=submit]):focus{
 	color: #E6E6E6;
 }
 
-div{
-		/*position: absolute;*/
-
+/* creating styles for main.html below*/
+#container.content{	
+	margin-left:15%;
 }
+
+
+

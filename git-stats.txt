@@ -1,0 +1,65 @@
+The following historical commit information, by author, was found in the
+repository:
+
+Author                     Commits    Insertions      Deletions    % of changes
+Brenton Chasse                   4           133            261           18.16
+Gary P White                     6           469            141           28.11
+Grayson Kempster                10           490            178           30.78
+Main Khan                        8           145             60            9.45
+tylercaldwell                    9           170            123           13.50
+
+Below are the number of rows from each author that have survived and are still
+intact in the current revision:
+
+Author                     Rows       % in comments
+Brenton Chasse               21                0.00
+Gary P White                484                7.64
+Grayson Kempster            419               19.33
+Main Khan                    19                5.26
+tylercaldwell                37               32.43
+
+The following history timeline has been gathered from the repository:
+
+Author                  2015W16    2015W17    2015W18 
+Brenton Chasse                                 ----++ 
+Gary P White                             .  --+++++++ 
+Grayson Kempster      +++++++++   --++++++          + 
+Main Khan                   +++          +          . 
+tylercaldwell                ++          +          - 
+Modified Rows:              249        565       1356 
+
+No metrics violations were found in the repository.
+
+The following repsonsibilties, by author, were found in the current revision of
+the repository (comments are exluded from the line count, if possible):
+
+Brenton Chasse is mostly responsible for:
+    18 host/lib/chat_template.js
+     3 host/lib/users.js
+
+Gary P White is mostly responsible for:
+    87 host/lib/oldDbFiles/db_old.js
+    85 host/wscript/Jscript.js
+    84 host/lib/users.js
+    69 host/lib/chat_template.js
+    52 host/routes/users.js
+    43 host/routes/index.js
+    27 host/wscript/script.js
+
+Grayson Kempster is mostly responsible for:
+   105 host/routes/index.js
+    67 host/app.js
+    49 host/routes/users.js
+    39 host/lib/users.js
+    39 host/lib/oldDbFiles/db_old.js
+    39 host/lib/chat_template.js
+
+Main Khan is mostly responsible for:
+    18 host/routes/index.js
+
+tylercaldwell is mostly responsible for:
+    25 host/routes/users.js
+
+The extensions below were found in the repository history (extensions used
+during statistical analysis are marked):
+xml md [js] json html css 

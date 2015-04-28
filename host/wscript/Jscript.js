@@ -99,6 +99,8 @@ require([
 			//The user deleted their account while they were logged in
 			}
 		}
+		
+		on()
 	};
 		
 });

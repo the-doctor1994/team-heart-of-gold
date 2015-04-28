@@ -1,4 +1,4 @@
-#Heart of Gold
+﻿#Heart of Gold
 <img src = "../Images/logo1.png" alt = "Heart of Gold" height = "132" width = "110">
 
 ##<i>"StudyBuddy"</i>
@@ -102,10 +102,10 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 	* Display Name - uuid [could be real name (facebook integration -> anti-trolling)]
 	* <b>Contact Information</b>:
 		* Real Name
-		* Preferred method of contact (what contact info to share once matched)
-		* Cell Phone Number
-		* School email
-		* Personal email (email address used for username recovery/backup password recovery)
+		* //Preferred method of contact// (what contact info to share once matched) DELETED: 4/27/2015 ""
+		* //Cell Phone Number// DELETED: 4/27/2015 BRENTON CHASSE AND GARY WHITE
+		* //School email// DELETED: 4/27/2015 ""
+		* Personal email (email address used for username) recovery/backup password recovery)
 	* <b>University</b>:
 		* Name
 		* State
@@ -122,6 +122,7 @@ Bold/bulleted lines indicate that the bullet's nested contents should be wrapped
 		* <b>Study location preferences</b>:
 			* user preference here
 			* user preference here
+
 
 *Brenton Chasse and Grayson Kempster, 03/13/15*
 

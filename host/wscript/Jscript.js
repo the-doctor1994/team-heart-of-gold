@@ -14,9 +14,11 @@ require([
 		var state = "main";
 		//convo must be stated up here to erase any problems with the variable "not existing" in helper functions.
 		var convo;
+		
 		//helper functions
+		
+		// create a regexp that is the array given | every object
 		function createOrExp(arr){
-			// create a regexp that is the array given | every object
 			var string = "";
 			arr.forEach(function(curr, index, array){
 				string += curr.UID;
@@ -25,9 +27,22 @@ require([
 			});
 			return string;
 		}
+		
+		// Wrap message elements for a chat window
 		function MessageWrapper(name, message){
 			return ("<strong>"+name+"</strong>"+"<br>"+message);
 		}
+		
+		// changing content
+		function toMain(){
+			
+		}
+		
+		// open a chat 
+		function openChat(){
+			// empty the current div that is not needed
+		}
+		
 		// convoObserveHandler. this is called enough times to constitute a name instantiation
 		function COH(object, removedFrom, insertedInto)){
 			if(removedFrom == -1 && insertedInto > -1) {
@@ -36,16 +51,23 @@ require([
 			} else if (removedFrom > -1 && insertedInto > -1) {
 				// an element was changed in the list.
 				
-				/* style the dom elements that were changed.*/
+				/* style the dom elements that were changed for current messages*/
 				convo.forEach(function(curr, index, array){
 					if (curr.messages !== object[index].messages){
-						// we can assume that this element will exist at this point...
-						//domStyle(curr.UID, "class", "newmessage");
-						// If chat is open to this user we need to update the list.				
+						// If chat is open to this user we need to update the list of messages to include the new message from "object"			
 						if ((dom.byId('chatContent').innerHTML!=="") && (dom.byId(curr.UID)!==null)){
 							// append another node to the list.
-							domConstruct.place('li', {innerHTML: MessageWrapper(curr.messages[curr.messages.length-1].name, curr.messages[curr.messages.length-1])}, dom.byId(curr.UID), 'inside');
-						}						
+							domConstruct.place('li', {innerHTML: MessageWrapper(object.messages[object.messages.length-1].name, object.messages[object.messages.length-1])}, dom.byId("convList"), 'inside');
+						}
+						// else, we should update the element representing them to show they have a new message.
+						var node = dom.byId(curr.UID);
+						if (node.className !== 'focus'){
+							node.className = 'newmessage';
+							node.handlerOnClick = on(node, 'click', function(evt){
+								node.className="";
+								handlerOnClick=undefined;
+							});
+						}
 					}
 				});			
 				
@@ -63,7 +85,7 @@ require([
 		// User and Convo stored locally and on server : 
 		
 		var user = Window.sessionStorage.getItem('user');
-		var userstore = new Observable(new JsonRest(target: "/users"})); 	
+		var userstore = new Observable(new JsonRest({target: "/users"})); 	
 		var userres = userstore.query({username:user.username});
 		
 		var convostore = new Observable(new JsonRest({target: "/chat"}));
@@ -100,7 +122,6 @@ require([
 			}
 		}
 		
-		on()
-	};
-		
-});
+		// start the page on Main screen...
+		toMain();
+	});

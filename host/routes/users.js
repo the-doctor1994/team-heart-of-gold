@@ -105,7 +105,7 @@ router.post('/auth', function(req, res) {
 
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined) {
-		db.query({username: username, password: password, online: true}, function(error, user) {
+		users.query({username: username, password: password, online: true}, function(error, user) {
 			if (error) {
 				req.flash('auth', error);
 				res.redirect('/index/login');
@@ -133,7 +133,7 @@ router.post('/auth', function(req, res) {
 		// This should actually be a db query.
 		userlib.lookup(username, password, function(error, user) {
 =======
-		db.query({username: username, password: password}, function(error, user) {
+		users.query({username: username, password: password}, function(error, user) {
 >>>>>>> 828ffed3b9b767687aa9def4930310364c5a6d1d
 			if (error) {
 				// If there is an error we "flash" a message to the
@@ -143,7 +143,7 @@ router.post('/auth', function(req, res) {
 			}
 			else {
 				user.online = true;
-				db.put(user, function(user){
+				users.put(user, function(user){
 					req.session.user = user;
 					// Redirect to main.
 					res.redirect('/index/login');

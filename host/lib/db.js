@@ -1,28 +1,69 @@
-var mysql = require('node-mysql');
+var mysql = require('mysql');
 
 var environment_settings = {
 	dbConnectionSettings: {
-    host: 'mysql3.000webhost.com',
-  	user: 'a9606264_root',
-		password: 'squiddy18',
-	  database: 'a9606264_users',
+    host: 'localhost',
+  	user: 'ourDBuser',
+		password: 'ourDBpassword',
+	  database: 'ourDBname',
 		connectionLimit: 10,
  	 	supportBigNumbers: true
-	}
+	},
 };
 
 environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
-exports.query = function(queryObj, callback) {
-  var queryProperties = queryObj.getKeys();
-  var sql = "SELECT * FROM users WHERE";
-  var queryValues = [];
-  var i = 0;
-  queryProperties.forEach( function(index, property) {
-    sql += " " + property.toString() + "=?";
-    queryValues[i] = queryProperties[property];
+exports.get = function(username, callback) {
+  var sql = "SELECT * FROM users WHERE username=";
+  sql.concat(username);
+  
+  pool.getConnection( function(error, connection) {
+    if(error) { console.log(error); callback(true); return; }
+    
+    connection.query(sql, queryValues, function(error, user) {
+      connection.release();
+      if(error) { console.log(error); callback(true); return; }
+      callback(false, user);
+    });
   });
-	//var sql = "SELECT * FROM users WHERE username=?";
+};
+
+exports.add = function(newUser, callback) {
+  var queryKeys = Object.keys(newUser);
+  var queryValues = [];
+
+  var sql = "INSERT INTO users (";
+  var sql2 = ") VALUES (";
+  queryKeys.forEach( function(key, index, keyArray) {
+    if(queryValues.length > 0){
+      sql.concat(", ");
+      sql2.concat(", ");
+    }
+    sql.concat(key);
+    sql2.concat("?");
+  });
+  sql.concat(sql2);
+
+  pool.getConnection( function(error, connection) {
+    if(error) { console.log(error); callback(error); return; }
+
+    connection.query(sql, queryValues, function(error) {
+      connection.release();
+      if(error) { console.log(error); callback(error); return; }
+      callback(false, newUser);
+    });
+  });
+};
+
+exports.query = function(queryObj, callback) {
+  var queryKeys = Object.keys(queryObj);
+  var queryValues = [];
+  
+  var sql = "SELECT * FROM users WHERE";
+  queryKeys.forEach( function(key, index, keyArray) {
+    sql.concat(" ", key, "=?");
+    queryValues[index] = queryObj[key];
+  });
 
 	pool.getConnection( function(error, connection) {
 		if(error) { console.log(error); callback(true); return; }
@@ -35,67 +76,51 @@ exports.query = function(queryObj, callback) {
 	});
 };
 
-
-
-
-
-/*
-// # User Library
-//****************************************************************************
-//**********THIS IS JUST A TEMPLATE. DO NOT KEEP THIS CODE***************
-//****************************************************************************
-// ## User Objects
-function User(username, password, uid, priv) {
-  this.username = username;
-  this.password = password;
-  // Added uid
-  this.uid      = uid;
-  this.priviledge = 'user';
-  if(priv === 'admin'){this.priviledge = 'admin';}
-  this.isAdmin = (this.priviledge === "admin");
-}
-
-//
-// ## lookup function
-// locates a user by `name` if it exists. Invokes callback `cb` with the
-// signature cb(error, userobj).
-//
-exports.lookup = function(username, password, cb) {
-  var len = userdb.length;
-  for (var i = 0; i < len; i++) {
-    var u = userdb[i];
-    if (u.username === username) {
-      if (u.password === password) {
-        cb(undefined, u);
+exports.put = function(updatedUser, callback) {
+  var columnKeys = Object.keys(updatedUser);
+  var columnValues = [];
+  
+  var sql = "UPDATE users SET"
+  columnKeys.forEach( function(key, index, keyArray) {
+    if(key === "username"){
+      uidOfObjectToUpdate = updatedUser[key];
+    } else {
+      if(queryValues.length > 0) {
+        sql.concat(",");
       }
-      else {
-        cb('password is not correct');
-      }
-      return;
-    }
-  }
-  cb('user not found');
-};
-
-exports.add = function(name, pass, admin, cb){
-  var notexists = this.lookup(name, pass, function(err, user){
-    if(err === 'user not found'){
-      return true;
-    }
-    else{
-      return false;
+      sql.concat(" ", key, "=?");
+      queryValues[index] = updatedUser[key];
     }
   });
-  if(notexists){
-    var uid = userdb.length + 1;
-    userdb.push(new User(name,pass,uid,admin));
-    //debugging
-    console.log(userdb[uid]);
-    cb(userdb[uid]);
-  }
-  else{
-    cb(undefined);
-  }
+  sql.concat(" WHERE username=", uidOfObjectToUpdate);
+
+  pool.getConnection( function(error, connection) {
+    if(error) {
+      console.log(error); callback(true);
+      return;
+    }
+    
+    connection.query(sql, queryValues, function(error, numRowsChanged) {
+      connection.release();
+      if(error) {
+        console.log(error); callback(true);
+        return;
+      }
+      callback(false, updatedUser);
+    });
+  });
 };
 
-./
+exports.delete = function(username, callback){
+  var sql = "DELETE FROM users WHERE username = " + username;
+  pool.getConnection( function(error, connection) {
+    if(error) { console.log(error); callback(error);
+      return;
+    }
+    connection.query(sql, function(error) {
+      connection.release();
+      if(error) { console.log(error);}
+      callback(error);
+    });
+  });
+};

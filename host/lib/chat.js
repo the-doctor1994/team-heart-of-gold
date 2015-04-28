@@ -3,9 +3,9 @@ var mysql = require('node-mysql');
 var environment_settings = {
   dbConnectionSettings: {
     host: 'localhost',
-    user: 'ourDBuser',
-    password: 'ourDBpassword',
-    database: 'ourDBname',
+    user: 'root',
+    password: '',
+    database: 'chat',
     connectionLimit: 10,
     supportBigNumbers: true
   }

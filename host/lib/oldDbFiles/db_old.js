@@ -3,9 +3,9 @@ var mysql = require('node-mysql');
 var environment_settings = {
 	dbConnectionSettings: {
       host: 'localhost',
-      user: 'ourDBuser',
-      password: 'ourDBpassword',
-      database: 'ourDBname',
+      user: 'root',
+      password: '',
+      database: 'users',
       connectionLimit: 10,
       supportBigNumbers: true
 	}
@@ -22,24 +22,24 @@ exports.get = function(username, callback) {
       return;
     }
     
-    connection.query(sql, queryValues, function(error, user) {
+    connection.query(sql, queryValuePairs, function(error, user) {
       connection.release();
       if(error) { console.log(error); callback(error);
         return;
       }
-      callback(error, user);
+      callback('', user);
     });
   });
 };
 
+//to add a new user to the users database
 exports.add = function(newUser, callback) {
-  var queryKeys = Object.keys(newUser);
-  var queryValues = [];
+  var queryKeys = Object.getOwnPropertyNames(newUser);
 
   var sql = "INSERT INTO users (";
   var sql2 = ") VALUES (";
   queryKeys.forEach( function(key, index, keyArray) {
-    if(queryValues.length > 0){
+    if(index > 0){
       sql.concat(", ");
       sql2.concat(", ");
     }
@@ -51,82 +51,105 @@ exports.add = function(newUser, callback) {
   pool.getConnection( function(error, connection) {
     if(error) { console.log(error); callback(error); return; }
 
-    connection.query(sql, queryValues, function(error) {
+    connection.query(sql, function(error) {
       connection.release();
       if(error) { console.log(error); callback(error); return; }
-      callback(error, newUser);
+      callback('', newUser);
     });
   });
 };
 
+//returns all entries that match any set of key pairs
 exports.query = function(queryObj, callback) {
-  var queryKeys = Object.keys(queryObj);
-  var queryValues = [];
+  var queryKeys = Object.getOwnPropertyNames(queryObj);
   
   var sql = "SELECT * FROM users WHERE";
-  queryKeys.forEach( function(key, index, keyArray) {
-    sql.concat(" ", key, "=?");
-    queryValues[index] = queryObj[key];
+  queryKeys.forEach( function(key) {
+    sql.concat(" ", key, " = ", queryObj[key]);
   });
-
-	pool.getConnection( function(error, connection) {
-		if(error) { console.log(error); callback(error); return; }
-		
-		connection.query(sql, queryValues, function(error, results) {
-			connection.release();
-			if(error) { console.log(error); callback(error); return; }
-			callback(error, results);
-		});
-	});
-};
-
-//to modify existing entries in the users table
-exports.put = function(updatedUser, callback) {
-  var columnKeys = Object.keys(updatedUser);
-  var columnValues = [];
-  
-  var sql = "UPDATE users SET";
-  columnKeys.forEach( function(key, index, keyArray) {
-    if(key === "username"){
-      uidOfObjectToUpdate = updatedUser[key];
-    } else {
-      if(queryValues.length > 0) {
-        sql.concat(",");
-      }
-      sql.concat(" ", key, "=?");
-      queryValues[index] = updatedUser[key];
-    }
-  });
-  sql.concat(" WHERE username=", uidOfObjectToUpdate);
 
   pool.getConnection( function(error, connection) {
     if(error) {
-      console.log(error); callback(error);
-      return;
+      console.log(error);
+      callback(error);
     }
-    
-    connection.query(sql, queryValues, function(error, numRowsChanged) {
-      connection.release();
-      if(error) {
-        console.log(error); callback(error);
-        return;
-      }
-      callback(error, updatedUser);
-    });
+    else{
+      connection.query(sql,function(error,results){
+        connection.release();
+        if(error){
+          console.log(error);
+          callback(error);
+        }
+        else{
+          callback('',results);
+        }
+      });
+    }
   });
 };
 
-//to delete a user from the table
+//to modify EXISTING entries in the users table for one user only
+exports.put = function(updatedUser, callback) {
+  var userKeys = Object.getOwnPropertyNames(updatedUser);
+  var sql = "UPDATE users SET";
+  var uidOfObjectToUpdate = '';
+  userKeys.forEach( function(key, index) {
+    if(key === "username"){
+      uidOfObjectToUpdate = updatedUser[key];
+    }
+    else {
+      if(index > 1) {
+        sql.concat(" ,");
+      }
+      sql.concat(" ", key, " = ", updatedUser[key]);
+    }
+  });
+  if(uidOfObjectToUpdate === ''){
+    callback('no valid username entered');
+  }
+  else{
+    sql.concat(" WHERE username = ",uidOfObjectToUpdate);
+    pool.getConnection(function(error,connection){
+
+      if(error){
+        console.log(error);
+        callback(error);
+      }
+
+      else{
+        connection.query(sql,function(error){
+          connection.release();
+          if(error){
+            console.log(error);
+            callback(error);
+          }
+          else{
+            callback('',updatedUser);
+          }
+        });
+      }
+    });
+  }
+};
+
+//to delete ONE user from the table
 exports.delete = function(username, callback){
   var sql = "DELETE FROM users WHERE username = " + username;
   pool.getConnection( function(error, connection) {
-    if(error) { console.log(error); callback(error);
-      return;
-    }
-    connection.query(sql, function(error) {
-      connection.release();
-      if(error) { console.log(error);}
+    if(error) { console.log(error);
       callback(error);
-    });
+    }
+    else{
+      connection.query(sql,function(error){
+        connection.release();
+        if(error){
+          console.log(error);
+          callback(error);
+        }
+        else{
+          callback('', username);
+        }
+      });
+    }
   });
 };

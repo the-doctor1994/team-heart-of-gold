@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../lib/db');
+var usersdb = require('../lib/users');
 
 // ##### Server Side Routes For Users Not Logged In ##########
 
@@ -26,7 +26,7 @@ router.get('/home', function(req, res) {
 // The login page for users to sign in
 router.get('/login', function(req, res){
 	// Grab any messages being sent to use from redirect.
-	var authmessage = req.flash('auth') || '';
+	var authMessage = req.flash('auth') || '';
 
 	// TDR: redirect if logged in:
 	var user  = req.session.user;
@@ -37,9 +37,9 @@ router.get('/login', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 db.query({username: username, password: password, online: true}, function(error, user){
+	 usersdb.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
-	 		req.flash('auth', error)
+	 		req.flash('auth', error);
 	 		res.redirect('/index/home');
 	 	}
 	 	else{
@@ -47,10 +47,10 @@ router.get('/login', function(req, res){
 	 			//oh my: user object should not return more than one user
 	 		}
 	 		else if (user.length === 0){
-	 			// User is not online, refirect to login page
+	 			// User is not online, redirect to login page
 	 			// Render the login view if this is a new login.
     			res.render('login', { title   : 'User Login',
-                          message : authmessage });
+                          message : authMessage });
 	 		}
 	 		else{
 	 			// User is online, set current user and redirect to home
@@ -61,10 +61,10 @@ router.get('/login', function(req, res){
 	 });
 	}
 	else {
-		// User is not online, refirect to login page
+		// User is not online, redirect to login page
 	 	// Render the login view if this is a new login.
     	res.render('login', { title   : 'User Login',
-                   			message : authmessage });
+                   			message : authMessage });
 	}
 });
 
@@ -92,9 +92,9 @@ router.post('/auth', function(req, res) {
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 db.query({username: username, password: password, online: true}, function(error, user){
+	 usersdb.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
-	 		req.flash('auth', error)
+	 		req.flash('auth', error);
 	 		res.redirect('/index/home');
 	 	}
 	 	else{
@@ -108,7 +108,7 @@ router.post('/auth', function(req, res) {
 	 		else{
 	 			// User is online, set current user and redirect to home
 	 			req.session.user = user[0];
-	 			db.put(user, function(user){
+	 			usersdb.put(user, function(user){
 					req.session.user = user;
 					// Redirect to home.
 					res.redirect('/user/home');
@@ -119,7 +119,7 @@ router.post('/auth', function(req, res) {
 	}
 	else {
 		// Perform the user lookup.
-		db.query({username: username, password: password}, function(error, user) {
+		usersdb.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.
@@ -128,7 +128,7 @@ router.post('/auth', function(req, res) {
 			}
 			else {
 				user.online = true;
-				db.put(user, function(user){
+				usersdb.put(user, function(user){
 					req.session.user = user;
 					// Redirect to home.
 					res.redirect('/user/home');
@@ -144,4 +144,4 @@ router.post('/process', function(req,res){
 	res.redirect('/index/login');
 });
 
-module.exports = router;
+exports.router = router;

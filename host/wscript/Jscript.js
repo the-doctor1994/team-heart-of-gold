@@ -11,7 +11,7 @@ require([
     'dojo/domReady!'
 	],  function(dom, domConstruct, on, fx, mouse, domStyle, query, JsonRest, Observable){
 		// Initialize variables
-		var state = "main";
+		var focusNode = dom.byId('profile');
 		//convo must be stated up here to erase any problems with the variable "not existing" in helper functions.
 		var convo;
 		
@@ -34,13 +34,19 @@ require([
 		}
 		
 		// changing content
-		function toMain(){
-			
+		function focus(set, cb){
+			focusNode.className = '';
+			set.className = 'focus';
+			focusNode = set;
+			cb();
 		}
 		
-		// open a chat 
-		function openChat(){
-			// empty the current div that is not needed
+		// open a chat by emptying the proper elements to empty
+		function openChat(chatID){
+			list = dom.byId('convList');
+			user.conversations[chatID].forEach(function(curr, index, array){
+				domConstruct.place('li' {innerHTML: MessageWrapper(curr.name, curr.message)}, list, 'inside');
+			});
 		}
 		
 		// convoObserveHandler. this is called enough times to constitute a name instantiation
@@ -57,7 +63,7 @@ require([
 						// If chat is open to this user we need to update the list of messages to include the new message from "object"			
 						if ((dom.byId('chatContent').innerHTML!=="") && (dom.byId(curr.UID)!==null)){
 							// append another node to the list.
-							domConstruct.place('li', {innerHTML: MessageWrapper(object.messages[object.messages.length-1].name, object.messages[object.messages.length-1])}, dom.byId("convList"), 'inside');
+							domConstruct.place('li', {innerHTML: MessageWrapper(object.messages[object.messages.length-1].name, object.messages[object.messages.length-1].message)}, dom.byId("convList"), 'inside');
 						}
 						// else, we should update the element representing them to show they have a new message.
 						var node = dom.byId(curr.UID);

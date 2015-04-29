@@ -1,7 +1,10 @@
 @import url('nav.css');  /*nav bar styling*/
 
 
-body {font-family: Garamond }
+
+body {font-family: Garamond;
+	  font-size:16px;
+}
 
 hr {
 	width:95%;
@@ -24,6 +27,7 @@ p {
 h4 {
 	margin: 0px;
 	color:#B2B2B2;
+	padding-top: 40px;
 }
 a {
 	color:#EBC633;
@@ -34,7 +38,7 @@ a:hover{
 #foot{	
 	position: relative;
 	text-align: center;
-	color: #b2b2b2;
+	color: #A30000/*#b2b2b2*/;
 	font-size: .8em;
 	bottom: -15%;
 }
@@ -60,7 +64,7 @@ a:hover{
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.52);
 	background:/*#e91e63;*//*#009688;#91092A;*/
 }
-#above{
+.above {	color: white;
 	position: relative;
 	margin-left:30%;
 	margin-top:2.5%;
@@ -75,11 +79,18 @@ a:hover{
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.52);
 	background:/*#e91e63;*//*#009688;#91092A;*/
 }
+.above#adjust_above_1{	margin-left:15%; }
+.above#adjust_above_2{	margin-left:100%; }
+
+
+.above > h2{color: white;}
 
 .container.wel{ /*added to manage the 'welcome.html page'*/
 	height: 40%; /*adjusts 'card' length*/
 	background:url(https://lilithluciferandlarry.files.wordpress.com/2013/07/crumpled_lined_white_paper.jpg);
 }
+
+#fadediv{  padding-top: 30px;}
 
 #fadein{
 	position:absolute;
@@ -102,15 +113,26 @@ a:hover{
 	color: #b2b2b2;
 }
 input:not([type=submit]){
-	border-style: solid
+	/*border-style: solid
 	;border-color: #E6E6E6;
-	color: #E6E6E6;
+	color: #E6E6E6;*/
+  
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+  outline-width: 0;/*no glowy border yay!*/
 }
 input:not([type=submit]):focus{
-	border-color: #EBC633;
+/*	border-color: #EBC633;
 	border-style: solid;
 	box-shadow: 2px;
-	color: #E6E6E6;
+	color: #E6E6E6;*/
+	border-bottom: solid 2px #A30000/*#969696*/;
 }
 
 /* creating styles for main.html below*/

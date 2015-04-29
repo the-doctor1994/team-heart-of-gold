@@ -27,13 +27,11 @@ router.get('/logout', function(req, res) {
 		res.redirect('/index/login');
 	}
 
-	usersdb.put(user, function(err, dbuser) {
+	// pass in updated user
+	usersdb.put({username: user.username, online: false}, function(err, dbuser) {
 		if (err) {
 			req.flash('auth', error);
 			res.redirect('/index/login');
-		}
-		else {
-			user.online = false;
 		}
 	});
 

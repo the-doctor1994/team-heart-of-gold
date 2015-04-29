@@ -192,7 +192,20 @@ router.post('/auth', function(req, res) {
  			//do any callback stuff here.
  		});
  	});
+
+ 	/*
+ 	 * Route which handles a generic query to the users DB
+ 	 * 	-req.query is an object which contains all of the query params in an object
+ 	 *	-Express is parsing anything after a '?' in a route into this object
+ 	 */
+ 	.get(function(req, res) {
+		users.query(req.query, function(error, results) {
+			if(error) { res.send(error); }
+			//TODO: do any callback stuff here
+		}) 		
+ 	});
  };
+
 
  router.route('/users/:username') {
  	/*
@@ -257,6 +270,18 @@ router.post('/auth', function(req, res) {
  			if(error) { res.send(error); }
  			//do any callback stuff here.
  		});
+ 	});
+
+ 	/*
+ 	 * Route which handles a generic query to the chats DB
+ 	 * 	-req.query is an object which contains all of the query params in an object
+ 	 *	-Express is parsing anything after a '?' in a route into this object
+ 	 */
+ 	.get(function(req, res) {
+		users.query(req.query, function(error, results) {
+			if(error) { res.send(error); }
+			//TODO: do any callback stuff here
+		}) 		
  	});
  };
 

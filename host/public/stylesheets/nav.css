@@ -7,8 +7,11 @@
   margin: 0;
   padding: 0;
   border: 0;
-  height: 100px;
+  height: 100px; /* overview: controls the breadth of nav bar tabs.*/
 }
+
+
+
 #cssmenu ul {
   position: relative;
   z-index: 597;
@@ -128,6 +131,8 @@
   border-bottom: 10px solid transparent;
   border-top: 10px solid transparent;
 }
+/*#cssmenu > ul > li > a > #edit { height: 200px;}*/
+#cssmenu > ul > #chat_tag{ height: 250px;}
 
 .flexbox-container {
   display: -ms-flex;
@@ -143,3 +148,4 @@
 .flexbox-container > div:first-child {
   margin-right: 20px;
 }
+

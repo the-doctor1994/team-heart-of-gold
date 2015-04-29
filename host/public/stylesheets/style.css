@@ -39,7 +39,7 @@ a:hover{
 	bottom: -15%;
 }
 
-#container{
+.container{
 	position: relative;
 	margin-left:30%;
 	margin-top:2.5%;
@@ -76,7 +76,7 @@ a:hover{
 	background:/*#e91e63;*//*#009688;#91092A;*/
 }
 
-#container.wel{ /*added to manage the 'welcome.html page'*/
+.container.wel{ /*added to manage the 'welcome.html page'*/
 	height: 40%; /*adjusts 'card' length*/
 	background:url(https://lilithluciferandlarry.files.wordpress.com/2013/07/crumpled_lined_white_paper.jpg);
 }
@@ -102,8 +102,8 @@ a:hover{
 	color: #b2b2b2;
 }
 input:not([type=submit]){
-	border-style: solid;
-	border-color: #E6E6E6;
+	border-style: solid
+	;border-color: #E6E6E6;
 	color: #E6E6E6;
 }
 input:not([type=submit]):focus{
@@ -114,9 +114,16 @@ input:not([type=submit]):focus{
 }
 
 /* creating styles for main.html below*/
-#container.content{	
+
+
+.container#content{	
 	margin-left:15%;
 }
+
+.container#sidekick{
+	margin-left:100%
+}
+
 
 
 

@@ -1,7 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 
-var users = require('../lib/users');
+var usersdb = require('../lib/users');
 var chats = require('../lib/chats');
 
 // ############# User Server-Side Routes ###########
@@ -27,7 +27,7 @@ router.get('/logout', function(req, res) {
 		res.redirect('/index/login');
 	}
 
-	users.put(user, function(err, dbuser) {
+	usersdb.put(user, function(err, dbuser) {
 		if (err) {
 			req.flash('auth', error);
 			res.redirect('/index/login');
@@ -70,7 +70,7 @@ router.get('/match', function(req, res) {
 router.put('/match', function(req, res) {
 	if(user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 	var user = {};
 	user.username = req.body.username;
@@ -125,7 +125,7 @@ router.post('/auth', function(req, res) {
 
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined) {
-		users.query({username: username, password: password, online: true}, function(error, user) {
+		usersdb.query({username: username, password: password, online: true}, function(error, user) {
 			if (error) {
 				req.flash('auth', error);
 				res.redirect('/index/login');
@@ -150,8 +150,7 @@ router.post('/auth', function(req, res) {
 		var password = req.body.password;
 		// Perform the user lookup.
 		// This should actually be a db query.
-		userlib.lookup(username, password, function(error, user) {
-		users.query({username: username, password: password}, function(error, user) {
+		usersdb.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`.
@@ -160,7 +159,7 @@ router.post('/auth', function(req, res) {
 			}
 			else {
 				user.online = true;
-				users.put(user, function(user){
+				usersdb.put(user, function(user){
 					req.session.user = user;
 					// Redirect to main.
 					res.redirect('/index/login');
@@ -176,7 +175,7 @@ router.post('/auth', function(req, res) {
  *
  * ROUTES FOR THE RESTful DB SERVICE
  */
- router.route('/users') {
+ router.route('/users')
  	/*
  	 * Route which handles adding a new user to the users DB
  	 * 		- JsonRest.add(object, options)
@@ -187,11 +186,12 @@ router.post('/auth', function(req, res) {
  		user.password = req.body.password;
  		// TODO: any other parts of the user's object that we know
 
- 		users.add(user, function(error, newUser) {
+ 		usersdb.add(user, function(error, newUser) {
  			if(error) { res.send(error); }
  			//do any callback stuff here.
  		});
  	});
+<<<<<<< HEAD
 
  	/*
  	 * Route which handles a generic query to the users DB
@@ -208,16 +208,20 @@ router.post('/auth', function(req, res) {
 
 
  router.route('/users/:username') {
+=======
+
+ router.route('/users/:username')
+>>>>>>> aeda3bf4b3c936165ab99c49524f37c413dc0ce3
  	/*
  	 * Route which handles finding one specific User with username = :username
  	 * 		- JsonRest.get(id)
  	 */
  	 .get(function(req, res) {
- 	 	users.get(req.params.username, function(error, user) {
+ 	 	usersdb.get(req.params.username, function(error, user) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here
  	 	});
- 	 });
+ 	 })
 
  	 /*
  	  * Route which handles updating one specific user with username = :username
@@ -228,11 +232,11 @@ router.post('/auth', function(req, res) {
  	 	updatedUser.username = req.body.username;
  	 	updatedUser.password = req.body.password;
  	 	//TODO: any other parts of the user's object that we know
- 	 	users.put(updatedUser, function(error) {
+ 	 	usersdb.put(updatedUser, function(error) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here
  	 	});
- 	 });
+ 	 })
 
  	 /*
  	  * Route which handles removing one specific user with username = :username
@@ -242,20 +246,18 @@ router.post('/auth', function(req, res) {
 	  *		-it is expected that a 204 is produced if delete is completed sucessfully
       */
       .delete(function(req, res) {
-      	users.remove(req.params.username, function(error) {
+      	usersdb.remove(req.params.username, function(error) {
       		if(error) { res.send(err); }
       		//TODO: do any callback stuff here
       	});
       });
-
- };
 
  /** 
  * ======CHATS======
  *
  * ROUTES FOR THE RESTful DB SERVICE
  */
- router.route('/chats') {
+ router.route('/chats')
  	/*
  	 * Route which handles adding a new chat to the chats DB
  	 * 		- JsonRest.add(object, options)
@@ -271,6 +273,7 @@ router.post('/auth', function(req, res) {
  			//do any callback stuff here.
  		});
  	});
+<<<<<<< HEAD
 
  	/*
  	 * Route which handles a generic query to the chats DB
@@ -284,8 +287,10 @@ router.post('/auth', function(req, res) {
 		}) 		
  	});
  };
+=======
+>>>>>>> aeda3bf4b3c936165ab99c49524f37c413dc0ce3
 
- router.route('/chats/:uid') {
+ router.route('/chats/:uid')
  	/*
  	 * Route which handles finding one specific chat with uid = :uid
  	 * 		- JsonRest.get(id)
@@ -295,7 +300,7 @@ router.post('/auth', function(req, res) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here
  	 	});
- 	 });
+ 	 })
 
  	 /*
  	  * Route which handles updating one specific chat with uid = :uid
@@ -310,7 +315,7 @@ router.post('/auth', function(req, res) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here
  	 	});
- 	 });
+ 	 })
 
  	 /*
  	  * Route which handles removing one specific chat with uid = :uid
@@ -325,6 +330,4 @@ router.post('/auth', function(req, res) {
       		//TODO: do any callback stuff here
       	});
       });
-
- };
 

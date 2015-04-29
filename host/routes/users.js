@@ -5,7 +5,8 @@ var router  = express.Router();
 // A logged in "database":
 var online = {};
 =======
-var db = require('../lib/db');
+var users = require('../lib/users');
+var chats = require('../lib/chats');
 >>>>>>> 828ffed3b9b767687aa9def4930310364c5a6d1d
 
 // ############# User Server-Side Routes ###########
@@ -104,7 +105,7 @@ router.post('/auth', function(req, res) {
 
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined) {
-		db.query({username: username, password: password, online: true}, function(error, user) {
+		users.query({username: username, password: password, online: true}, function(error, user) {
 			if (error) {
 				req.flash('auth', error);
 				res.redirect('/index/login');
@@ -132,7 +133,7 @@ router.post('/auth', function(req, res) {
 		// This should actually be a db query.
 		userlib.lookup(username, password, function(error, user) {
 =======
-		db.query({username: username, password: password}, function(error, user) {
+		users.query({username: username, password: password}, function(error, user) {
 >>>>>>> 828ffed3b9b767687aa9def4930310364c5a6d1d
 			if (error) {
 				// If there is an error we "flash" a message to the
@@ -142,7 +143,7 @@ router.post('/auth', function(req, res) {
 			}
 			else {
 				user.online = true;
-				db.put(user, function(user){
+				users.put(user, function(user){
 					req.session.user = user;
 					// Redirect to main.
 					res.redirect('/index/login');
@@ -151,4 +152,137 @@ router.post('/auth', function(req, res) {
 		});
 	}
 });
+
+
+/** 
+ * ======USERS======
+ *
+ * ROUTES FOR THE RESTful DB SERVICE
+ */
+ router.route('/users') {
+ 	/*
+ 	 * Route which handles adding a new user to the users DB
+ 	 * 		- JsonRest.add(object, options)
+ 	 */
+ 	.post(function(req, res) {
+ 		var user = {};
+ 		user.username = req.body.username;
+ 		user.username = req.body.password;
+ 		// TODO: any other parts of the user's object that we know
+
+ 		users.add(user, function(error, newUser) {
+ 			if(error) { res.send(error); }
+ 			//do any callback stuff here.
+ 		});
+ 	});
+ };
+
+ router.route('/users/:username') {
+ 	/*
+ 	 * Route which handles finding one specific User with username = :username
+ 	 * 		- JsonRest.get(id)
+ 	 */
+ 	 .get(function(req, res) {
+ 	 	users.get(req.params.username, function(error, user) {
+ 	 		if(error) { res.send(error); }
+ 	 		//TODO: do any callback stuff here
+ 	 	});
+ 	 });
+
+ 	 /*
+ 	  * Route which handles updating one specific user with username = :username
+ 	  *		- JsonRest.put(object, options)
+ 	  */
+ 	 .put(function(req, res) {
+ 	 	var updatedUser = {};
+ 	 	updatedUser.username = req.body.username;
+ 	 	updatedUser.password = req.body.password;
+ 	 	//TODO: any other parts of the user's object that we know
+ 	 	users.put(updatedUser, function(error) {
+ 	 		if(error) { res.send(error); }
+ 	 		//TODO: do any callback stuff here
+ 	 	});
+ 	 });
+
+ 	 /*
+ 	  * Route which handles removing one specific user with username = :username
+ 	  *		- JsonRest.remove(id)
+ 	  * Outputs:
+ 	  *		-it is expected that a 404 is produced if delete could not complete
+	  *		-it is expected that a 204 is produced if delete is completed sucessfully
+      */
+      .delete(function(req, res) {
+      	users.remove(req.params.username, function(error) {
+      		if(error) { res.send(err); }
+      		//TODO: do any callback stuff here
+      	});
+      });
+
+ };
+
+ /** 
+ * ======CHATS======
+ *
+ * ROUTES FOR THE RESTful DB SERVICE
+ */
+ router.route('/chats') {
+ 	/*
+ 	 * Route which handles adding a new chat to the chats DB
+ 	 * 		- JsonRest.add(object, options)
+ 	 */
+ 	.post(function(req, res) {
+ 		var chat = {};
+ 		chat.uid = req.body.uid;
+ 		chat.hist = req.body.hist;
+ 		// TODO: any other parts of the chat object that we know
+
+ 		chats.add(user, function(error, newChat) {
+ 			if(error) { res.send(error); }
+ 			//do any callback stuff here.
+ 		});
+ 	});
+ };
+
+ router.route('/chats/:uid') {
+ 	/*
+ 	 * Route which handles finding one specific chat with uid = :uid
+ 	 * 		- JsonRest.get(id)
+ 	 */
+ 	 .get(function(req, res) {
+ 	 	chats.get(req.params.username, function(error, user) {
+ 	 		if(error) { res.send(error); }
+ 	 		//TODO: do any callback stuff here
+ 	 	});
+ 	 });
+
+ 	 /*
+ 	  * Route which handles updating one specific chat with uid = :uid
+ 	  *		- JsonRest.put(object, options)
+ 	  */
+ 	 .put(function(req, res) {
+ 	 	var updatedChat = {};
+ 	 	updatedChat.uid = req.body.uid;
+ 	 	updatedChat.hist = req.body.hist;
+ 	 	//TODO: any other parts of the chat object that we know
+ 	 	chats.put(updatedChat, function(error) {
+ 	 		if(error) { res.send(error); }
+ 	 		//TODO: do any callback stuff here
+ 	 	});
+ 	 });
+
+ 	 /*
+ 	  * Route which handles removing one specific chat with uid = :uid
+ 	  *		- JsonRest.remove(id)
+ 	  * Outputs:
+ 	  *		-it is expected that a 404 is produced if delete could not complete
+	  *		-it is expected that a 204 is produced if delete is completed sucessfully
+      */
+      .delete(function(req, res) {
+      	chats.remove(req.params.uid, function(error) {
+      		if(error) { res.send(err); }
+      		//TODO: do any callback stuff here
+      	});
+      });
+
+ };
 

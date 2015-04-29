@@ -20,10 +20,10 @@ exports.get = function(uid, callback) {
   pool.getConnection( function(error, connection) {
     if(error) { console.log(error); callback(true); return; }
     
-    connection.query(sql, queryValues, function(error, user) {
+    connection.query(sql, queryValues, function(error, newChat) {
       connection.release();
       if(error) { console.log(error); callback(true); return; }
-      callback(false, user);
+      callback(false, newChat);
     });
   });
 };

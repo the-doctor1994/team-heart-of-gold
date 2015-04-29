@@ -40,7 +40,7 @@ router.get('/login', function(req, res){
 	 db.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
 	 		req.flash('auth', error)
-	 		res.redirect('/user/home');
+	 		res.redirect('/index/home');
 	 	}
 	 	else{
 	 		if (user.length > 1){
@@ -95,7 +95,7 @@ router.post('/auth', function(req, res) {
 	 db.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
 	 		req.flash('auth', error)
-	 		res.redirect('/user/home');
+	 		res.redirect('/index/home');
 	 	}
 	 	else{
 	 		if (user.length > 1){
@@ -141,7 +141,7 @@ router.post('/auth', function(req, res) {
 // ## process
 // Processes information to create a new account  ##### might not need #####
 router.post('/process', function(req,res){
-	res.redirect('/user/login');
+	res.redirect('/index/login');
 });
 
 module.exports = router;

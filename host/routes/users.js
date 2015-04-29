@@ -318,3 +318,4 @@ router.post('/auth', function(req, res) {
       	});
       });
 
+module.exports = router;

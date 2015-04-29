@@ -144,4 +144,4 @@ router.post('/process', function(req,res){
 	res.redirect('/index/login');
 });
 
-exports.router = router;
+module.exports = router;

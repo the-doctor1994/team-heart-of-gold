@@ -101,6 +101,7 @@ router.put('/match', function(req, res) {
 			}
 		});
 		//TODO: send the realMatches array back to the client
+		res.send(realMatches); // is the client just expecting an array?
 	});
 });
 
@@ -183,7 +184,10 @@ router.post('/auth', function(req, res) {
  		user.username = req.body.username;
  		user.password = req.body.password;
  		// TODO: any other parts of the user's object that we know
-
+ 		// Tyler: We'll want this information, right?
+		user.school = req.body.school;
+		user.courses = req.body.courses;
+		user.interests = req.body.interests;
  		usersdb.add(user, function(error, newUser) {
  			if(error) { res.send(error); }
  			//do any callback stuff here.
@@ -222,7 +226,11 @@ router.post('/auth', function(req, res) {
  	 	var updatedUser = {};
  	 	updatedUser.username = req.body.username;
  	 	updatedUser.password = req.body.password;
- 	 	//TODO: any other parts of the user's object that we know
+ 	 	//TODO: any other parts of the user's object that we 
+ 	 	 // Tyler: We'll want this information, right?
+		user.school = req.body.school;
+		user.courses = req.body.courses;
+		user.interests = req.body.interests;
  	 	usersdb.put(updatedUser, function(error) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here

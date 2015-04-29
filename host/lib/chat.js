@@ -5,7 +5,7 @@ var environment_settings = {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'chat',
+    database: 'chats',
     connectionLimit: 10,
     supportBigNumbers: true
   }
@@ -13,120 +13,138 @@ var environment_settings = {
 
 environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
-exports.get = function(username, callback) {
-  var sql = "SELECT * FROM users WHERE username=";
-  sql.concat(username);
-
-  pool.getConnection( function(error, connection) {
-    if(error) { console.log(error); callback(error);
-      return;
-    }
-
-    connection.query(sql, queryValues, function(error, user) {
-      connection.release();
-      if(error) { console.log(error); callback(error);
-        return;
-      }
-      callback(error, user);
-    });
-  });
-};
-
-exports.add = function(newUser, callback) {
-  var queryKeys = Object.keys(newUser);
-  var queryValues = [];
-
-  var sql = "INSERT INTO users (";
-  var sql2 = ") VALUES (";
-  queryKeys.forEach( function(key, index, keyArray) {
-    if(queryValues.length > 0){
-      sql.concat(", ");
-      sql2.concat(", ");
-    }
-    sql.concat(key);
-    sql2.concat("?");
-  });
-  sql.concat(sql2);
-
-  pool.getConnection( function(error, connection) {
-    if(error) { console.log(error); callback(error); return; }
-
-    connection.query(sql, queryValues, function(error) {
-      connection.release();
-      if(error) { console.log(error); callback(error); return; }
-      callback(error, newUser);
-    });
-  });
-};
-
-exports.query = function(queryObj, callback) {
-  var queryKeys = Object.keys(queryObj);
-  var queryValues = [];
-
-  var sql = "SELECT * FROM users WHERE";
-  queryKeys.forEach( function(key, index, keyArray) {
-    sql.concat(" ", key, "=?");
-    queryValues[index] = queryObj[key];
-  });
-
-  pool.getConnection( function(error, connection) {
-    if(error) { console.log(error); callback(error); return; }
-
-    connection.query(sql, queryValues, function(error, results) {
-      connection.release();
-      if(error) { console.log(error); callback(error); return; }
-      callback(error, results);
-    });
-  });
-};
-
-//to modify existing entries in the users table
-exports.put = function(updatedUser, callback) {
-  var columnKeys = Object.keys(updatedUser);
-  var columnValues = [];
-
-  var sql = "UPDATE users SET";
-  columnKeys.forEach( function(key, index, keyArray) {
-    if(key === "username"){
-      uidOfObjectToUpdate = updatedUser[key];
-    } else {
-      if(queryValues.length > 0) {
-        sql.concat(",");
-      }
-      sql.concat(" ", key, "=?");
-      queryValues[index] = updatedUser[key];
-    }
-  });
-  sql.concat(" WHERE username=", uidOfObjectToUpdate);
+//retrieve the user information of one user
+exports.get = function(uid, callback) {
+  var sql = "SELECT FROM chat WHERE uid=?";
 
   pool.getConnection( function(error, connection) {
     if(error) {
-      console.log(error); callback(error);
-      return;
+      console.log(error);
+      callback(error);
     }
-
-    connection.query(sql, queryValues, function(error, numRowsChanged) {
-      connection.release();
-      if(error) {
-        console.log(error); callback(error);
-        return;
-      }
-      callback(error, updatedUser);
-    });
+    else{
+      connection.query(sql, uid, function(error, chat){
+        connection.release();
+        if(error){
+          console.log(error);
+          callback(error);
+        }
+        else{
+          callback('', chat);
+        }
+      });
+    }
   });
 };
 
-//to delete a user from the table
-exports.delete = function(username, callback){
-  var sql = "DELETE FROM users WHERE username = " + username;
+//to add a new user to the users database
+exports.add = function(newChat, callback) {
+
+  var sql = "INSERT INTO chats SET ?";
+
   pool.getConnection( function(error, connection) {
-    if(error) { console.log(error); callback(error);
-      return;
-    }
-    connection.query(sql, function(error) {
-      connection.release();
-      if(error) { console.log(error);}
+    if(error) {
+      console.log(error);
       callback(error);
+    }
+    else{
+      connection.query(sql, newChat, function(error){
+        connection.release();
+        if(error){
+          console.log(error);
+          callback(error);
+        }
+        else{
+          callback('',newUser);
+        }
+      });
+    }
+  });
+};
+
+//returns all entries that match any set of key pairs
+exports.query = function(queryObj, callback) {
+  //var queryKeys = Object.getOwnPropertyNames(queryObj);
+
+  var sql = "SELECT * FROM chats WHERE";
+  queryObj.forEach( function(key, index) {
+    if(index > 0){
+      sql.concat(" AND ");
+    }
+    sql.concat(" ", key, "='", queryObj[key], "'");
+  });
+
+  pool.getConnection( function(error, connection) {
+    if(error) {
+      console.log(error);
+      callback(error);
+    }
+    else{
+      connection.query(sql,function(error,results){
+        connection.release();
+        if(error){
+          console.log(error);
+          callback(error);
+        }
+        else{
+          callback('',results);
+        }
+      });
+    }
+  });
+};
+
+//to modify EXISTING entries in the users table for one user only
+exports.put = function(updatedConvo, callback) {
+  var userKeys = Object.getOwnPropertyNames(updatedConvo);
+
+  var sql = "UPDATE chats SET ? WHERE username=?";
+
+  var uidOfObjectToUpdate = updatedUser['username'];
+  if(!uidOfObjectToUpdate){
+    callback('no username entered');
+  }
+  else{
+    pool.getConnection(function(error,connection){
+      if(error){
+        console.log(error);
+        callback(error);
+      }
+      else{
+        connection.query(sql, [userKeys, uidOfObjectToUpdate], function(error){
+          connection.release();
+          if(error){
+            console.log(error);
+            callback(error);
+          }
+          else{
+            callback('',updatedUser);
+          }
+        });
+      }
     });
+  }
+};
+
+//to delete ONE user from the table
+exports.delete = function(uid, callback){
+  var sql = "DELETE FROM chats WHERE username=?";
+  pool.getConnection( function(error, connection) {
+    if(error) {
+      console.log(error);
+      callback(error);
+    }
+    else{
+      connection.query(sql, uid, function(error){
+        connection.release();
+        if(error){
+          console.log(error);
+          callback(error);
+        }
+        else{
+          callback('', uid);
+        }
+      });
+    }
   });
 };

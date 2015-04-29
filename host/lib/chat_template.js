@@ -1,14 +1,14 @@
-var mysql = require('mysql');
+var mysql = require('node-mysql');
 
 var environment_settings = {
-	dbConnectionSettings: {
+  dbConnectionSettings: {
     host: 'localhost',
-  	user: 'root',
-		password: '',
-	  database: 'chats',
-		connectionLimit: 10,
- 	 	supportBigNumbers: true
-	},
+    user: 'root',
+    password: '',
+    database: 'chats',
+    connectionLimit: 10,
+    supportBigNumbers: true
+  }
 };
 
 environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
@@ -76,11 +76,12 @@ exports.query = function(queryObj, callback) {
 	});
 };
 
+//to modify existing entries in the users table
 exports.put = function(updatedConvo, callback) {
   var columnKeys = Object.keys(updatedConvo);
   var columnValues = [];
-  
-  var sql = "UPDATE users SET"
+
+  var sql = "UPDATE users SET";
   columnKeys.forEach( function(key, index, keyArray) {
     if(key === "uid"){
       uidOfObjectToUpdate = updatedConvo[key];
@@ -106,11 +107,12 @@ exports.put = function(updatedConvo, callback) {
         console.log(error); callback(true);
         return;
       }
-      callback(false, updatedConvo);
+      callback(error, updatedConvo);
     });
   });
 };
 
+//to delete a user from the table
 exports.delete = function(uid, callback){
   var sql = "DELETE FROM chats WHERE uid = " + uid;
   pool.getConnection( function(error, connection) {

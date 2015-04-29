@@ -227,7 +227,7 @@ router.post('/auth', function(req, res) {
  	 	updatedUser.username = req.body.username;
  	 	updatedUser.password = req.body.password;
  	 	//TODO: any other parts of the user's object that we 
- 	 	 // Tyler: We'll want this information, right?
+ 	 	// Tyler: We'll want this information, right?
 		user.school = req.body.school;
 		user.courses = req.body.courses;
 		user.interests = req.body.interests;
@@ -269,7 +269,7 @@ router.post('/auth', function(req, res) {
 
  		chats.add(user, function(error, newChat) {
  			if(error) { res.send(error); }
- 			//do any callback stuff here.
+ 			//TODO: do any callback stuff here.
  		});
  	})
 

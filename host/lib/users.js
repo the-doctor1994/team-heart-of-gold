@@ -1,4 +1,4 @@
-var mysql = require('node-mysql');
+var mysql = require('mysql');
 
 var environment_settings = {
 	dbConnectionSettings: {

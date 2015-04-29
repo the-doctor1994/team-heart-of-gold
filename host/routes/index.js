@@ -114,5 +114,4 @@ router.post('/process', function(req,res){
 	res.redirect('/user/login');
 });
 
->>>>>>> 828ffed3b9b767687aa9def4930310364c5a6d1d
 module.exports = router;

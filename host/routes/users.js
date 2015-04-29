@@ -27,6 +27,16 @@ router.get('/logout', function(req, res) {
 		res.redirect('/index/login');
 	}
 
+	usersdb.put(user, function(err, dbuser) {
+		if (err) {
+			req.flash('auth', error);
+			res.redirect('/index/login');
+		}
+		else {
+			user.online = false;
+		}
+	});
+
 	delete req.session.user;
 	res.redirect('/index/login');
 });
@@ -49,6 +59,51 @@ router.get('/match', function(req, res) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/index/login');
 	}
+});
+
+/*
+ * If you pass a user in the req.body, then we will find all users that:
+ *	-are in the same school
+ *	-is in at least one of the same classes as the passed user
+ * 	-has at least one shared interest as the passed user
+ */
+router.put('/match', function(req, res) {
+	if(user === undefined || online[user.id] === undefined) {
+		req.flash('auth', 'Not logged in!');
+		res.redirect('/user/login');
+	}
+	var user = {};
+	user.username = req.body.username;
+	user.password = req.body.password;
+	user.school = req.body.school;
+	user.courses = req.body.courses;
+	user.interests = req.body.interests;
+
+	users.query({school: user.school}, function(error, results) {
+		var realMatches = [];
+		//For each user at the same school
+		results.forEach(function(pMatch, index){
+			var inSameClass = false;
+			//For each course that this pMatch is enrolled in
+			for(var i = 0; i < pMatch.courses.length; i++) {
+				//If the pMatch user shares at least one course, keep this pMatch
+				if(user.courses.indexOf(pMatch.courses[i]) !== -1) {
+					inSameClass = true;
+					break;
+				}
+			}
+			//If this pMatch is in at least one of the same courses as our user
+			if(inSameClass){
+				//For each interest that this pMatch has, if out user shares one, then pMatch is a real match
+				for(var j = 0; j < pMatch.interests.length; j++) {
+					if(user.interests.indexOf(pMatch.interests[j]) !== -1) {
+						realMatches.push(pMatch);
+					}
+				}
+			}
+		});
+		//TODO: send the realMatches array back to the client
+	});
 });
 
 // ## chat
@@ -128,7 +183,7 @@ router.post('/auth', function(req, res) {
  	.post(function(req, res) {
  		var user = {};
  		user.username = req.body.username;
- 		user.username = req.body.password;
+ 		user.password = req.body.password;
  		// TODO: any other parts of the user's object that we know
 
  		usersdb.add(user, function(error, newUser) {

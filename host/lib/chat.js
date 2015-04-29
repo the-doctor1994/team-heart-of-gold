@@ -2,20 +2,21 @@ var mysql = require('node-mysql');
 
 var environment_settings = {
   dbConnectionSettings: {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'chats',
+    host: 'mysql3.000webhost.com',
+    user: 'admin',
+    password: 'honeypot94',
+    database: 'a9606264_chat',
     connectionLimit: 10,
     supportBigNumbers: true
   }
 };
 
-environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
+var db = environment_settings.dbConnectionSettings.database;
+var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
 //retrieve the user information of one user
-exports.get = function(uid, callback) {
-  var sql = "SELECT FROM chat WHERE uid=?";
+exports.get = function(chatid, callback) {
+  var sql = "SELECT FROM ?? WHERE chatid=?";
 
   pool.getConnection( function(error, connection) {
     if(error) {
@@ -23,7 +24,7 @@ exports.get = function(uid, callback) {
       callback(error);
     }
     else{
-      connection.query(sql, uid, function(error, chat){
+      connection.query(sql, [db, chatid], function(error, chat){
         connection.release();
         if(error){
           console.log(error);
@@ -40,7 +41,7 @@ exports.get = function(uid, callback) {
 //to add a new user to the users database
 exports.add = function(newChat, callback) {
 
-  var sql = "INSERT INTO chats SET ?";
+  var sql = "INSERT INTO ?? SET ?";
 
   pool.getConnection( function(error, connection) {
     if(error) {
@@ -48,7 +49,7 @@ exports.add = function(newChat, callback) {
       callback(error);
     }
     else{
-      connection.query(sql, newChat, function(error){
+      connection.query(sql, [db, newChat], function(error){
         connection.release();
         if(error){
           console.log(error);
@@ -66,7 +67,7 @@ exports.add = function(newChat, callback) {
 exports.query = function(queryObj, callback) {
   //var queryKeys = Object.getOwnPropertyNames(queryObj);
 
-  var sql = "SELECT * FROM chats WHERE";
+  var sql = "SELECT * FROM ?? WHERE";
   queryObj.forEach( function(key, index) {
     if(index > 0){
       sql.concat(" AND ");
@@ -80,7 +81,7 @@ exports.query = function(queryObj, callback) {
       callback(error);
     }
     else{
-      connection.query(sql,function(error,results){
+      connection.query(sql, db, function(error,results){
         connection.release();
         if(error){
           console.log(error);
@@ -98,10 +99,10 @@ exports.query = function(queryObj, callback) {
 exports.put = function(updatedConvo, callback) {
   var userKeys = Object.getOwnPropertyNames(updatedConvo);
 
-  var sql = "UPDATE chats SET ? WHERE username=?";
+  var sql = "UPDATE ?? SET ?? WHERE username=?";
 
-  var uidOfObjectToUpdate = updatedUser['username'];
-  if(!uidOfObjectToUpdate){
+  var chatidOfObjectToUpdate = updatedConvo[username];
+  if(!chatidOfObjectToUpdate){
     callback('no username entered');
   }
   else{
@@ -111,14 +112,14 @@ exports.put = function(updatedConvo, callback) {
         callback(error);
       }
       else{
-        connection.query(sql, [userKeys, uidOfObjectToUpdate], function(error){
+        connection.query(sql, [db, userKeys, chatidOfObjectToUpdate], function(error){
           connection.release();
           if(error){
             console.log(error);
             callback(error);
           }
           else{
-            callback('',updatedUser);
+            callback('',updatedConvo);
           }
         });
       }
@@ -127,22 +128,22 @@ exports.put = function(updatedConvo, callback) {
 };
 
 //to delete ONE user from the table
-exports.delete = function(uid, callback){
-  var sql = "DELETE FROM chats WHERE username=?";
+exports.delete = function(chatid, callback){
+  var sql = "DELETE FROM ?? WHERE username=?";
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, uid, function(error){
+      connection.query(sql, [db, chatid], function(error){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
-          callback('', uid);
+          callback('', chatid);
         }
       });
     }

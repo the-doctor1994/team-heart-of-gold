@@ -2,20 +2,21 @@ var mysql = require('node-mysql');
 
 var environment_settings = {
 	dbConnectionSettings: {
-      host: 'localhost',
+      host: 'mysql3.000webhost.com',
       user: 'root',
-      password: '',
-      database: 'users',
+      password: 'honeypot94',
+      database: 'a9606264_users',
       connectionLimit: 10,
       supportBigNumbers: true
 	}
 };
 
-environment_settings.connection_pool = mysql.createPool(environment_settings.dbConnectionSettings);
+var db = environment_settings.dbConnectionSettings.database;
+var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
 //retrieve the user information of one user
 exports.get = function(username, callback) {
-  var sql = "SELECT FROM users WHERE username=?";
+  var sql = "SELECT FROM ?? WHERE username=?";
   
   pool.getConnection( function(error, connection) {
     if(error) {
@@ -23,7 +24,7 @@ exports.get = function(username, callback) {
       callback(error);
     }
     else{
-      connection.query(sql, username, function(error, user){
+      connection.query(sql, [db, username], function(error, user){
         connection.release();
         if(error){
           console.log(error);
@@ -40,7 +41,7 @@ exports.get = function(username, callback) {
 //to add a new user to the users database
 exports.add = function(newUser, callback) {
 
-  var sql = "INSERT INTO users SET ?";
+  var sql = "INSERT INTO ?? SET ?";
 
   pool.getConnection( function(error, connection) {
     if(error) {
@@ -48,7 +49,7 @@ exports.add = function(newUser, callback) {
       callback(error);
     }
     else{
-      connection.query(sql, newUser, function(error){
+      connection.query(sql, [db, newUser], function(error){
         connection.release();
         if(error){
           console.log(error);
@@ -66,7 +67,7 @@ exports.add = function(newUser, callback) {
 exports.query = function(queryObj, callback) {
   //var queryKeys = Object.getOwnPropertyNames(queryObj);
   
-  var sql = "SELECT * FROM users WHERE";
+  var sql = "SELECT * FROM ?? WHERE";
   queryObj.forEach( function(key, index) {
     if(index > 0){
       sql.concat(" AND ");
@@ -74,13 +75,13 @@ exports.query = function(queryObj, callback) {
     sql.concat(" ", key, "='", queryObj[key], "'");
   });
 
-  pool.getConnection( function(error, connection) {
+  pool.getConnection(function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql,function(error,results){
+      connection.query(sql, db, function(error,results){
         connection.release();
         if(error){
           console.log(error);
@@ -98,7 +99,7 @@ exports.query = function(queryObj, callback) {
 exports.put = function(updatedUser, callback) {
   var userKeys = Object.getOwnPropertyNames(updatedUser);
 
-  var sql = "UPDATE users SET ? WHERE username=?";
+  var sql = "UPDATE ?? SET ?? WHERE username=?";
 
   var uidOfObjectToUpdate = updatedUser['username'];
   if(!uidOfObjectToUpdate){
@@ -111,7 +112,7 @@ exports.put = function(updatedUser, callback) {
         callback(error);
       }
       else{
-        connection.query(sql, [userKeys, uidOfObjectToUpdate], function(error){
+        connection.query(sql, [db, userKeys, uidOfObjectToUpdate], function(error){
           connection.release();
           if(error){
             console.log(error);
@@ -128,14 +129,14 @@ exports.put = function(updatedUser, callback) {
 
 //to delete ONE user from the table
 exports.delete = function(username, callback){
-  var sql = "DELETE FROM users WHERE username=?";
+  var sql = "DELETE FROM ?? WHERE username=?";
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, username, function(error){
+      connection.query(sql, [db, username], function(error){
         connection.release();
         if(error){
           console.log(error);

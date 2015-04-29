@@ -173,7 +173,7 @@ router.post('/auth', function(req, res) {
 /** 
  * ======USERS======
  *
- * ROUTES FOR THE RESTful DB SERVICE
+ * ROUTES FOR THE RESTFUL DB SERVICE
  */
  router.route('/users')
  	/*
@@ -190,8 +190,7 @@ router.post('/auth', function(req, res) {
  			if(error) { res.send(error); }
  			//do any callback stuff here.
  		});
- 	});
-<<<<<<< HEAD
+ 	})
 
  	/*
  	 * Route which handles a generic query to the users DB
@@ -199,19 +198,13 @@ router.post('/auth', function(req, res) {
  	 *	-Express is parsing anything after a '?' in a route into this object
  	 */
  	.get(function(req, res) {
-		users.query(req.query, function(error, results) {
+		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(error); }
 			//TODO: do any callback stuff here
 		}) 		
  	});
- };
-
-
- router.route('/users/:username') {
-=======
 
  router.route('/users/:username')
->>>>>>> aeda3bf4b3c936165ab99c49524f37c413dc0ce3
  	/*
  	 * Route which handles finding one specific User with username = :username
  	 * 		- JsonRest.get(id)
@@ -272,8 +265,7 @@ router.post('/auth', function(req, res) {
  			if(error) { res.send(error); }
  			//do any callback stuff here.
  		});
- 	});
-<<<<<<< HEAD
+ 	})
 
  	/*
  	 * Route which handles a generic query to the chats DB
@@ -281,14 +273,11 @@ router.post('/auth', function(req, res) {
  	 *	-Express is parsing anything after a '?' in a route into this object
  	 */
  	.get(function(req, res) {
-		users.query(req.query, function(error, results) {
+		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(error); }
 			//TODO: do any callback stuff here
 		}) 		
- 	});
- };
-=======
->>>>>>> aeda3bf4b3c936165ab99c49524f37c413dc0ce3
+ 	})
 
  router.route('/chats/:uid')
  	/*

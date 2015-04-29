@@ -1,14 +1,14 @@
-var mysql = require('node-mysql');
+var mysql = require('mysql');
 
 var environment_settings = {
-  dbConnectionSettings: {
-    host: 'mysql3.000webhost.com',
-    user: 'admin',
-    password: 'honeypot94',
-    database: 'a9606264_chat',
-    connectionLimit: 10,
-    supportBigNumbers: true
-  }
+    dbConnectionSettings: {
+      host: 'mysql3.000webhost.com',
+      user: 'admin',
+      password: 'honeypot94',
+      database: 'a9606264_chat',
+      connectionLimit: 10,
+      supportBigNumbers: true
+    }
 };
 
 var db = environment_settings.dbConnectionSettings.database;

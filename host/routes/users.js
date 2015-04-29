@@ -70,7 +70,7 @@ router.get('/match', function(req, res) {
 router.put('/match', function(req, res) {
 	if(user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/user/login');
+		res.redirect('/index/login');
 	}
 	var user = {};
 	user.username = req.body.username;

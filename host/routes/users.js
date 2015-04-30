@@ -285,9 +285,9 @@ router.post('/auth', function(req, res) {
  	 */
  	.post(function(req, res) {
  		var chat = {};
- 		chat.uid = req.body.uid;
- 		chat.hist = req.body.hist;
- 		// TODO: any other parts of the chat object that we know
+ 		// populate chat with history, other user, uid
+ 		chat = req.body;
+ 		// any other parts of the chat object that we know
 
  		chats.add(user, function(error, newChat) {
  			if(error) { res.send(error); }
@@ -325,9 +325,9 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedChat = {};
- 	 	updatedChat.uid = req.body.uid;
- 	 	updatedChat.hist = req.body.hist;
- 	 	//TODO: any other parts of the chat object that we know
+ 	 	// populate chat with history, other user, uid
+ 	 	chat = req.body;
+ 	 	// any other parts of the chat object that we know
  	 	chats.put(updatedChat, function(error) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here

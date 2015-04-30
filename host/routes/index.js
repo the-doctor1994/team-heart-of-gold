@@ -41,6 +41,7 @@ router.get('/login', function(req, res){
 	 	else{
 	 		if (user.length > 1){
 	 			//oh my: user object should not return more than one user
+	 			console.log('there is a user signed in twice')
 	 		}
 	 		else if (user.length === 0){
 	 			// User is not online, redirect to login page

@@ -89,7 +89,7 @@ router.put('/match', function(req, res) {
 		//For each user at the same school
 		results.forEach(function(pMatch, index){
 			var inSameClass = false;
-			//For each course that this pMatch is enrolled in
+			// For each course that this pMatch is enrolled in
 			for(var i = 0; i < pMatch.courses.length; i++) {
 				//If the pMatch user shares at least one course, keep this pMatch
 				if(user.courses.indexOf(pMatch.courses[i]) !== -1) {
@@ -97,7 +97,7 @@ router.put('/match', function(req, res) {
 					break;
 				}
 			}
-			//If this pMatch is in at least one of the same courses as our user
+			// If this pMatch is in at least one of the same courses as our user
 			if(inSameClass){
 				//For each interest that this pMatch has, if out user shares one, then pMatch is a real match
 				for(var j = 0; j < pMatch.interests.length; j++) {
@@ -107,7 +107,7 @@ router.put('/match', function(req, res) {
 				}
 			}
 		});
-		//TODO: send the realMatches array back to the client
+		// send the realMatches array back to the client
 		res.send(realMatches); // is the client just expecting an array?
 	});
 });
@@ -139,11 +139,17 @@ router.post('/auth', function(req, res) {
 			else {
 				if (user.length > 1) {
 					// uh oh
+					// there is somehow a user signed in twice
+					console.log('there is a user signed in twice')
 				}
 				else if (user.length === 0) {
+					// there is no user signed in with that username/password
 					res.redirect('/index/login');
 				}
 				else {
+					// thee is exactly 1 user signed in with that username/password,
+					// so just redirect to home since the correct username/password
+					// were provided
 					req.session.user = user[0];
 					res.redirect('/users/home');
 				}
@@ -192,7 +198,7 @@ router.post('/auth', function(req, res) {
  		/*
  		user.username = req.body.username;
  		user.password = req.body.password;
- 		// TODO: any other parts of the user's object that we know
+ 		// any other parts of the user's object that we know
  		// Tyler: We'll want this information, right?
 		user.school = req.body.school;
 		user.courses = req.body.courses;
@@ -241,7 +247,7 @@ router.post('/auth', function(req, res) {
  	 	/*
  	 	updatedUser.username = req.body.username;
  	 	updatedUser.password = req.body.password;
- 	 	//TODO: any other parts of the user's object that we 
+ 	 	//any other parts of the user's object that we 
  	 	// Tyler: We'll want this information, right?
 		user.school = req.body.school;
 		user.courses = req.body.courses;

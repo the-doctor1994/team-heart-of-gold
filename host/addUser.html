@@ -3,8 +3,8 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta>
 	<script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"
             data-dojo-config="async: true"></script>
-	<script src="wscript/script.js"></script>
-	
+	<script type="text/javascript" src="wscript/script.js"></script>
+	<script type="text/javascript">require(['util'], function(util){util.maketable(["PHYSICS", "COMPSCI", "BIOLOGY"], ["100\'s", "200\'s", "300\'s", "400\'s", "500\'s"])});</script>
 	<link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
 
 </head>
@@ -61,15 +61,17 @@
 			<h4>School Name</h4>
 			<input class="fadein" type="text" name="school" id="school">
 			<h4>Courses</h4>
-			<input class="fadein" type="text" name="courses" id="courses">
+			<!--<input class="fadein" type="text" name="courses" id="courses">-->
+			<div id="coursesDiv">
+			</div>
 			<h4>Age</h4>
 			<input class="fadein" type="text" name="age" id="age">
 			<h4>Study Preferences</h4>
 			<input class="fadein" type="text" name="study_pref" id="study_pref">
 
 			<div id="fadediv">
-				<input id="fadeout" type="submit" value="Login">
-				<input id="fadein" type="submit" value="Login">
+				<input id="fadeout" type="submit" value="Create">
+				<input id="fadein" type="submit" value="Create"">
 			</div>
 			</form>
 			<p id="foot">Copyright 2015 "StudyBuddy" by Heart of Gold</p>

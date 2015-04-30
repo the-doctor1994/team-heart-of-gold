@@ -49,7 +49,7 @@ router.get('/login', function(req, res){
 	 		else if (user.length === 0){
 	 			// User is not online, redirect to login page
 	 			// Render the login view if this is a new login.
-    			res.render('login.html');
+    			res.render('login');
 	 		}
 	 		else{
 	 			// User is online, set current user and redirect to home
@@ -62,7 +62,7 @@ router.get('/login', function(req, res){
 	else {
 		// User is not online, redirect to login page
 	 	// Render the login view if this is a new login.
-    	res.render('login.html');
+    	res.render('login');
 	}
 });
 
@@ -93,7 +93,7 @@ router.get('/new', function(req, res){
 	 		else if (user.length === 0){
 	 			// User is not online, redirect to login page
 	 			// Render the new user view to create new user.
-    			res.render('adduser.html');
+    			res.render('adduser');
 	 		}
 	 		else{
 	 			// User is online, set current user and redirect to home
@@ -106,7 +106,7 @@ router.get('/new', function(req, res){
 	else {
 		// User is not online, redirect to login page
 	 	// Render the new user view to create new user.
-    	res.render('adduser.html');
+    	res.render('adduser');
 	}
 });
 

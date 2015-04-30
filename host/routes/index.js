@@ -33,10 +33,10 @@ router.get('/login', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 usersdb.query({username: username, password: password, online: true}, function(error, user){
+	 usersdb.query({username: username, password: password, online: true}, function(error, user){	
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
-			// redirected route `/index/login`
+			// redirected route `/index/login`.
 	 		req.flash('auth', error);
 	 		res.redirect('/index/login');
 	 	}
@@ -119,6 +119,8 @@ router.post('/auth', function(req, res) {
 	 //Check DB to see if user is already online
 	 usersdb.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
+	 		// If there is an error we "flash" a message to the
+			// redirected route `/index/login`.
 	 		req.flash('auth', error);
 	 		res.redirect('/index/home');
 	 	}
@@ -150,7 +152,7 @@ router.post('/auth', function(req, res) {
 		usersdb.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
-				// redirected route `/user/login`.
+				// redirected route `/user/login`
 				req.flash('auth', error);
 				res.redirect('/index/login');
 			}
@@ -169,27 +171,18 @@ router.post('/auth', function(req, res) {
 // ## process
 // Processes information to create a new account 
 router.post('/process', function(req,res){
-	/*
-	 TODO: Add user with following fields to DB
-		username
-		password
-		name
-		school
-		courses
-		age
-		study_pref
-
-		user = req.body;
-
-		get to check if usename is already in DB
-	*/
-	var user = req.body;
-	usersdb.get(user, function(error, user){
+	var newUser = req.body;
+	usersdb.get(newUser, function(error, user){
 		if(error){
-			// If there is an error we "flash" a message to the 
-			// redirected route '/index/new'
+			// If there is an error, user does not exist in db 
+			// adds user to db
+			usersdb.add(newUser);
+		}
+		else{
+			// User already exists in db, flashes error
+			// and redirects to make new user page
 			req.flash('auth', error);
-			res.redirect('/index/login');
+			res.redirect('/index/new');
 		}
 	});
 

@@ -145,7 +145,7 @@ router.post('/auth', function(req, res) {
 				}
 				else {
 					req.session.user = user[0];
-					res.redirect('/user/home');
+					res.redirect('/users/home');
 				}
 			}
 		});

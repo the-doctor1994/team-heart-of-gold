@@ -146,6 +146,9 @@ input:not([type=submit]):focus{
 	margin-left:100%
 }
 
+.container#adduser{
+	min-height: 1050px;
 
+}
 
 

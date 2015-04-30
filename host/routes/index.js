@@ -4,23 +4,23 @@ var usersdb = require('../lib/users');
 
 // ##### Server Side Routes For Users Not Logged In ##########
 
-// ## home
-// The home page view that will allow users to log in or create a new account
-router.get('/home', function(req, res) {
-	var message = req.flash('auth') || 'Login Successful';
-	// added session support
-	var user = req.session.user;
-	if (user === undefined) {
-		req.flash('auth', 'Not logged in!');
-		res.redirect('/index/login');
-	}
-	else {
-		res.render('main', { title   : 'User Main',
-			message : message,
-			username : user.username,
-			password : user.password });
-	}
-});
+// // ## home
+// // The home page view that will allow users to log in or create a new account
+// router.get('/home', function(req, res) {
+// 	var message = req.flash('auth') || 'Login Successful';
+// 	// added session support
+// 	var user = req.session.user;
+// 	if (user === undefined) {
+// 		req.flash('auth', 'Not logged in!');
+// 		res.redirect('/index/login');
+// 	}
+// 	else {
+// 		res.render('main', { title   : 'User Main',
+// 			message : message,
+// 			username : user.username,
+// 			password : user.password });
+// 	}
+// });
 
 // ## login
 // The login page for users to sign in
@@ -40,7 +40,7 @@ router.get('/login', function(req, res){
 	 usersdb.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
 	 		req.flash('auth', error);
-	 		res.redirect('/index/home');
+	 		res.redirect('/index/login');
 	 	}
 	 	else{
 	 		if (user.length > 1){
@@ -71,14 +71,49 @@ router.get('/login', function(req, res){
 // ## new
 // The page to make a new StuddyBuddy account
 router.get('/new', function(req, res){
+	// Grab any messages being sent to use from redirect.
+	var authMessage = req.flash('auth') || '';
 
+	// TDR: redirect if logged in:
+	var user  = req.session.user;
+
+	// TDR: If the user is already logged in - we redirect to the
+	// main application view. We must check that the database has the user marked as online. The reason is that
+	// the cookie may still be stored on the client even if the
+	// server has been restarted.
+	if (user !== undefined){
+	 //Check DB to see if user is already online
+	 usersdb.query({username: username, password: password, online: true}, function(error, user){
+	 	if(error){
+	 		req.flash('auth', error);
+	 		res.redirect('/index/login');
+	 	}
+	 	else{
+	 		if (user.length > 1){
+	 			//oh my: user object should not return more than one user
+	 		}
+	 		else if (user.length === 0){
+	 			// User is not online, redirect to login page
+	 			// Render the new user view to create new user.
+    			res.render('new', { title   : 'User Login',
+                          message : authMessage });
+	 		}
+	 		else{
+	 			// User is online, set current user and redirect to home
+	 			req.session.user = user[0];
+	 			res.redirect('/users/home');
+	 		}
+	 	}
+	 });
+	}
+	else {
+		// User is not online, redirect to login page
+	 	// Render the new user view to create new user.
+    	res.render('new', { title   : 'User Login',
+                   message : authMessage });
+	}
 });
 
-// ## forgot-password
-// The page to recover a lost password
-router.get('/forgot-password', function(req,res){
-
-});
 
 // ## auth
 // Performs basic user authentication fo login
@@ -141,7 +176,7 @@ router.post('/auth', function(req, res) {
 // ## process
 // Processes information to create a new account  ##### might not need #####
 router.post('/process', function(req,res){
-	res.redirect('/index/login');
+	
 });
 
 module.exports = router;

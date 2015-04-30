@@ -49,8 +49,7 @@ router.get('/login', function(req, res){
 	 		else if (user.length === 0){
 	 			// User is not online, redirect to login page
 	 			// Render the login view if this is a new login.
-    			res.render('login', { title   : 'User Login',
-                          message : authMessage });
+    			res.render('login.html');
 	 		}
 	 		else{
 	 			// User is online, set current user and redirect to home
@@ -63,8 +62,7 @@ router.get('/login', function(req, res){
 	else {
 		// User is not online, redirect to login page
 	 	// Render the login view if this is a new login.
-    	res.render('login', { title   : 'User Login',
-                   			message : authMessage });
+    	res.render('login.html');
 	}
 });
 
@@ -95,8 +93,7 @@ router.get('/new', function(req, res){
 	 		else if (user.length === 0){
 	 			// User is not online, redirect to login page
 	 			// Render the new user view to create new user.
-    			res.render('new', { title   : 'User Login',
-                          message : authMessage });
+    			res.render('adduser.html');
 	 		}
 	 		else{
 	 			// User is online, set current user and redirect to home
@@ -109,8 +106,7 @@ router.get('/new', function(req, res){
 	else {
 		// User is not online, redirect to login page
 	 	// Render the new user view to create new user.
-    	res.render('new', { title   : 'User Login',
-                   message : authMessage });
+    	res.render('adduser.html');
 	}
 });
 
@@ -176,7 +172,7 @@ router.post('/auth', function(req, res) {
 // ## process
 // Processes information to create a new account  ##### might not need #####
 router.post('/process', function(req,res){
-	
+
 });
 
 module.exports = router;

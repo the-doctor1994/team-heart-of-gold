@@ -4,7 +4,7 @@
 ##<i>"StudyBuddy"</i>
 
 
-#Technical Specification
+#Technical Design Specification
 
 ##Database Modules/Components:
 <!--
@@ -15,7 +15,15 @@ interact with to make the application function
 
 This Json file will contain the necessary information about our application, as well as keep track of our dependencies:
 
+* body-parser
+* connect-flash
+* cookie-parser
+* debug
+* ejs
 * express
+* express-session
+* morgan
+* serve-favicon
 * mysql
 
 ###user.sql

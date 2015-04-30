@@ -112,6 +112,10 @@ a:hover{
 	font-weight: bold;
 	color: #b2b2b2;
 }
+select{
+	position:relative;
+	min-width:50%;
+}
 input:not([type=submit]){
 	/*border-style: solid
 	;border-color: #E6E6E6;
@@ -126,6 +130,31 @@ input:not([type=submit]){
   -o-transition: border 0.3s;
   transition: border 0.3s;
   outline-width: 0;/*no glowy border yay!*/
+}
+input[type="checkbox"]
+{
+    display: none;
+}
+#coursechoosing tr
+{
+	margin-left : -.2em;
+	margin-bottom : .1em;
+}
+#coursechoosing th
+{
+	color : #A30000;
+}
+#coursechoosing td{
+	padding: 2px;
+}
+label
+{
+	color : #b2b2b2;
+}
+input[type="checkbox"]:checked  + label
+{
+	color: #A30000;
+	
 }
 input:not([type=submit]):focus{
 /*	border-color: #EBC633;

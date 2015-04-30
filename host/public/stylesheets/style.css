@@ -131,7 +131,8 @@ input:not([type=submit]){
   transition: border 0.3s;
   outline-width: 0;/*no glowy border yay!*/
 }
-input[type="checkbox"]
+input[type="checkbox"],
+input[type="radio"]
 {
     display: none;
 }
@@ -150,11 +151,32 @@ input[type="checkbox"]
 label
 {
 	color : #b2b2b2;
+	border-bottom-style: solid;
+	border-bottom-width: .1px;
+	border-bottom-color: #A30000;
 }
-input[type="checkbox"]:checked  + label
+label:hover
+{
+	color : #000000;
+}
+input[type="checkbox"]:checked  + label,
+input[type="radio"]:checked + label
 {
 	color: #A30000;
 	
+}
+input[type="text"], input[type="password"]
+{
+	width: auto;
+	overflow : visible;
+	float: right;
+	display : flex;
+	color: #b2b2b2;
+}
+input[type="text"]:focus, input[type="password"]:focus
+{
+	color : #A30000;
+	font-style: italic;
 }
 input:not([type=submit]):focus{
 /*	border-color: #EBC633;

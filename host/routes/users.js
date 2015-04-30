@@ -71,11 +71,18 @@ router.put('/match', function(req, res) {
 		res.redirect('/index/login');
 	}
 	var user = {};
+	user = req.body;
+	/*
 	user.username = req.body.username;
 	user.password = req.body.password;
 	user.school = req.body.school;
 	user.courses = req.body.courses;
 	user.interests = req.body.interests;
+	// THESE WILL ALSO BE FIELDS OF USER
+	// conversations
+	// matches
+	// unmatches
+	*/
 
 	users.query({school: user.school}, function(error, results) {
 		var realMatches = [];
@@ -181,6 +188,8 @@ router.post('/auth', function(req, res) {
  	 */
  	.post(function(req, res) {
  		var user = {};
+ 		user = req.body;
+ 		/*
  		user.username = req.body.username;
  		user.password = req.body.password;
  		// TODO: any other parts of the user's object that we know
@@ -188,6 +197,10 @@ router.post('/auth', function(req, res) {
 		user.school = req.body.school;
 		user.courses = req.body.courses;
 		user.interests = req.body.interests;
+		// conversations
+		// matches
+		// unmatches
+		*/
  		usersdb.add(user, function(error, newUser) {
  			if(error) { res.send(error); }
  			//do any callback stuff here.
@@ -224,6 +237,8 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedUser = {};
+ 	 	user = req.body;
+ 	 	/*
  	 	updatedUser.username = req.body.username;
  	 	updatedUser.password = req.body.password;
  	 	//TODO: any other parts of the user's object that we 
@@ -231,6 +246,7 @@ router.post('/auth', function(req, res) {
 		user.school = req.body.school;
 		user.courses = req.body.courses;
 		user.interests = req.body.interests;
+		*/
  	 	usersdb.put(updatedUser, function(error) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here

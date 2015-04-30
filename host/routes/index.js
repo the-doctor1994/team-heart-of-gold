@@ -25,13 +25,9 @@ var usersdb = require('../lib/users');
 // ## login
 // The login page for users to sign in
 router.get('/login', function(req, res){
-	// Grab any messages being sent to use from redirect.
-	var authMessage = req.flash('auth') || '';
-
-	// TDR: redirect if logged in:
 	var user  = req.session.user;
 
-	// TDR: If the user is already logged in - we redirect to the
+	// If the user is already logged in - we redirect to the
 	// main application view. We must check that the database has the user marked as online. The reason is that
 	// the cookie may still be stored on the client even if the
 	// server has been restarted.
@@ -69,13 +65,9 @@ router.get('/login', function(req, res){
 // ## new
 // The page to make a new StuddyBuddy account
 router.get('/new', function(req, res){
-	// Grab any messages being sent to use from redirect.
-	var authMessage = req.flash('auth') || '';
-
-	// TDR: redirect if logged in:
 	var user  = req.session.user;
 
-	// TDR: If the user is already logged in - we redirect to the
+	// If the user is already logged in - we redirect to the
 	// main application view. We must check that the database has the user marked as online. The reason is that
 	// the cookie may still be stored on the client even if the
 	// server has been restarted.
@@ -170,8 +162,22 @@ router.post('/auth', function(req, res) {
 });
 
 // ## process
-// Processes information to create a new account  ##### might not need #####
+// Processes information to create a new account 
 router.post('/process', function(req,res){
+	/*
+	 TODO: Add user with following fields to DB
+		username
+		password
+		name
+		school
+		courses
+		age
+		study_pref
+
+		user = req.body;
+
+		get to check if usename is already in DB
+	*/
 
 });
 

@@ -33,8 +33,7 @@ This mySQL database file will create a table for a user which includes:
 * id (unique per user - email if using facebook integration)
 * name (Real first name)
 * age
-* profile picture
-* active (or time of last logout)
+* online
 * bio
 * school
 * courses
@@ -44,18 +43,25 @@ This mySQL database file will create a table for a user which includes:
 * pending buddies (one way request to be buddies, not yet confirmed buddies)
 * buddies (matches that have been reciprocated)
 
-###user.js
+###users.js
 
 This javascript file will export the following fuctions:
 
-* find
+* get
 	* Returns a specific user from the database (self - based off of unique auth id)
-* update
+
+* put
 	* Allow for existing database entry to be updated
 		* Update ripples user changes through to all dependencies in the database (matches are updated)
-* insert
+* add
 	* Allow for non pre-existing user to be entered into the database
 		* Update for all pre-existing user matches is performed
+
+* query
+	* Returns all users from the database matching a set of key-value pairs representing the users' fields
+
+* delete
+	* Deletes a user from the db
 
 *Brenton Chasse and Grayson Kempster, 04/10/15*
 
@@ -102,9 +108,15 @@ List out different components you will need - List out how you plan to implement
 interact with to make the application function
 -->
 
-###studystyle.css
+###style.css
 
 This will be a universal stylesheet for the website that will create a universal look-and-feel
+
+This is a base level component and has no dependencies
+
+##nav.css
+
+This will control the styling of the navbar
 
 This is a base level component and has no dependencies
 

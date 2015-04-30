@@ -161,7 +161,6 @@ router.post('/auth', function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		// This should actually be a db query.
 		usersdb.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the

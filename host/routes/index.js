@@ -109,9 +109,6 @@ router.get('/new', function(req, res){
 router.post('/auth', function(req, res) {
 	// redirect if logged in:
 	var user = req.session.user;
-	// Pull the values from the form.
-	var username = req.body.username;
-	var password = req.body.password;
 
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined){
@@ -142,6 +139,9 @@ router.post('/auth', function(req, res) {
 	 });
 	}
 	else {
+		// Pull the values from the form.
+		var username = req.body.username;
+		var password = req.body.password;
 		// Perform the user lookup.
 		usersdb.query({username: username, password: password}, function(error, user) {
 			if (error) {

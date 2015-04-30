@@ -84,7 +84,7 @@ router.put('/match', function(req, res) {
 	// unmatches
 	*/
 
-	users.query({school: user.school}, function(error, results) {
+	usersdb.query({school: user.school}, function(error, results) {
 		var realMatches = [];
 		//For each user at the same school
 		results.forEach(function(pMatch, index){
@@ -108,7 +108,7 @@ router.put('/match', function(req, res) {
 			}
 		});
 		// send the realMatches array back to the client
-		res.send(realMatches); // is the client just expecting an array?
+		res.send(realMatches);
 	});
 });
 
@@ -208,7 +208,10 @@ router.post('/auth', function(req, res) {
 		*/
  		usersdb.add(user, function(error, newUser) {
  			if(error) { res.send(error); }
- 			//do any callback stuff here.
+ 			// do any callback stuff here.
+ 			// for sending to the client in order to automatically log in after
+ 			// profile creation
+ 			res.send(JSON.stringify(newUser));
  		});
  	})
 
@@ -220,7 +223,10 @@ router.post('/auth', function(req, res) {
  	.get(function(req, res) {
 		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(error); }
-			//TODO: do any callback stuff here
+			// do any callback stuff here
+			// right now I'm just sending it back to the client but I'm not sure
+			// if the client needs it
+			res.send(JSON.stringify(results));
 		}) 		
  	});
 
@@ -232,7 +238,9 @@ router.post('/auth', function(req, res) {
  	 .get(function(req, res) {
  	 	usersdb.get(req.params.username, function(error, user) {
  	 		if(error) { res.send(error); }
- 	 		//TODO: do any callback stuff here
+ 	 		// do any callback stuff here
+ 	 		// send back to client (since we're getting the user)
+ 	 		res.send(JSON.stringify(user));
  	 	});
  	 })
 
@@ -242,19 +250,14 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedUser = {};
+ 	 	// should populate all user fields including username, password, name,
+ 	 	// school, courses, age, and study_pref
  	 	user = req.body;
- 	 	/*
- 	 	updatedUser.username = req.body.username;
- 	 	updatedUser.password = req.body.password;
- 	 	//any other parts of the user's object that we 
- 	 	// Tyler: We'll want this information, right?
-		user.school = req.body.school;
-		user.courses = req.body.courses;
-		user.interests = req.body.interests;
-		*/
- 	 	usersdb.put(updatedUser, function(error) {
+
+ 	 	usersdb.put(updatedUser, function(error, updatedUser) {
  	 		if(error) { res.send(error); }
- 	 		//TODO: do any callback stuff here
+ 	 		// do any callback stuff here
+ 	 		// might not want to send back updated user to client
  	 	});
  	 })
 

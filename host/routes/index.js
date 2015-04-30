@@ -35,6 +35,8 @@ router.get('/login', function(req, res){
 	 //Check DB to see if user is already online
 	 usersdb.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
+	 		// If there is an error we "flash" a message to the
+			// redirected route `/index/login`
 	 		req.flash('auth', error);
 	 		res.redirect('/index/login');
 	 	}
@@ -76,6 +78,8 @@ router.get('/new', function(req, res){
 	 //Check DB to see if user is already online
 	 usersdb.query({username: username, password: password, online: true}, function(error, user){
 	 	if(error){
+	 		// If there is an error we "flash" a message to the
+			// redirected route `/index/login`.
 	 		req.flash('auth', error);
 	 		res.redirect('/index/login');
 	 	}
@@ -179,6 +183,15 @@ router.post('/process', function(req,res){
 
 		get to check if usename is already in DB
 	*/
+	var user = req.body;
+	usersdb.get(user, function(error, user){
+		if(error){
+			// If there is an error we "flash" a message to the 
+			// redirected route '/index/new'
+			req.flash('auth', error);
+			res.redirect('/index/login');
+		}
+	});
 
 });
 

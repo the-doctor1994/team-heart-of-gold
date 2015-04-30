@@ -55,7 +55,7 @@ router.get('/login', function(req, res){
 	 		else{
 	 			// User is online, set current user and redirect to home
 	 			req.session.user = user[0];
-	 			res.redirect('/user/home');
+	 			res.redirect('/users/home');
 	 		}
 	 	}
 	 });
@@ -111,7 +111,7 @@ router.post('/auth', function(req, res) {
 	 			usersdb.put(user, function(user){
 					req.session.user = user;
 					// Redirect to home.
-					res.redirect('/user/home');
+					res.redirect('/users/home');
 				});
 	 		}
 	 	}
@@ -131,7 +131,7 @@ router.post('/auth', function(req, res) {
 				usersdb.put(user, function(user){
 					req.session.user = user;
 					// Redirect to home.
-					res.redirect('/user/home');
+					res.redirect('/users/home');
 				});
 			}
 		});

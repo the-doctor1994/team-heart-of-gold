@@ -16,6 +16,7 @@ define(
 		var tsew = fx.fadeOut({node: "fadein",duration:400});
 		var fadebox = dom.byId("fadediv");
 		
+		console.log("breh");
 		on(fadebox, mouse.enter, function(evt){
 			kanye.play();
 			west.play();
@@ -41,6 +42,6 @@ define(
 					}			
 				}
 			}
-		}
+		};
 	
 });

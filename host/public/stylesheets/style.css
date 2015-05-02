@@ -36,11 +36,11 @@ a:hover{
 	color:#FF9933;
 }
 #foot{	
-	position: relative;
+	position: absolute;
 	text-align: center;
 	color: #A30000/*#b2b2b2*/;
 	font-size: .8em;
-	bottom: -15%;
+	bottom: 3px;
 }
 
 .container{

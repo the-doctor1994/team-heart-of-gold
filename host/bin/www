@@ -2,8 +2,9 @@
 var debug = require('debug')('sessions');
 var app = require('../app');
 
-app.set('port', process.env.PORT || 4376);
+app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
+  console.log('bruh server listening on bruh' +server.address().port);
   debug('Express server listening on port ' + server.address().port);
 });

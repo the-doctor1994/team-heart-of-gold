@@ -43,9 +43,6 @@ app.use(flash());
 // Using our routes/middleware:
 app.use('/user', users);
 app.use('/index', index);
-app.use(app.router);
-users.initialize(app);
-index.initialize(app);
 
 app.get('/', function (req, res) {
   res.redirect('/index/login');

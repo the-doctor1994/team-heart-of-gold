@@ -61,7 +61,7 @@ router.get('/login', function(req, res){
 	else {
 		// User is not online, redirect to login page
 	 	// Render the login view if this is a new login.
-    	res.render('login');
+    		res.render('login');
 	}
 });
 

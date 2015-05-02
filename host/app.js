@@ -31,7 +31,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname + 'public')));
+
+// Add script and css support
+app.use('/public/stylesheets', express.static(__dirname + '/public/stylesheets/'));
+app.use('/stylesheets', express.static(__dirname + '/public/stylesheets/'));
+app.use('/wscript', express.static(__dirname + '/wscript/'));
 
 // Added session support
 app.use(session({ secret : 'octocat',
@@ -43,6 +48,7 @@ app.use(flash());
 // Using our routes/middleware:
 app.use('/user', users);
 app.use('/index', index);
+
 
 app.get('/', function (req, res) {
   res.redirect('/index/login');
@@ -65,10 +71,8 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+        res.render('error');
+        console.log(err);
     });
 }
 
@@ -76,10 +80,8 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+    res.render('error');
+    console.log(err);
 });
 
 // Export the app as the module:

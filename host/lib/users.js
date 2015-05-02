@@ -65,10 +65,10 @@ exports.add = function(newUser, callback) {
 
 //returns all entries that match any set of key pairs
 exports.query = function(queryObj, callback) {
-  //var queryKeys = Object.getOwnPropertyNames(queryObj);
+  var queryKeys = Object.keys(queryObj);
   
   var sql = "SELECT * FROM ?? WHERE";
-  queryObj.forEach( function(key, index) {
+  queryKeys.forEach( function(key, index) {
     if(index > 0){
       sql.concat(" AND ");
     }
@@ -97,7 +97,7 @@ exports.query = function(queryObj, callback) {
 
 //to modify EXISTING entries in the users table for one user only
 exports.put = function(updatedUser, callback) {
-  var userKeys = Object.getOwnPropertyNames(updatedUser);
+  //var userKeys = Object.keys(updatedUser);
 
   var sql = "UPDATE ?? SET ?? WHERE username=?";
 
@@ -112,7 +112,7 @@ exports.put = function(updatedUser, callback) {
         callback(error);
       }
       else{
-        connection.query(sql, [db, userKeys, uidOfObjectToUpdate], function(error){
+        connection.query(sql, [db, updatedUser, uidOfObjectToUpdate], function(error){
           connection.release();
           if(error){
             console.log(error);

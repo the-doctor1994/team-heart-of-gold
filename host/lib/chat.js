@@ -14,7 +14,7 @@ var environment_settings = {
 var db = environment_settings.dbConnectionSettings.database;
 var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
-//retrieve the user information of one user
+//retrieve a chat log
 exports.get = function(chatid, callback) {
   var sql = "SELECT FROM ?? WHERE chatid=?";
 
@@ -38,7 +38,7 @@ exports.get = function(chatid, callback) {
   });
 };
 
-//to add a new user to the users database
+//to add a new conversation to the database
 exports.add = function(newChat, callback) {
 
   var sql = "INSERT INTO ?? SET ?";
@@ -56,7 +56,7 @@ exports.add = function(newChat, callback) {
           callback(error);
         }
         else{
-          callback('',newUser);
+          callback('',newChat);
         }
       });
     }
@@ -65,10 +65,10 @@ exports.add = function(newChat, callback) {
 
 //returns all entries that match any set of key pairs
 exports.query = function(queryObj, callback) {
-  //var queryKeys = Object.getOwnPropertyNames(queryObj);
+  var queryKeys = Object.keys(queryObj);
 
   var sql = "SELECT * FROM ?? WHERE";
-  queryObj.forEach( function(key, index) {
+  queryKeys.forEach( function(key, index) {
     if(index > 0){
       sql.concat(" AND ");
     }
@@ -95,13 +95,13 @@ exports.query = function(queryObj, callback) {
   });
 };
 
-//to modify EXISTING entries in the users table for one user only
+//to add messages to a conversation
 exports.put = function(updatedConvo, callback) {
-  var userKeys = Object.getOwnPropertyNames(updatedConvo);
+  //var objKeys = Object.keys(updatedConvo);
 
   var sql = "UPDATE ?? SET ?? WHERE username=?";
 
-  var chatidOfObjectToUpdate = updatedConvo[username];
+  var chatidOfObjectToUpdate = updatedConvo[chatid];
   if(!chatidOfObjectToUpdate){
     callback('no username entered');
   }
@@ -112,7 +112,7 @@ exports.put = function(updatedConvo, callback) {
         callback(error);
       }
       else{
-        connection.query(sql, [db, userKeys, chatidOfObjectToUpdate], function(error){
+        connection.query(sql, [db, updatedConvo, chatidOfObjectToUpdate], function(error){
           connection.release();
           if(error){
             console.log(error);
@@ -127,7 +127,7 @@ exports.put = function(updatedConvo, callback) {
   }
 };
 
-//to delete ONE user from the table
+//to delete a chat from the table
 exports.delete = function(chatid, callback){
   var sql = "DELETE FROM ?? WHERE username=?";
   pool.getConnection( function(error, connection) {

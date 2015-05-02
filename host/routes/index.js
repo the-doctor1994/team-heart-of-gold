@@ -4,23 +4,13 @@ var usersdb = require('../lib/users');
 
 // ##### Server Side Routes For Users Not Logged In ##########
 
-// // ## home
-// // The home page view that will allow users to log in or create a new account
-// router.get('/home', function(req, res) {
-// 	var message = req.flash('auth') || 'Login Successful';
-// 	// added session support
-// 	var user = req.session.user;
-// 	if (user === undefined) {
-// 		req.flash('auth', 'Not logged in!');
-// 		res.redirect('/index/login');
-// 	}
-// 	else {
-// 		res.render('main', { title   : 'User Main',
-// 			message : message,
-// 			username : user.username,
-// 			password : user.password });
-// 	}
-// });
+
+//##defualt
+// in case index by itself is referenced
+router.get('/', function(req, res){
+	res.redirect('login');
+}); 
+
 
 // ## login
 // The login page for users to sign in

@@ -9,22 +9,6 @@ define(
 	'dojo/query',
     'dojo/domReady!'
 	], function(dom, domConstruct, on, fx, mouse, domStyle, query){
-		// fade elements
-		var kanye = fx.fadeOut({node: "fadeout",duration:400});
-		var west = fx.fadeIn({node: "fadein",duration:400});
-		var eynak = fx.fadeIn({node: "fadeout",duration:400});
-		var tsew = fx.fadeOut({node: "fadein",duration:400});
-		var fadebox = dom.byId("fadediv");
-		
-		console.log("breh");
-		on(fadebox, mouse.enter, function(evt){
-			kanye.play();
-			west.play();
-		});
-		on(fadebox, mouse.leave, function(evt){
-			eynak.play();
-			tsew.play();
-		});
 		return{
 			maketable :function(departments, coursenums){
 				//var departments = ["PHYSICS", "COMPSCI", "BIOLOGY"];
@@ -41,6 +25,24 @@ define(
 						
 					}			
 				}
+			},
+			loadFade :function(){
+				// fade elements
+				var kanye = fx.fadeOut({node: "fadeout",duration:400});
+				var west = fx.fadeIn({node: "fadein",duration:400});
+				var eynak = fx.fadeIn({node: "fadeout",duration:400});
+				var tsew = fx.fadeOut({node: "fadein",duration:400});
+				var fadebox = dom.byId("fadediv");
+				
+				console.log("breh");
+				on(fadebox, mouse.enter, function(evt){
+					kanye.play();
+					west.play();
+				});
+				on(fadebox, mouse.leave, function(evt){
+					eynak.play();
+					tsew.play();
+				});
 			}
 		};
 	

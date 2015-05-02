@@ -102,8 +102,8 @@ router.get('/new', function(req, res){
 	}
 	else {
 		// User is not online, redirect to login page
-	 	// Render the new user view to create new user.
-    	res.render('adduser');
+	 	// Render the new user view to create new user
+		res.render('adduser');
 	}
 });
 

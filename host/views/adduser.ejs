@@ -1,11 +1,11 @@
 <html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><!/meta>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta>
 	<script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"
             data-dojo-config="async: true"></script>
-	<script src="wscript/script.js"></script>
-	<script type="text/javascript">require(['util'], function(util){util.loadFade()});</script>	
-	<link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
+	<script type="text/javascript" src="../wscript/script.js"></script>
+	<script type="text/javascript">require(['util'], function(util){util.maketable(["PHYSICS", "COMPSCI", "BIOLOGY"], ["100\'s", "200\'s", "300\'s", "400\'s", "500\'s"])});</script>
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
 
 </head>
 <body>
@@ -38,7 +38,7 @@
    <div><!-- second inner shell -->
 	   	<div class="above" style="background:url(http://materializecss.com/images/parallax1.jpg);">
 				<!-- <pre> --><h2> 	StudyBuddy</h2><!-- </pre> --> </div>
-		<div class="container" style="background:white;">
+		<div class="container" id="adduser" style="background:white;" >
 			<!-- <h2>StudyBuddy Login</h2> -->
 			<!-- <hr> -->
 		<!-- 	<p>Welcome to StudyBuddy! The web application that lets you connect with your peers to collaborate and succeed in your academic environment.
@@ -46,18 +46,30 @@
 			<p>If you don't Have an account with us, <a href="adduser.html">why not join?</a> it's free.</p>
 			<hr> -->
 			<!-- <h3>Returning Users:</h3> -->
-			<h3>Already have an account?</h3>
-			<form method="post" href="index/auth">
-			<h4>Username</h4>
-			<input type="text" name="username" id="usernameID">
-			<h4>Password</h4>
-			<input type="text" name="password" id="password">
+			<h2>New User Information:</h2>
+			<hr>
+			<form action="post" href="index/process">
+			<div class="expBox">
+			<h4>Username : <input class="fadein" type="text" name="username" id="usernameID"></h4>
+			<h4>Password : <input class="fadein" type="password" name="password" id="password"></h4>			
+			
+			<h4>Name:<input class="fadein" type="text" name="name" id="name"></h4>
+			<h4>School Name:<input class="fadein" type="text" name="school" id="school"></h4>
+			<h4>Courses:</h4>
+			<!--<input class="fadein" type="text" name="courses" id="courses">-->
+			<div id="coursesDiv">
+			</div>
+			<h4>Age:<input class="fadein" type="text" name="age" id="age"></h4>
+			<h4>Study Preferences</h4>
+			<p><input display="none" class="fadein" type="radio" name="study_pref" value="quiet" id="quiet"><label for="quiet">Quiet Study</label><br><br>
+			<input display="none" class="fadein" type="radio" name="study_pref" value="talkative" id="talkative"><label for="talkative">Talkative Collaboraiton</label></p>
+
 			<div id="fadediv">
-				<input id="fadeout" type="submit" value="Login">
-				<input id="fadein" type="submit" value="Login">
+				<input id="fadeout" type="submit" value="Create">
+				<input id="fadein" type="submit" value="Create"">
 			</div>
 			</form>
-			<div id="foot">Copyright 2015 "StudyBuddy" by Heart of Gold</div>
+			<p id="foot">Copyright 2015 "StudyBuddy" by Heart of Gold</p>
 		</div>
 	</div>
 	

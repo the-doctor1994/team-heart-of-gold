@@ -1,74 +1,70 @@
 <html>
 <head>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"><!/meta>
-    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><!/meta>
+	<script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"
             data-dojo-config="async: true"></script>
-    <script src="../wscript/script.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
+	<script src="../wscript/script.js"></script>
+	<script type="text/javascript">require(['util'], function(util){util.loadFade()});</script>	
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
 
 </head>
 <body>
 
 
 <div class="flexbox-container">
-    <!--  overview: -->
-    <!--  this is the nav bar logic -->
-    <!--  see nav.css for styling -->
-    <div>
-        <div id='cssmenu'>
+	<!--  overview: -->
+	<!--  this is the nav bar logic -->
+	<!--  see nav.css for styling -->
+   <div>
+      <div id='cssmenu'>
+      <ul>
+         <li><a href='#'><span>Home</span></a></li>
+         <li><a href='#'><span>Matcher</span></a></li>
+         <li id="chat_tag"><a href='#'><span>Chat</span></a></li>
+         <li class='active has-sub'><a href='#'><span>Settings</span></a>
             <ul>
-                <li><a href='#'><span>Home</span></a></li>
-                <li><a href='#'><span>Matcher</span></a></li>
-                <li id="chat_tag"><a href='#'><span>Chat</span></a></li>
-                <li class='active has-sub'><a href='#'><span>Settings</span></a>
-                    <ul>
-                        <li class='has-sub'><a href='#'><span>Edit Profile</span></a></li>
-                        <!-- <li class='has-sub'><a href='#'><span>StudyBuddies</span></a></li> // needed?-->
-                    </ul>
-                </li>
-                <li class='last'><a href='#'><span>About</span></a></li>
+               <li class='has-sub'><a href='#'><span>Edit Profile</span></a></li>
+               <!-- <li class='has-sub'><a href='#'><span>StudyBuddies</span></a></li> // needed?-->
             </ul>
-        </div>
-        <!--  end -->
-        <!--  nav bar -->
-        <!--  logic -->
-    </div> <!-- first outter shell -->
+         </li>
+         <li class='last'><a href='#'><span>About</span></a></li>
+      </ul>
+      </div>
+      <!--  end -->
+      <!--  nav bar -->
+      <!--  logic -->
+   </div> <!-- first outter shell -->
 
-    <div><!-- second inner shell -->
-        <div class="above" style="background:url(http://materializecss.com/images/parallax1.jpg);">
-            <!-- <pre> --><h2> 	StudyBuddy</h2><!-- </pre> --> </div>
-        <div class="container" style="background:white;">
-            <!-- <h2>StudyBuddy Login</h2> -->
-            <!-- <hr> -->
-            <!-- 	<p>Welcome to StudyBuddy! The web application that lets you connect with your peers to collaborate and succeed in your academic environment.
-                </p>
-                <p>If you don't Have an account with us, <a href="adduser.html">why not join?</a> it's free.</p>
-                <hr> -->
-            <!-- <h3>Returning Users:</h3> -->
-            <h3>Already have an account?</h3>
-            <form method="post" href="index/auth">
-                <div class="expBox">
-                    <h4>Username</h4>
-                    <input class="fadein" type="text" name="username" id="usernameID">
-                </div>
-                <div class="expBox">
-                    <h4>Password</h4>
-                    <input class="fadein" type="text" name="password" id="password">
-                </div>
-                <div id="fadediv">
-                    <input id="fadeout" type="submit" value="Login">
-                    <input id="fadein" type="submit" value="Login">
-                </div>
-            </form>
-            <p id="foot">Copyright 2015 "StudyBuddy" by Heart of Gold</p>
-        </div>
-    </div>
-
+   <div><!-- second inner shell -->
+	   	<div class="above" style="background:url(http://materializecss.com/images/parallax1.jpg);">
+				<!-- <pre> --><h2> 	StudyBuddy</h2><!-- </pre> --> </div>
+		<div class="container" style="background:white;">
+			<!-- <h2>StudyBuddy Login</h2> -->
+			<!-- <hr> -->
+		 	<p>Welcome to StudyBuddy! The web application that lets you connect with your peers to collaborate and succeed in your academic environment.
+			</p>
+			<p>If you don't Have an account with us, <a href="new">why not join?</a> it's free.</p>
+			<hr> 
+			<!-- <h3>Returning Users:</h3> -->
+			<h3>Already have an account?</h3>
+			<form method="post" href="index/auth">
+			<h4>Username</h4>
+			<input type="text" name="username" id="usernameID">
+			<h4>Password</h4>
+			<input type="text" name="password" id="password">
+			<div id="fadediv">
+				<input id="fadeout" type="submit" value="Login">
+				<input id="fadein" type="submit" value="Login">
+			</div>
+			</form>
+			<div id="foot">Copyright 2015 "StudyBuddy" by Heart of Gold</div>
+		</div>
+	</div>
+	
     <div><!-- third inner shell, the "sidekick" view -->
+      
 
-
-    </div>
+   </div>
 
 </div>
 <!--  end -->

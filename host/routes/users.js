@@ -70,20 +70,9 @@ router.put('/match', function(req, res) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/index/login');
 	}
+
 	var user = {};
 	user = req.body;
-	/*
-	user.username = req.body.username;
-	user.password = req.body.password;
-	user.school = req.body.school;
-	user.courses = req.body.courses;
-	user.interests = req.body.interests;
-	// THESE WILL ALSO BE FIELDS OF USER
-	// conversations
-	// matches
-	// unmatches
-	*/
-
 	usersdb.query({school: user.school}, function(error, results) {
 		var realMatches = [];
 		//For each user at the same school
@@ -194,23 +183,9 @@ router.post('/auth', function(req, res) {
  	.post(function(req, res) {
  		var user = {};
  		user = req.body;
- 		/*
- 		user.username = req.body.username;
- 		user.password = req.body.password;
- 		// any other parts of the user's object that we know
- 		// Tyler: We'll want this information, right?
-		user.school = req.body.school;
-		user.courses = req.body.courses;
-		user.interests = req.body.interests;
-		// conversations
-		// matches
-		// unmatches
-		*/
  		usersdb.add(user, function(error, newUser) {
  			if(error) { res.send(error); }
- 			// do any callback stuff here.
- 			// for sending to the client in order to automatically log in after
- 			// profile creation
+ 			// sending to the client in order to automatically log in after profile creation
  			res.send(JSON.stringify(newUser));
  		});
  	})
@@ -223,9 +198,7 @@ router.post('/auth', function(req, res) {
  	.get(function(req, res) {
 		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(error); }
-			// do any callback stuff here
-			// right now I'm just sending it back to the client but I'm not sure
-			// if the client needs it
+			// TODO: sending it back to the client but I'm not sure if the client needs it
 			res.send(JSON.stringify(results));
 		}) 		
  	});
@@ -238,7 +211,6 @@ router.post('/auth', function(req, res) {
  	 .get(function(req, res) {
  	 	usersdb.get(req.params.username, function(error, user) {
  	 		if(error) { res.send(error); }
- 	 		// do any callback stuff here
  	 		// send back to client (since we're getting the user)
  	 		res.send(JSON.stringify(user));
  	 	});
@@ -256,8 +228,7 @@ router.post('/auth', function(req, res) {
 
  	 	usersdb.put(updatedUser, function(error, updatedUser) {
  	 		if(error) { res.send(error); }
- 	 		// do any callback stuff here
- 	 		// might not want to send back updated user to client
+ 	 		// TODO: might not want to send back updated user to client
  	 	});
  	 })
 
@@ -327,9 +298,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedChat = {};
- 	 	// populate chat with history, other user, uid
- 	 	chat = req.body;
- 	 	// any other parts of the chat object that we know
+ 	 	updatedChat = req.body;
  	 	chats.put(updatedChat, function(error) {
  	 		if(error) { res.send(error); }
  	 		//TODO: do any callback stuff here

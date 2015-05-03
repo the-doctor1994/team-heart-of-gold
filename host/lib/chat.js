@@ -4,7 +4,7 @@ var environment_settings = {
     dbConnectionSettings: {
       host: 'localhost',
       user: 'root',
-      password: '',
+      password: 'root',
       database: 'chat',
       connectionLimit: 10,
       supportBigNumbers: true

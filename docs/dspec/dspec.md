@@ -43,7 +43,7 @@ This mySQL database file will create a table for users which includes:
 * buddies (matches that have been reciprocated)
 
 ###conversation.sql
-This mmySQL database file will create a table for conversatiosn which includes:
+This mmySQL database file will create a table for conversations which includes:
 
 *
 *

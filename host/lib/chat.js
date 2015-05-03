@@ -2,10 +2,10 @@ var mysql = require('mysql');
 
 var environment_settings = {
     dbConnectionSettings: {
-      host: 'mysql3.000webhost.com',
-      user: 'admin',
-      password: 'honeypot94',
-      database: 'a9606264_chat',
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'chat',
       connectionLimit: 10,
       supportBigNumbers: true
     }

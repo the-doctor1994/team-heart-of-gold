@@ -3,6 +3,11 @@
 
 ##"Study Buddy"
 
+#Running the Project
+> First, install mysql using sudo apt-get install mysql-server
+> When prompted, create user root with password root
+> There are scripts (createdb, dropdb) provided in /host/lib/schema which will create and drop mysql tables for you.
+
 #Project Overview
 >*Heart of Gold* and "Study Buddy" aim to adapt the idea of the popular social media app Tinder and apply it to finding a compatible study partner. The app will collect personal information and class schedule from users and then offer them matches. If both matches pick each other, they will be able to chat and coordinate study sessions.
 

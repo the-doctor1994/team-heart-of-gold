@@ -28,13 +28,12 @@ This Json file will contain the necessary information about our application, as 
 
 ###user.sql
 
-This mySQL database file will create a table for a user which includes:
+This mySQL database file will create a table for users which includes:
 
 * id (unique per user - email if using facebook integration)
 * name (Real first name)
 * age
 * online
-* bio
 * school
 * courses
 * studyPreferences
@@ -42,6 +41,13 @@ This mySQL database file will create a table for a user which includes:
 * matches (people similar to this user)
 * pending buddies (one way request to be buddies, not yet confirmed buddies)
 * buddies (matches that have been reciprocated)
+
+###conversation.sql
+This mmySQL database file will create a table for conversatiosn which includes:
+
+*
+*
+*
 
 ###users.js
 
@@ -63,7 +69,7 @@ This javascript file will export the following fuctions:
 * delete
 	* Deletes a user from the db
 
-*Brenton Chasse and Grayson Kempster, 04/10/15*
+*Brenton Chasse and Grayson Kempster, 04/10/15, Tyler Caldwell 5/2/15*
 
 ##Information Transfer/Data Translation Components:
 <!--

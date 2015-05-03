@@ -5,7 +5,7 @@ var environment_settings = {
       host: 'localhost',
       user: 'root',
       password: 'root',
-      database: 'users',
+      database: 'main',
       connectionLimit: 10,
       supportBigNumbers: true
 	}
@@ -45,6 +45,7 @@ exports.add = function(newUser, callback) {
 
   pool.getConnection( function(error, connection) {
     if(error) {
+      console.log('this is where the error happens')
       console.log(error);
       callback(error);
     }
@@ -68,7 +69,7 @@ exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);
   
   var sql = "SELECT * FROM ?? WHERE";
-  queryKeys.forEach( function(key, index) {
+  queryKeys.forEach( function(key, index, array) {
     if(index > 0){
       sql.concat(" AND ");
     }

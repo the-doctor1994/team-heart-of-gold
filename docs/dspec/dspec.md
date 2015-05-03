@@ -24,7 +24,7 @@ This Json file will contain the necessary information about our application, as 
 * express-session
 * morgan
 * serve-favicon
-* mysql
+* postgresql
 
 ###user.sql
 
@@ -40,7 +40,6 @@ This mySQL database file will create a table for users which includes:
 * chatHistory
 * matches (people similar to this user)
 * pending buddies (one way request to be buddies, not yet confirmed buddies)
-* buddies (matches that have been reciprocated)
 
 ###conversation.sql
 This mmySQL database file will create a table for conversations which includes:

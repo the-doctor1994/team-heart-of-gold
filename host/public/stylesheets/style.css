@@ -43,11 +43,15 @@ a:hover{
 	bottom: 3px;
 }
 
-.container{
+.card_dim{
+	min-height: 270px;
+	width:300px;
+}
+
+.container.card_dim{
 	position: relative;
 	margin-left:30%;
 	margin-top:2.5%;
-	width: 500px;
 	height: 70%; /*adjusts 'card' length*/
 	min-width: 250px;
 	min-height: 500px;
@@ -68,19 +72,20 @@ a:hover{
 	position: relative;
 	margin-left:30%;
 	margin-top:2.5%;
-	width: 500px;
+	width: 300px;
 	padding:5px 50px 5px; /* .was 50*/
 	min-width: 250px;
 
 
 	color: #FFF;
+	background:url(http://materializecss.com/images/parallax1.jpg);
 	transition: box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 	transition-delay: 0.2s;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.52);
 	/*background:#e91e63;*//*#009688;#91092A;*/
 }
-.above#adjust_above_1{	margin-left:15%; }
-.above#adjust_above_2{	margin-left:100%; }
+.above#adjust_above_1{	margin-left:15%;}
+.above#adjust_above_2{	margin-left:100%; height: 300px; background:teal; } /*overview: changing the card to square-like form*/
 
 
 .above > h2{color: white;}
@@ -189,17 +194,56 @@ input:not([type=submit]):focus{
 /* creating styles for main.html below*/
 
 
-.container#content{	
+.container.card_dim#content{	
 	margin-left:15%;
 }
-
-.container#sidekick{
-	margin-left:100%
+.container.card_dim#sidekick{
+	margin-left:100%;
+	min-height: 270px;
+	height: 380px; /*overview: changing the card to square-like form*/
+	background: #d9d1d1;
+/*		background: lightb powderblue;*/
 }
 
-.container#adduser{
+.container.card_dim#adduser{
 	min-height: 1050px;
 
+}
+
+/* overview: place card "sidekick logic below"*/
+
+
+.above#adjust_above_2, .container#sidekick { /*> #chat_container{*/
+	overflow-y: auto;
+}
+
+
+
+
+
+
+/*overview: top panel css rule*/
+.above#adjust_above_2 > #chat_container > .user_chat_preview{
+/*	height:inherit;
+	max-height: height;
+	margin-left: -15%;*/
+/*	background:blue;*/
+	overflow-y: auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+/*overview: bottom panel css rule*/
+.container#sidekick > #matches_container > .user_match_preview{
+/*	height:inherit;
+	width:inherit;
+	max-width: height;
+	max-height: height;
+	margin-left: -15%;*/
+	overflow-y: auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color:teal;
 }
 
 

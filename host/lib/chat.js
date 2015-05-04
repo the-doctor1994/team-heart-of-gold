@@ -4,14 +4,15 @@ var environment_settings = {
     dbConnectionSettings: {
       host: 'localhost',
       user: 'root',
-      password: 'root',
-      database: 'chat',
+      password: '',
+      database: 'main',
       connectionLimit: 10,
       supportBigNumbers: true
-    }
+    },
+  table: 'chat'
 };
 
-var db = environment_settings.dbConnectionSettings.database;
+var db = environment_settings.table;
 var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
 //retrieve a chat log

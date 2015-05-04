@@ -2,16 +2,17 @@ var mysql = require('mysql');
 
 var environment_settings = {
 	dbConnectionSettings: {
-      host: 'mysql3.000webhost.com',
+      host: 'localhost',
       user: 'root',
-      password: 'honeypot94',
-      database: 'a9606264_users',
+      password: '',
+      database: 'main',
       connectionLimit: 10,
       supportBigNumbers: true
-	}
+	},
+  table: 'users'
 };
 
-var db = environment_settings.dbConnectionSettings.database;
+var db = environment_settings.table;
 var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
 //retrieve the user information of one user
@@ -45,6 +46,7 @@ exports.add = function(newUser, callback) {
 
   pool.getConnection( function(error, connection) {
     if(error) {
+      console.log('this is where the error happens');
       console.log(error);
       callback(error);
     }
@@ -68,7 +70,7 @@ exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);
   
   var sql = "SELECT * FROM ?? WHERE";
-  queryKeys.forEach( function(key, index) {
+  queryKeys.forEach( function(key, index, array) {
     if(index > 0){
       sql.concat(" AND ");
     }

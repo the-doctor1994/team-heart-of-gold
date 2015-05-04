@@ -3,3 +3,5 @@
 /host/node_modules
 /.npm/
 /npmtmp/
+npm-debug.log
+host/npm-debug.log

@@ -166,7 +166,15 @@ router.post('/process', function(req,res){
 		if(error){
 			// If there is an error, user does not exist in db 
 			// adds user to db
-			usersdb.add(newUser);
+			usersdb.add(newUser, function(error, newUser) {
+				if (error) {
+					console.log(error);
+				}
+				else {
+					res.send(JSON.stringify.newUser);
+					req.session.user = user;
+				}
+			});
 		}
 		else{
 			// User already exists in db, flashes error

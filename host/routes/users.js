@@ -241,7 +241,7 @@ router.post('/auth', function(req, res) {
       */
       .delete(function(req, res) {
       	usersdb.remove(req.params.username, function(error) {
-      		if(error) { res.send(err); }
+      		if(error) { res.send(error); }
       		//TODO: do any callback stuff here
       	});
       });
@@ -314,7 +314,7 @@ router.post('/auth', function(req, res) {
       */
       .delete(function(req, res) {
       	chats.remove(req.params.uid, function(error) {
-      		if(error) { res.send(err); }
+      		if(error) { res.send(error); }
       		//TODO: do any callback stuff here
       	});
       });

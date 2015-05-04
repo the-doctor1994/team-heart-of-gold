@@ -97,7 +97,7 @@ router.put('/match', function(req, res) {
 			}
 		});
 		// send the realMatches array back to the client
-		res.send('', realMatches);
+		res.send(realMatches);
 	});
 });
 
@@ -186,7 +186,7 @@ router.post('/auth', function(req, res) {
  		usersdb.add(user, function(error, newUser) {
  			if(error) { res.send(error); }
  			// sending to the client in order to automatically log in after profile creation
- 			res.send('', JSON.stringify(newUser));
+ 			res.send(JSON.stringify(newUser));
  		});
  	})
 
@@ -199,7 +199,7 @@ router.post('/auth', function(req, res) {
 		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(error); }
 			// TODO: sending it back to the client but I'm not sure if the client needs it
-			res.send('', JSON.stringify(results));
+			res.send(JSON.stringify(results));
 		}) 		
  	});
 
@@ -212,7 +212,7 @@ router.post('/auth', function(req, res) {
  	 	usersdb.get(req.params.username, function(error, user) {
  	 		if(error) { res.send(error); }
  	 		// send back to client (since we're getting the user)
- 	 		res.send('', JSON.stringify(user));
+ 	 		res.send(JSON.stringify(user));
  	 	});
  	 })
 

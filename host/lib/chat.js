@@ -16,8 +16,8 @@ var db = environment_settings.table;
 var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
 //retrieve a chat log
-exports.get = function(chatid, callback) {
-  var sql = "SELECT FROM ?? WHERE chatid=?";
+exports.get = function(sender, callback) {
+  var sql = "SELECT * FROM ?? WHERE sender=?";
 
   pool.getConnection( function(error, connection) {
     if(error) {
@@ -25,7 +25,7 @@ exports.get = function(chatid, callback) {
       callback(error);
     }
     else{
-      connection.query(sql, [db, chatid], function(error, chat){
+      connection.query(sql, [db, sender], function(error, chat){
         connection.release();
         if(error){
           console.log(error);

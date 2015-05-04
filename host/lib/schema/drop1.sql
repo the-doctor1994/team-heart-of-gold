@@ -1,3 +1,3 @@
-drop database main if exists;
-drop table users if exists;
-drop table chats if exists;
+drop table users;
+drop table chats;
+drop database main;

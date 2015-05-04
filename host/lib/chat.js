@@ -9,7 +9,7 @@ var environment_settings = {
       connectionLimit: 10,
       supportBigNumbers: true
     },
-  table: 'chat'
+  table: 'chats'
 };
 
 var db = environment_settings.table;

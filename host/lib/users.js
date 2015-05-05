@@ -17,14 +17,14 @@ var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
 //retrieve the user information of one user
 exports.get = function(username, callback) {
-  var sql = "SELECT FROM ?? WHERE username=?";
-  
+  var sql = "SELECT * FROM ?? WHERE username=?";
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
+      console.log('good connection');
       connection.query(sql, [db, username], function(error, user){
         connection.release();
         if(error){
@@ -32,6 +32,7 @@ exports.get = function(username, callback) {
           callback(error);
         }
         else{
+          console.log('good query');
           callback('', user);
         }
       });
@@ -41,24 +42,24 @@ exports.get = function(username, callback) {
 
 //to add a new user to the users database
 exports.add = function(newUser, callback) {
-
   var sql = "INSERT INTO ?? SET ?";
-
+  console.log('inserting user:' + newUser);
   pool.getConnection( function(error, connection) {
     if(error) {
-      console.log('this is where the error happens');
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, [db, newUser], function(error){
+      console.log('good connection');
+      connection.query(sql, [db, newUser], function(error, result){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
-          callback('',newUser);
+          console.log('good insert');
+          callback('',result);
         }
       });
     }
@@ -68,21 +69,22 @@ exports.add = function(newUser, callback) {
 //returns all entries that match any set of key pairs
 exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);
-  
-  var sql = "SELECT * FROM ?? WHERE";
-  queryKeys.forEach( function(key, index, array) {
-    if(index > 0){
-      sql.concat(" AND ");
+  console.log('searching for:' + queryObj);
+  var sql = "SELECT * FROM ?? WHERE ";
+  queryKeys.forEach( function(key, index) {
+    if(index > 0 && index < queryKeys.length){
+      sql = sql + " AND ";
     }
-    sql.concat(" ", key, "='", queryObj[key], "'");
+    sql = sql + key + "='" + queryObj[key] + "'";
   });
-
+  console.log('using query:' + sql);
   pool.getConnection(function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
+      console.log('good connection');
       connection.query(sql, db, function(error,results){
         connection.release();
         if(error){
@@ -90,6 +92,7 @@ exports.query = function(queryObj, callback) {
           callback(error);
         }
         else{
+          console.log('good query');
           callback('',results);
         }
       });
@@ -99,11 +102,8 @@ exports.query = function(queryObj, callback) {
 
 //to modify EXISTING entries in the users table for one user only
 exports.put = function(updatedUser, callback) {
-  //var userKeys = Object.keys(updatedUser);
-
   var sql = "UPDATE ?? SET ?? WHERE username=?";
-
-  var uidOfObjectToUpdate = updatedUser['username'];
+  var uidOfObjectToUpdate = updatedUser.username;
   if(!uidOfObjectToUpdate){
     callback('no username entered');
   }
@@ -114,14 +114,17 @@ exports.put = function(updatedUser, callback) {
         callback(error);
       }
       else{
-        connection.query(sql, [db, updatedUser, uidOfObjectToUpdate], function(error){
+        console.log('good connection');
+        connection.query(sql, [db, updatedUser, uidOfObjectToUpdate], function(error, results){
           connection.release();
           if(error){
             console.log(error);
             callback(error);
           }
           else{
-            callback('',updatedUser);
+            console.log('good query');
+            console.log('rows affected:' + results.changedRows);
+            callback('',results);
           }
         });
       }
@@ -138,14 +141,17 @@ exports.delete = function(username, callback){
       callback(error);
     }
     else{
-      connection.query(sql, [db, username], function(error){
+      console.log('good connection');
+      connection.query(sql, [db, username], function(error,results){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
-          callback('', username);
+          console.log('good query');
+          console.log('rows affected:' + results.affectedRows);
+          callback('', results);
         }
       });
     }

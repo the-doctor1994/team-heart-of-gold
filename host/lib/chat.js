@@ -15,80 +15,74 @@ var environment_settings = {
 var db = environment_settings.table;
 var pool = mysql.createPool(environment_settings.dbConnectionSettings);
 
-//retrieve a chat log
+//finds all messages from one user
 exports.get = function(sender, callback) {
   var sql = "SELECT * FROM ?? WHERE sender=?";
-
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, [db, sender], function(error, chat){
+      console.log('good connection');
+      connection.query(sql, [db, sender], function(error, results){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
-          callback('', chat);
+          console.log('good query');
+          callback('', results);
         }
       });
     }
   });
 };
 
-//to add a new conversation to the database
+//inserts a new message
 exports.add = function(newChat, callback) {
-
-  var sql = "INSERT INTO ?? SET ?";
-
+  var sql = "INSERT INTO ?? values (?,?,NOW(),?)";
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, [db, newChat], function(error){
+      console.log('good connection');
+      connection.query(sql, [db,newChat.sender,newChat.receiver,newChat.message], function(error, result){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
-          callback('',newChat);
+          console.log('good insert');
+          callback('',result);
         }
       });
     }
   });
 };
 
-//returns all entries that match any set of key pairs
-exports.query = function(queryObj, callback) {
-  var queryKeys = Object.keys(queryObj);
-
-  var sql = "SELECT * FROM ?? WHERE";
-  queryKeys.forEach( function(key, index) {
-    if(index > 0){
-      sql.concat(" AND ");
-    }
-    sql.concat(" ", key, "='", queryObj[key], "'");
-  });
-
+//returns all entries that match a sender and receiver
+exports.query = function(criteria, callback) {
+  var sql = "SELECT * FROM ?? WHERE sender=? AND receiver=?";
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, db, function(error,results){
+      console.log('good connection');
+      connection.query(sql, [db, criteria.sender, criteria.receiver], function(error,results){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
+          console.log('good query');
           callback('',results);
         }
       });
@@ -97,6 +91,7 @@ exports.query = function(queryObj, callback) {
 };
 
 //to add messages to a conversation
+/*    ##########DEPRECATED##########
 exports.put = function(updatedConvo, callback) {
   //var objKeys = Object.keys(updatedConvo);
 
@@ -127,24 +122,26 @@ exports.put = function(updatedConvo, callback) {
     });
   }
 };
-
-//to delete a chat from the table
-exports.delete = function(chatid, callback){
-  var sql = "DELETE FROM ?? WHERE username=?";
+*/
+//deletes all chats from the table from a certain sender
+exports.delete = function(sender, callback){
+  var sql = "DELETE FROM ?? WHERE sender=?";
   pool.getConnection( function(error, connection) {
     if(error) {
       console.log(error);
       callback(error);
     }
     else{
-      connection.query(sql, [db, chatid], function(error){
+      console.log('good connection');
+      connection.query(sql, [db, sender], function(error, result){
         connection.release();
         if(error){
           console.log(error);
           callback(error);
         }
         else{
-          callback('', chatid);
+          console.log('good delete');
+          callback('', 'rows deleted:' + result.affectedRows);
         }
       });
     }

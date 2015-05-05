@@ -210,9 +210,8 @@ router.post('/auth', function(req, res) {
  	 */
  	 .get(function(req, res) {
  	 	usersdb.get(req.params.username, function(error, user) {
- 	 		if(error) { res.send(error); }
- 	 		// send back to client (since we're getting the user)
- 	 		res.send(JSON.stringify(user));
+ 	 		if(error) { res.status(404).send(error); }
+ 	 		else { res.send(JSON.stringify(user)); }
  	 	});
  	 })
 
@@ -288,8 +287,8 @@ router.post('/auth', function(req, res) {
  	 */
  	 .get(function(req, res) {
  	 	chats.get(req.params.username, function(error, user) {
- 	 		if(error) { res.send(error); }
- 	 		//TODO: do any callback stuff here
+ 	 		if(error) { res.status(404).send(error); }
+ 	 		else { res.send(JSON.stringify(user)) };
  	 	});
  	 })
 

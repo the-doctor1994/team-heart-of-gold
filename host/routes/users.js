@@ -182,7 +182,7 @@ router.post('/auth', function(req, res) {
  	 */
  	.post(function(req, res) {
  		var user = req.body;
- 		usersdb.add(user, function());
+ 		usersdb.add(user, function(){});
  	})
 
  	/*
@@ -215,7 +215,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedUser = JSON.parse(res.body);
- 	 	usersdb.put(updatedUser, function());
+ 	 	usersdb.put(updatedUser, function(){});
  	 })
 
  	 /*
@@ -244,7 +244,7 @@ router.post('/auth', function(req, res) {
  	 */
  	.post(function(req, res) {
  		var chat = req.body;
- 		chats.add(user, function());
+ 		chats.add(user, function(){});
  	})
 
  	/*
@@ -277,7 +277,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedChat = JSON.parse(req.body);
- 	 	chats.put(updatedChat, function();
+ 	 	chats.put(updatedChat, function(){});
  	 })
 
  	 /*

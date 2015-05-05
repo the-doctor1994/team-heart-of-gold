@@ -192,9 +192,8 @@ router.post('/auth', function(req, res) {
  	 */
  	.get(function(req, res) {
 		usersdb.query(req.query, function(error, results) {
-			if(error) { res.send(error); }
-			// TODO: sending it back to the client but I'm not sure if the client needs it
-			res.send(JSON.stringify(results));
+			if(error) { res.send(JSON.stringify([])); } //expects an "empty array" http://dojotoolkit.org/reference-guide/1.10/dojo/store/JsonRest.html#implementing-a-rest-server
+			else { es.send(JSON.stringify(results)); }
 		}) 		
  	});
 
@@ -230,7 +229,6 @@ router.post('/auth', function(req, res) {
       	usersdb.remove(req.params.username, function(error) {
       		if(error) { res.status(404).send(error); }
       		else { res.status(204).send("Deleted"); }
-      		//TODO: do any callback stuff here
       	});
       });
 
@@ -256,8 +254,8 @@ router.post('/auth', function(req, res) {
  	 */
  	.get(function(req, res) {
 		usersdb.query(req.query, function(error, results) {
-			if(error) { res.send(error); }
-			//TODO: do any callback stuff here
+			if(error) { res.send(JSON.stringify([])); } //expects an "empty array" http://dojotoolkit.org/reference-guide/1.10/dojo/store/JsonRest.html#implementing-a-rest-server
+ 	 		else { res.send(JSON.stringify(results)); }
 		}) 		
  	})
 

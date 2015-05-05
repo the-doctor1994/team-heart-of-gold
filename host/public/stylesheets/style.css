@@ -213,8 +213,10 @@ input:not([type=submit]):focus{
 /* overview: place card "sidekick logic below"*/
 
 
-.above#adjust_above_2, .container#sidekick { /*> #chat_container{*/
+.above#adjust_above_2, .container.card_dim#sidekick { /*> #chat_container{*/
 	overflow-y: auto;
+	background: white;
+	color: 	#A30000;
 }
 
 
@@ -244,6 +246,47 @@ input:not([type=submit]):focus{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	color:teal;
+}
+
+.container.card_dim#sidekick > #matches_container > .user_match_preview > .photo#user_photo1{
+	height: 90px;
+	width: 90px;
+	margin-left: 180px;
+	background: darkgray;	
+}
+
+
+.container.card_dim#sidekick > #matches_container > .user_match_preview > .flexbox-container {
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.container.card_dim#sidekick > #matches_container > .user_match_preview > .flexbox-container > div {
+  width: 40%;
+  /*  padding: 10px;*/
+   padding-left: 0;
+   background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+	
+}
+
+.right{
+	padding-top: -25%;
+background:url(../profile.jpg);
+/*	background: url(http://www.primaria-lumina.ro/wp-content/uploads/2008/06/Facebook-no-profile-picture-icon-620x389.jpg);*/
+/*background: black;*/
+}
+
+.hr{
+	opacity: 10%;
+}
+
+.container.card_dim#sidekick > #matches_container > .user_match_preview > .flexbox-container > div:first-child {
+  margin-right: 20px;
 }
 
 

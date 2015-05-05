@@ -71,8 +71,7 @@ router.put('/match', function(req, res) {
 		res.redirect('/index/login');
 	}
 
-	var user = {};
-	user = req.body;
+	var user = req.body;
 	usersdb.query({school: user.school}, function(error, results) {
 		var realMatches = [];
 		//For each user at the same school

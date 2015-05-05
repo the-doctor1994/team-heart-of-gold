@@ -55,7 +55,7 @@ a:hover{
 	height: 70%; /*adjusts 'card' length*/
 	min-width: 250px;
 	min-height: 500px;
-	align : center;	
+	align-items : center;
 	/*box-shadow: 0px 0px 15px #888888;*/
 /*	padding-left: .5%;
 	padding-right: .5%;
@@ -157,7 +157,7 @@ label
 {
 	color : #b2b2b2;
 	border-bottom-style: solid;
-	border-bottom-width: .1px;
+	border-bottom-width: 1px;
 	border-bottom-color: #A30000;
 }
 label:hover
@@ -257,13 +257,13 @@ input:not([type=submit]):focus{
 
 
 .container.card_dim#sidekick > #matches_container > .user_match_preview > .flexbox-container {
-  display: -ms-flex;
+  display: -webkit-inline-flex;
   display: -webkit-flex;
   display: flex;
 }
 
 .container.card_dim#sidekick > #matches_container > .user_match_preview > .flexbox-container > div {
-  width: 40%;
+  /*width: 40%;*/
   /*  padding: 10px;*/
    padding-left: 0;
    background-repeat: no-repeat;
@@ -282,7 +282,7 @@ background:url(../profile.jpg);
 }
 
 .hr{
-	opacity: 10%;
+	opacity: .1;
 }
 
 .container.card_dim#sidekick > #matches_container > .user_match_preview > .flexbox-container > div:first-child {

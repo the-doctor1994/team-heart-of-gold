@@ -1,6 +1,6 @@
 <html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"> <!--removed </meta> for en "empty tag body error" -Grayson -->
 	<script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"
             data-dojo-config="async: true"></script>
 	<script src="wscript/script.js"></script>
@@ -37,9 +37,9 @@
 
    <div><!-- second inner shell -->
       <div class="above" id="adjust_above_1"> <h2>StudyBuddy</h2></div>
-   	<div class="container card_dim" id="content"></div> 
+   	<div class="container card_dim"></div> <!-- removed id="content" because div id's need to be unique -Grayson -->
    	<div id="matches"></div> 
-   	<div id="content"></div> 
+   	<div id="content"></div>
    	<div id="matchContent"></div> 
    	<div id="chatContent"></div> 
    	<div id="profile"></div> 
@@ -108,34 +108,34 @@
       <div class="container card_dim" id="sidekick">
          <div id="matches_container">
             <div class="user_match_preview">
-             <!--   BEGIN USER MATCH BELOW.    -->
+             <!--   BEGIN USER MATCH BELOW.    --> <!-- changed the usernameIDX to usernameIDXPreview format because all div id's need to be unique -Grayson-->
              
                <div class="flexbox-container">
-                  <div class="left">NAME: <div id="usernameID1">Sarah Lowe</div><br> </div>
+                  <div class="left">NAME: <div id="usernameID1Preview">Sarah Lowe</div><br> </div>
                   <div class="right"></div>
                </div>
 
                
                
                 <div class="flexbox-container">
-                  <div class="left">NAME: <div id="usernameID2">Caitlyn Nyguen</div><br> </div>
+                  <div class="left">NAME: <div id="usernameID2Preview">Caitlyn Nyguen</div><br> </div>
                   <div class="right"> </div>
                </div>
 
                
                 <div class="flexbox-container">
-                  <div class="left">NAME: <div id="usernameID3">Felipé Cardona</div><br> </div>
+                  <div class="left">NAME: <div id="usernameID3Preview">Felipé Cardona</div><br> </div>
                   <div class="right"></div>
                </div>
                
                 <div class="flexbox-container">
-                  <div class="left">NAME: <div id="usernameID4">Liza DiFilippo</div><br> </div>
+                  <div class="left">NAME: <div id="usernameID4Preview">Liza DiFilippo</div><br> </div>
                   <div class="right"> </div>
                </div>
 
                
                 <div class="flexbox-container">
-                  <div class="left">NAME: <div id="usernameID5">Richards Time</div><br> </div>
+                  <div class="left">NAME: <div id="usernameID5Preview">Richards Time</div><br> </div>
                   <div class="right"> </div>
                </div>
 
@@ -149,7 +149,7 @@
 </div>
 <!--  end -->
 <!--  flexbox -->
-
+</div> <!-- I had to add this due to there being a "missing div close" -Grayson -->
 
 </body>
 </html>

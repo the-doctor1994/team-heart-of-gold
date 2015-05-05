@@ -314,7 +314,8 @@ router.post('/auth', function(req, res) {
       */
       .delete(function(req, res) {
       	chats.remove(req.params.uid, function(error) {
-      		if(error) { res.send(error); }
+      		if(error) { res.status(404).send(error); }
+      		else { res.status(204).send("Deleted"); }
       		//TODO: do any callback stuff here
       	});
       });

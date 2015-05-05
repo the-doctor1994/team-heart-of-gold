@@ -220,14 +220,9 @@ router.post('/auth', function(req, res) {
  	  *		- JsonRest.put(object, options)
  	  */
  	 .put(function(req, res) {
- 	 	var updatedUser = {};
- 	 	// should populate all user fields including username, password, name,
- 	 	// school, courses, age, and study_pref
- 	 	user = req.body;
-
+ 	 	var updatedUser = JSON.parse(res.body);
  	 	usersdb.put(updatedUser, function(error, updatedUser) {
  	 		if(error) { res.send(error); }
- 	 		// TODO: might not want to send back updated user to client
  	 	});
  	 })
 
@@ -297,11 +292,9 @@ router.post('/auth', function(req, res) {
  	  *		- JsonRest.put(object, options)
  	  */
  	 .put(function(req, res) {
- 	 	var updatedChat = {};
- 	 	updatedChat = req.body;
+ 	 	var updatedChat = JSON.parse(req.body);
  	 	chats.put(updatedChat, function(error) {
  	 		if(error) { res.send(error); }
- 	 		//TODO: do any callback stuff here
  	 	});
  	 })
 
@@ -316,7 +309,6 @@ router.post('/auth', function(req, res) {
       	chats.remove(req.params.uid, function(error) {
       		if(error) { res.status(404).send(error); }
       		else { res.status(204).send("Deleted"); }
-      		//TODO: do any callback stuff here
       	});
       });
 

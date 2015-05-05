@@ -5,7 +5,7 @@
 
 #Running the Project
 > First, install mysql using sudo apt-get install mysql-server
-> When prompted, create user root with password root
+> When prompted, create user root with the default mysql password (no password)
 > There are scripts (createdb, dropdb) provided in /host/lib/schema which will create and drop mysql tables for you.
 
 #Project Overview

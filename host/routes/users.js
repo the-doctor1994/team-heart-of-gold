@@ -181,13 +181,8 @@ router.post('/auth', function(req, res) {
  	 * 		- JsonRest.add(object, options)
  	 */
  	.post(function(req, res) {
- 		var user = {};
- 		user = req.body;
- 		usersdb.add(user, function(error, newUser) {
- 			if(error) { res.send(error); }
- 			// sending to the client in order to automatically log in after profile creation
- 			res.send(JSON.stringify(newUser));
- 		});
+ 		var user = req.body;
+ 		usersdb.add(user, function());
  	})
 
  	/*
@@ -252,15 +247,8 @@ router.post('/auth', function(req, res) {
  	 * 		- JsonRest.add(object, options)
  	 */
  	.post(function(req, res) {
- 		var chat = {};
- 		// populate chat with history, other user, uid
- 		chat = req.body;
- 		// any other parts of the chat object that we know
-
- 		chats.add(user, function(error, newChat) {
- 			if(error) { res.send(error); }
- 			//TODO: do any callback stuff here.
- 		});
+ 		var chat = req.body;
+ 		chats.add(user, function());
  	})
 
  	/*

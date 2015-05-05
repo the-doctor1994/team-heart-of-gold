@@ -216,9 +216,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedUser = JSON.parse(res.body);
- 	 	usersdb.put(updatedUser, function(error, updatedUser) {
- 	 		if(error) { res.send(error); }
- 	 	});
+ 	 	usersdb.put(updatedUser, function());
  	 })
 
  	 /*
@@ -281,9 +279,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedChat = JSON.parse(req.body);
- 	 	chats.put(updatedChat, function(error) {
- 	 		if(error) { res.send(error); }
- 	 	});
+ 	 	chats.put(updatedChat, function();
  	 })
 
  	 /*

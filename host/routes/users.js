@@ -241,7 +241,8 @@ router.post('/auth', function(req, res) {
       */
       .delete(function(req, res) {
       	usersdb.remove(req.params.username, function(error) {
-      		if(error) { res.send(error); }
+      		if(error) { res.status(404).send(error); }
+      		else { res.status(204).send("Deleted"); }
       		//TODO: do any callback stuff here
       	});
       });

@@ -162,7 +162,7 @@ router.post('/process', function(req,res){
 					res.send(error);
 				}
 				else {
-					req.session.user = user;
+					req.session.user = newUser;
 					res.redirect('users/home');
 				}
 			});

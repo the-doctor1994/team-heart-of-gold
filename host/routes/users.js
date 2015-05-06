@@ -9,7 +9,7 @@ var chats = require('../lib/chat');
 // ## home
 // The main user view which will contain notifications and links to other views.
 router.get('/home', function(req, res) {
-	var message = req.flash('auth') || 'Login Successful';
+	//var message = req.flash('auth', ) || 'Login Successful';
 	// added session support
 	var user = req.session.user;
 	if (user === undefined) {
@@ -153,19 +153,30 @@ router.post('/auth', function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		usersdb.query({username: username, password: password}, function(error, user) {
+		usersdb.query({username: username, password: password}, function(error, results) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/index/login`.
 				req.flash('auth', error);
 				res.redirect('/index/login');
 			}
-			else {
+			else if(results.length > 0){
+				var user = results[0];
 				user.online = true;
-				usersdb.put(user, function(user){
-					req.session.user = user;
-					// Redirect to home.
-					res.redirect('/users/home');
+				//set the user to online
+				usersdb.put(user, function(error, message){
+					if (error) {
+						// If there is an error we "flash" a message to the
+						// redirected route `/user/login`
+						req.flash('auth', error);
+						res.redirect('/index/login');
+					}
+					else{
+						console.log(message);
+						req.session.user = user;
+						// Redirect to home.
+						res.redirect('/users/home');
+					}
 				});
 			}
 		});

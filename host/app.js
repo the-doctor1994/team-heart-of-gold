@@ -41,7 +41,7 @@ app.use('/wscript', express.static(__dirname + '/wscript/'));
 // Added session support
 app.use(session({ secret : 'octocat',
                   saveUninitialized : true,
-                  resave : true }));
+                  resave : false }));
 // Added flash support:
 app.use(flash());
 

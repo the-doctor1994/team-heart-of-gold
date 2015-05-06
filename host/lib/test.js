@@ -116,9 +116,9 @@ pool.getConnection( function(error, connection) {
     }
 });
 */
-/*
+//*
 //inserts a new user into the table
-var newUser = {username:'bob@gmail.com',password:'Poopoo1',name:'bob jones',age:49,school:'UMass Amherst'};
+var newUser = {username:'bob@gmail.com',password:'Poopoo1',name:'bob jones',age:21,school:'UMass Amherst'};
 sql = "INSERT INTO ?? SET ?";
 console.log(newUser);
 pool.getConnection( function(error, connection) {
@@ -139,7 +139,7 @@ pool.getConnection( function(error, connection) {
         });
     }
 });
-*/
+//*/
 /*
 //returns all entries that match any set of key pairs
 var queryObj = {age:20,school:'UMass Amherst'};
@@ -174,7 +174,7 @@ pool.getConnection(function(error, connection) {
 */
 /*
 //to modify EXISTING entries in the users table for one user only
-var updatedUser = {username:'bob@gmail.com',age:21}; //change age to test
+var updatedUser = {username:'bob@gmail.com',age:20}; //change age to test
 sql = "UPDATE ?? SET ? WHERE username=?";
 var uidOfObjectToUpdate = updatedUser.username;
 if(!uidOfObjectToUpdate){
@@ -210,7 +210,7 @@ pool.getConnection( function(error, connection) {
     }
     else{
         console.log('good connection');
-        connection.query(sql, [db, 'joe@yahoo.com'], function(error, results){
+        connection.query(sql, [db, 'bob@gmail.com'], function(error, results){
             connection.release();
             if(error){
                 console.log(error);

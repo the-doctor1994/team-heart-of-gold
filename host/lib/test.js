@@ -174,7 +174,7 @@ pool.getConnection(function(error, connection) {
 */
 /*
 //to modify EXISTING entries in the users table for one user only
-var updatedUser = {username:'bob@gmail.com',age:49}; //change age to test
+var updatedUser = {username:'bob@gmail.com',age:21}; //change age to test
 sql = "UPDATE ?? SET ? WHERE username=?";
 var uidOfObjectToUpdate = updatedUser.username;
 if(!uidOfObjectToUpdate){
@@ -194,7 +194,7 @@ else{
                 }
                 else{
                     console.log('good query');
-                    console.log('rows affected:' + results.changedRows);
+                    console.log(results.message);
                 }
             });
         }
@@ -218,6 +218,28 @@ pool.getConnection( function(error, connection) {
             else{
                 console.log('good query');
                 console.log('rows affected:' + results.affectedRows);
+            }
+        });
+    }
+});
+*/
+/*
+//get one user by username
+sql = "SELECT * FROM ?? WHERE username=?";
+pool.getConnection( function(error, connection) {
+    if(error) {
+        console.log(error);
+    }
+    else{
+        console.log('good users.get connection');
+        connection.query(sql, [db, 'bob@gmail.com'], function(error, user){
+            connection.release();
+            if(error){
+                console.log(error);
+            }
+            else{
+                console.log('good query');
+                console.log(user[0]);
             }
         });
     }

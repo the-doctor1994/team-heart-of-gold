@@ -4,7 +4,7 @@ var environment_settings = {
 	dbConnectionSettings: {
       host: 'localhost',
       user: 'root',
-      password: '',
+      password: 'root',
       database: 'main',
       connectionLimit: 10,
       supportBigNumbers: true
@@ -24,7 +24,7 @@ exports.get = function(username, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.get connection');
       connection.query(sql, [db, username], function(error, user){
         connection.release();
         if(error){
@@ -33,7 +33,7 @@ exports.get = function(username, callback) {
         }
         else{
           console.log('good query');
-          callback('', user);
+          callback('', user[0]);
         }
       });
     }
@@ -50,7 +50,7 @@ exports.add = function(newUser, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.add connection');
       connection.query(sql, [db, newUser], function(error, result){
         connection.release();
         if(error){
@@ -69,7 +69,7 @@ exports.add = function(newUser, callback) {
 //returns all entries that match any set of key pairs
 exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);
-  console.log('searching for:' + queryObj);
+  console.log('searching for:' + queryObj.username);
   var sql = "SELECT * FROM ?? WHERE ";
   queryKeys.forEach( function(key, index) {
     if(index > 0 && index < queryKeys.length){
@@ -84,7 +84,7 @@ exports.query = function(queryObj, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.query connection');
       connection.query(sql, db, function(error,results){
         connection.release();
         if(error){
@@ -114,7 +114,7 @@ exports.put = function(updatedUser, callback) {
         callback(error);
       }
       else{
-        console.log('good connection');
+        console.log('good users.put connection');
         connection.query(sql, [db, updatedUser, uidOfObjectToUpdate], function(error, results){
           connection.release();
           if(error){
@@ -124,7 +124,7 @@ exports.put = function(updatedUser, callback) {
           else{
             console.log('good query');
             console.log('rows affected:' + results.changedRows);
-            callback('',results);
+            callback('',results.message);
           }
         });
       }
@@ -141,7 +141,7 @@ exports.delete = function(username, callback){
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.delete connection');
       connection.query(sql, [db, username], function(error,results){
         connection.release();
         if(error){

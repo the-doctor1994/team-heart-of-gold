@@ -1,4 +1,5 @@
 create database main;
+grant all on main.* to 'studybuddy'@'localhost' identified by '';
 use main;
 create table users (
 	username varchar(255) not null primary key,
@@ -6,8 +7,8 @@ create table users (
 	name varchar(40) not null,
 	age int not null,
 	school varchar(255) not null,
-	classes varchar(255),
-	study_preferences_array varchar(255),
+	courses varchar(255),
+	study_pref varchar(255),
     online boolean default 0,
     matches_array varchar(255)
 	);

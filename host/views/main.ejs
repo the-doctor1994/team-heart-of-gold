@@ -1,0 +1,155 @@
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"> <!--removed </meta> for en "empty tag body error" -Grayson -->
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+    <script src="wscript/script.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
+
+</head>
+<body>
+
+
+<div class="flexbox-container">
+    <!--  overview: -->
+    <!--  this is the nav bar logic -->
+    <!--  see nav.css for styling -->
+    <div>
+        <div id='cssmenu'>
+            <ul>
+                <li><a href='#'><span>Home</span></a></li>
+                <li><a href='#'><span>Matcher</span></a></li>
+                <li id="chat_tag"><a href='#'><span>Chat</span></a></li>
+                <li class='active has-sub'><a href='#'><span>Settings</span></a>
+                    <ul>
+                        <li class='has-sub'><a href='#'><span>Edit Profile</span></a></li>
+                        <!-- <li class='has-sub'><a href='#'><span>StudyBuddies</span></a></li> // needed?-->
+                    </ul>
+                </li>
+                <li class='last'><a href='#'><span>About</span></a></li>
+            </ul>
+        </div>
+        <!--  end -->
+        <!--  nav bar -->
+        <!--  logic -->
+    </div> <!-- first outter shell -->
+
+    <div><!-- second inner shell -->
+        <div class="above" id="adjust_above_1"> <h2>StudyBuddy</h2></div>
+        <div class="container card_dim"></div> <!-- removed id="content" because div id's need to be unique -Grayson -->
+        <div id="matches"></div>
+        <div id="content"></div>
+        <div id="matchContent"></div>
+        <div id="chatContent"></div>
+        <div id="profile"></div>
+        <div id="leftbar"></div>
+    </div>
+
+    <div><!-- third inner shell, the "sidekick" view -->
+        <!-- build the sidekick card "A" below:    -->
+        <div class="above card_dim" id="adjust_above_2">
+            <div id="chat_container">
+                <div class="user_chat_preview">
+                    <!--   BEGIN USER CHAT PREVIEWS BELOW.    -->
+                    NAME: <div id="usernameID1">Kaley Haley</div>
+                    CHAT: <div id="user_chat_prv1">How do I create a scrollable div tag vertically for chrome?
+                        It does show the vertical scroll bar but the problem is during the
+                        run-time when the user adds some content to the #designDiv. It does
+                        not scroll and the #designDiv begins to expand vertically. How do I
+                        create a scrollable div tag vertically for chrome? It does show the
+                        vertical scroll bar but the problem is during the run-time designDiv</div>
+                    <hr>
+                </div>
+
+
+                <div class="user_chat_preview">
+                    <!--   BEGIN USER CHAT PREVIEWS BELOW.    -->
+                    NAME: <div id="usernameID2">Joey Matone</div><br>
+                    CHAT: <div id="user_chat_prv2">How do I create a scrollable div tag vertically for chrome?
+                        It does show the vertical scroll bar but the problem is during the
+                        run-time when the user adds some content to the #designDiv. It does
+                        not scroll and the #designDiv begins to expand vertically. How do I
+                        create a scrollable div tag vertically for chrome? It does show the
+                        vertical scroll bar but the problem is during the run-time designDiv</div>
+                    <hr>
+                </div>
+
+                <div class="user_chat_preview">
+                    <!--   BEGIN USER CHAT PREVIEWS BELOW.    -->
+                    NAME: <div id="usernameID3">Kyle Awesome</div><br>
+                    CHAT: <div id="user_chat_prv3">How do I create a scrollable div tag vertically for chrome?
+                        It does show the vertical scroll bar but the problem is during the
+                        run-time when the user adds some content to the #designDiv. It does
+                        not scroll and the #designDiv begins to expand vertically. How do I
+                        create a scrollable div tag vertically for chrome? It does show the
+                        vertical scroll bar but the problem is during the run-time designDiv</div>
+                    <hr>
+                </div>
+
+                <div class="user_chat_preview">
+                    <!--   BEGIN USER CHAT PREVIEWS BELOW.    -->
+                    NAME: <div id="usernameID4">Hello World</div><br>
+                    CHAT: <div id="user_chat_prv4">How do I create a scrollable div tag vertically for chrome?
+                        It does show the vertical scroll bar but the problem is during the
+                        run-time when the user adds some content to the #designDiv. It does
+                        not scroll and the #designDiv begins to expand vertically. How do I
+                        create a scrollable div tag vertically for chrome? It does show the
+                        vertical scroll bar but the problem is during the run-time designDiv</div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- build the sidekick card "B" below:     -->
+        <div class="container card_dim" id="sidekick">
+            <div id="matches_container">
+                <div class="user_match_preview">
+                    <!--   BEGIN USER MATCH BELOW.    --> <!-- changed the usernameIDX to usernameIDXPreview format because all div id's need to be unique -Grayson-->
+
+                    <div class="flexbox-container">
+                        <div class="left">NAME: <div id="usernameID1Preview">Sarah Lowe</div><br> </div>
+                        <div class="right"></div>
+                    </div>
+
+
+
+                    <div class="flexbox-container">
+                        <div class="left">NAME: <div id="usernameID2Preview">Caitlyn Nyguen</div><br> </div>
+                        <div class="right"> </div>
+                    </div>
+
+
+                    <div class="flexbox-container">
+                        <div class="left">NAME: <div id="usernameID3Preview">Felipé Cardona</div><br> </div>
+                        <div class="right"></div>
+                    </div>
+
+                    <div class="flexbox-container">
+                        <div class="left">NAME: <div id="usernameID4Preview">Liza DiFilippo</div><br> </div>
+                        <div class="right"> </div>
+                    </div>
+
+
+                    <div class="flexbox-container">
+                        <div class="left">NAME: <div id="usernameID5Preview">Richards Time</div><br> </div>
+                        <div class="right"> </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <!--  end -->
+    <!--  flexbox -->
+</div> <!-- I had to add this due to there being a "missing div close" -Grayson -->
+
+</body>
+</html>

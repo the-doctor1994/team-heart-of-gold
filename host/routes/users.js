@@ -71,8 +71,7 @@ router.put('/match', function(req, res) {
 		res.redirect('/index/login');
 	}
 
-	var user = {};
-	user = req.body;
+	var user = req.body;
 	usersdb.query({school: user.school}, function(error, results) {
 		var realMatches = [];
 		//For each user at the same school
@@ -119,8 +118,13 @@ router.post('/auth', function(req, res) {
 	var user = req.session.user;
 
 	// do the check as described in the `exports.login` function.
+	// note that at this point user should be undefined, so all the stuff in
+	// this edge statement is just checking for the following edge cases:
+	//	1) There's more than one user signed in with that username
+	//	2) There's no user signed in with that username/password
+	//	3) There's exactly one user signed in with that info
 	if (user !== undefined) {
-		usersdb.query({username: username, password: password, online: true}, function(error, user) {
+		usersdb.query({username: user.username, password: user.password, online: true}, function(error, user) {
 			if (error) {
 				req.flash('auth', error);
 				res.redirect('/index/login');
@@ -133,13 +137,12 @@ router.post('/auth', function(req, res) {
 				}
 				else if (user.length === 0) {
 					// there is no user signed in with that username/password
-					res.redirect('/index/login');
+					res.redirect('/users/home');
 				}
 				else {
-					// thee is exactly 1 user signed in with that username/password,
+					// there is exactly 1 user signed in with that username/password,
 					// so just redirect to home since the correct username/password
 					// were provided
-					req.session.user = user[0];
 					res.redirect('/users/home');
 				}
 			}
@@ -153,7 +156,7 @@ router.post('/auth', function(req, res) {
 		usersdb.query({username: username, password: password}, function(error, user) {
 			if (error) {
 				// If there is an error we "flash" a message to the
-				// redirected route `/user/login`.
+				// redirected route `/index/login`.
 				req.flash('auth', error);
 				res.redirect('/index/login');
 			}
@@ -161,8 +164,8 @@ router.post('/auth', function(req, res) {
 				user.online = true;
 				usersdb.put(user, function(user){
 					req.session.user = user;
-					// Redirect to main.
-					res.redirect('/index/login');
+					// Redirect to home.
+					res.redirect('/users/home');
 				});
 			}
 		});
@@ -182,7 +185,7 @@ router.post('/auth', function(req, res) {
  	 */
  	.post(function(req, res) {
  		var user = req.body;
- 		usersdb.add(user, function());
+ 		usersdb.add(user, function(){});
  	})
 
  	/*
@@ -193,7 +196,7 @@ router.post('/auth', function(req, res) {
  	.get(function(req, res) {
 		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(JSON.stringify([])); } //expects an "empty array" http://dojotoolkit.org/reference-guide/1.10/dojo/store/JsonRest.html#implementing-a-rest-server
-			else { es.send(JSON.stringify(results)); }
+			else { res.send(JSON.stringify(results)); }
 		}) 		
  	});
 
@@ -215,7 +218,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedUser = JSON.parse(res.body);
- 	 	usersdb.put(updatedUser, function());
+ 	 	usersdb.put(updatedUser, function(){});
  	 })
 
  	 /*
@@ -244,7 +247,7 @@ router.post('/auth', function(req, res) {
  	 */
  	.post(function(req, res) {
  		var chat = req.body;
- 		chats.add(user, function());
+ 		chats.add(user, function(){});
  	})
 
  	/*
@@ -277,7 +280,7 @@ router.post('/auth', function(req, res) {
  	  */
  	 .put(function(req, res) {
  	 	var updatedChat = JSON.parse(req.body);
- 	 	chats.put(updatedChat, function();
+ 	 	chats.put(updatedChat, function(){});
  	 })
 
  	 /*

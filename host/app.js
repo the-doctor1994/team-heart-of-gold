@@ -46,7 +46,7 @@ app.use(session({ secret : 'octocat',
 app.use(flash());
 
 // Using our routes/middleware:
-app.use('/user', users);
+app.use('/users', users);
 app.use('/index', index);
 
 

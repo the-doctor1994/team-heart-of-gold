@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var usersdb = require('../lib/users');
+var usersJS = require('./users');
 
 // ##### Server Side Routes For Users Not Logged In ##########
 
@@ -37,7 +38,7 @@ router.get('/login', function(req, res){
 		}
 		else{
 			// User is online, redirect to home
-			res.redirect('/users/home');
+			res.redirect('users/home');
 		}
 	 });
 	}
@@ -143,6 +144,9 @@ router.post('/auth', function(req, res) {
 						res.redirect('/users/home');
 					}
 				});
+			} else { // user was not found
+				console.log("User was not found");
+				res.redirect("/index/login");
 			}
 		});
 	}

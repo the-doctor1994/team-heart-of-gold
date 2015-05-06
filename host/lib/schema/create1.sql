@@ -1,5 +1,5 @@
 create database main;
-grant all on `main`.* to 'studybuddy'@'localhost' identified by '';
+grant all on main.* to 'studybuddy'@'localhost' identified by '';
 use main;
 create table users (
 	username varchar(255) not null primary key,

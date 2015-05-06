@@ -24,7 +24,7 @@ exports.get = function(username, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.get connection');
       connection.query(sql, [db, username], function(error, user){
         connection.release();
         if(error){
@@ -50,7 +50,7 @@ exports.add = function(newUser, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.add connection');
       connection.query(sql, [db, newUser], function(error, result){
         connection.release();
         if(error){
@@ -84,7 +84,7 @@ exports.query = function(queryObj, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.query connection');
       connection.query(sql, db, function(error,results){
         connection.release();
         if(error){
@@ -114,7 +114,7 @@ exports.put = function(updatedUser, callback) {
         callback(error);
       }
       else{
-        console.log('good connection');
+        console.log('good users.put connection');
         connection.query(sql, [db, updatedUser, uidOfObjectToUpdate], function(error, results){
           connection.release();
           if(error){
@@ -141,7 +141,7 @@ exports.delete = function(username, callback){
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good users.delete connection');
       connection.query(sql, [db, username], function(error,results){
         connection.release();
         if(error){

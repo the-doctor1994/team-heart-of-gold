@@ -223,3 +223,25 @@ pool.getConnection( function(error, connection) {
     }
 });
 */
+/*
+//get one user by username
+sql = "SELECT * FROM ?? WHERE username=?";
+pool.getConnection( function(error, connection) {
+    if(error) {
+        console.log(error);
+    }
+    else{
+        console.log('good users.get connection');
+        connection.query(sql, [db, 'jim'], function(error, user){
+            connection.release();
+            if(error){
+                console.log(error);
+            }
+            else{
+                console.log('good query');
+                console.log(user);
+            }
+        });
+    }
+});
+*/

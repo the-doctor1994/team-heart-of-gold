@@ -24,7 +24,7 @@ exports.get = function(sender, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good chat.get connection');
       connection.query(sql, [db, sender], function(error, results){
         connection.release();
         if(error){
@@ -49,7 +49,7 @@ exports.add = function(newChat, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good chat.add connection');
       connection.query(sql, [db,newChat.sender,newChat.receiver,newChat.message], function(error, result){
         connection.release();
         if(error){
@@ -74,7 +74,7 @@ exports.query = function(criteria, callback) {
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good chat.query connection');
       connection.query(sql, [db, criteria.sender, criteria.receiver], function(error,results){
         connection.release();
         if(error){
@@ -132,7 +132,7 @@ exports.delete = function(sender, callback){
       callback(error);
     }
     else{
-      console.log('good connection');
+      console.log('good chat.delete connection');
       connection.query(sql, [db, sender], function(error, result){
         connection.release();
         if(error){
@@ -141,7 +141,8 @@ exports.delete = function(sender, callback){
         }
         else{
           console.log('good delete');
-          callback('', 'rows deleted:' + result.affectedRows);
+          console.log('rows deleted:' + result.affectedRows);
+          callback('', result);
         }
       });
     }

@@ -172,9 +172,9 @@ pool.getConnection(function(error, connection) {
     }
 });
 */
-//*
+/*
 //to modify EXISTING entries in the users table for one user only
-var updatedUser = {username:'bob@gmail.com',age:20}; //change age to test
+var updatedUser = {username:'bob@gmail.com',age:20,courses: 'undefined', online:false}; //change age to test
 sql = "UPDATE ?? SET ? WHERE username=?";
 var uidOfObjectToUpdate = updatedUser.username;
 if(!uidOfObjectToUpdate){
@@ -200,7 +200,7 @@ else{
         }
     });
 }
-//*/
+*/
 /*
 //to delete ONE user from the table
 sql = "DELETE FROM ?? WHERE username=?";

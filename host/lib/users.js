@@ -102,7 +102,7 @@ exports.query = function(queryObj, callback) {
 
 //to modify EXISTING entries in the users table for one user only
 exports.put = function(updatedUser, callback) {
-  var sql = "UPDATE ?? SET ?? WHERE username=?";
+  var sql = "UPDATE ?? SET ? WHERE username=?";
   var uidOfObjectToUpdate = updatedUser.username;
   if(!uidOfObjectToUpdate){
     callback('no username entered');

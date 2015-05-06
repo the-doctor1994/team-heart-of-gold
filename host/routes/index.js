@@ -129,6 +129,10 @@ router.post('/auth', function(req, res) {
 			else if(results.length > 0){
 				var user = results[0];
 				user.online = true;
+				//var user = {username:username,online:true};
+				//console.log(user);
+				//user.online = true;
+				//console.log(user);
 				//set the user to online
 				usersdb.put(user, function(error, message){
 					if (error) {

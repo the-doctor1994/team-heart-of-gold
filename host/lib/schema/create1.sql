@@ -10,7 +10,7 @@ create table users (
 	courses varchar(255) default 'undefined',
 	study_pref varchar(255) default 'undefined',
     online boolean default 0,
-    matches_array varchar(255) 'undefined'
+    matches_array varchar(255) default 'undefined'
 	);
 
 create table chats (

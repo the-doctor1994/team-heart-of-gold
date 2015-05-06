@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var usersdb = require('../lib/users');
+var usersJS = require('./users');
 
 // ##### Server Side Routes For Users Not Logged In ##########
 

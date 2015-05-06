@@ -85,7 +85,8 @@ a:hover{
 	/*background:#e91e63;*//*#009688;#91092A;*/
 }
 /*.above#adjust_above_1{	margin-left:15%;}*/ /*this was causing an unnesccary shift to main study buddy panel  */
-.above#adjust_above_2{	margin-left:100%; height: 300px; background:teal; } /*overview: changing the card to square-like form*/
+.above#adjust_above_2{	margin-left:100%; height: 300px; background:teal; } 
+/*overview: changing the card to square-like form*/
 
 
 .above > h2{color: white;}
@@ -210,17 +211,31 @@ input:not([type=submit]):focus{
 
 }
 
+/* creating css rules to handle constraining cards for the case where the window is
+resized. effects will not move*/
+.container.card_dim, .above#adjust_above_1,
+.above#adjust_above_2 > #chat_container,
+.container.card_dim#sidekick > #matches_container{
+	position:relative;		
+}
+
+.above#adjust_above_1{
+		width:300px;
+/*		margin-left: 15%;*/
+}
+
+.above#adjust_above_2 ,
+.container.card_dim#sidekick {
+/*	margin-left: 1000px;*/
+/*position:absolute;	*/
+margin-left: 400px;
+}
 /* overview: place card "sidekick logic below"*/
-
-
 .above#adjust_above_2, .container.card_dim#sidekick { /*> #chat_container{*/
 	overflow-y: auto;
 	background: white;
 	color: 	#A30000;
 }
-
-
-
 
 
 

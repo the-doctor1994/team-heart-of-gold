@@ -17,7 +17,7 @@ router.get('/', function(req, res){
 // The login page for users to sign in
 router.get('/login', function(req, res){
 	var user  = req.session.user;
-
+	console.log('this is the user' + user);
 	// If the user is already logged in - we redirect to the
 	// main application view. We must check that the database has the user marked as online. The reason is that
 	// the cookie may still be stored on the client even if the
@@ -170,7 +170,7 @@ router.post('/process', function(req,res){
 				else {
 					req.session.user = newUser;
 					req.session.save();
-					console.log("OBJECT SAVED "+req.session.user);
+					console.log("OBJECT SAVED "+req.session.user.username);
 					res.redirect('../users/home');
 				}
 			});

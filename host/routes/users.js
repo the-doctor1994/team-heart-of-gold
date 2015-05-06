@@ -17,7 +17,6 @@ router.get('/home', function(req, res) {
 		res.redirect('/index/login');
 	}else {
 		res.render('main');
-		res.redirect('../index/login');
 	}
 });
 
@@ -38,8 +37,14 @@ router.get('/logout', function(req, res) {
 		}
 	});
 
-	delete req.session.user;
-	res.redirect('../index/login');
+	req.session.destroy(function(error) {
+		if (error) {
+			console.log("can't delete session");
+		}
+		else {
+			res.redirect('../index/login');
+		}
+	});
 });
 
 // ## edit

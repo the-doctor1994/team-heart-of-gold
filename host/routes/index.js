@@ -59,7 +59,7 @@ router.get('/new', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-		usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
+		usersdb.query({username: user.username, password: user.password}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.

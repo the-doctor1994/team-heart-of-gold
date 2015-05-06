@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var environment_settings = {
 	dbConnectionSettings: {
       host: 'localhost',
-      user: 'root',
+      user: 'studybuddy',
       password: '',
       database: 'main',
       connectionLimit: 10,

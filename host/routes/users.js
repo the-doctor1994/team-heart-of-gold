@@ -1,8 +1,8 @@
 var express = require('express');
 var router  = express.Router();
-
 var usersdb = require('../lib/users');
 var chats = require('../lib/chat');
+var indexJS = require('./index');
 
 // ############# User Server-Side Routes ###########
 

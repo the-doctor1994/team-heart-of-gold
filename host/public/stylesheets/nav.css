@@ -23,6 +23,7 @@
   min-height: 1px;
   line-height: 1em;
   vertical-align: middle;
+/*  background: hidden;*/
 }
 #cssmenu ul li.hover,
 #cssmenu ul li:hover {
@@ -73,7 +74,8 @@
   float: none;
 }
 #cssmenu ul {
-  background: #fff;
+/*  background: #fff;*/
+  background: hidden;
 }
 /*#cssmenu > ul > li {
   border-left: 3px solid #d7d8da;

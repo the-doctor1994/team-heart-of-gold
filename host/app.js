@@ -13,6 +13,7 @@ var logger		= require('morgan');
 var cookieParser	= require('cookie-parser');
 var bodyParser		= require('body-parser');
 
+
 // Our user-defined routes/middleware:
 var users		= require('./routes/users');
 var index		= require('./routes/index');
@@ -41,7 +42,7 @@ app.use('/wscript', express.static(__dirname + '/wscript/'));
 // Added session support
 app.use(session({ secret : 'octocat',
                   saveUninitialized : true,
-                  resave : true }));
+                  resave : false }));
 // Added flash support:
 app.use(flash());
 

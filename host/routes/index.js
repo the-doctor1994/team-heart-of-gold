@@ -38,7 +38,7 @@ router.get('/login', function(req, res){
 		}
 		else{
 			// User is online, redirect to home
-			res.redirect('users/home');
+			res.redirect('../users/home');
 		}
 	 });
 	}
@@ -74,7 +74,7 @@ router.get('/new', function(req, res){
 		}
 		else{
 			// User is online, redirect to home
-			res.redirect('/users/home');
+			res.redirect('../users/home');
 		}
 	 });
 	}
@@ -109,7 +109,7 @@ router.post('/auth', function(req, res) {
 	 		}
 	 		else{
 	 			// User is online, redirect to home
-				res.redirect('/users/home');
+				res.redirect('../users/home');
 	 		}
 	 	}
 	 });
@@ -141,7 +141,7 @@ router.post('/auth', function(req, res) {
 						console.log(message);
 						req.session.user = user;
 						// Redirect to home.
-						res.redirect('/users/home');
+						res.redirect('../users/home');
 					}
 				});
 			} else { // user was not found
@@ -167,7 +167,7 @@ router.post('/process', function(req,res){
 				}
 				else {
 					req.session.user = user;
-					res.redirect('users/home');
+					res.redirect('../users/home');
 				}
 			});
 		}

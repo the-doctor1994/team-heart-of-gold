@@ -125,11 +125,7 @@ router.post('/auth', function(req, res) {
 	 		else{
 	 			// User is online, set current user and redirect to home
 	 			req.session.user = user[0];
-	 			usersdb.put(user, function(user){
-					req.session.user = user;
-					// Redirect to home.
-					res.redirect('/users/home');
-				});
+				res.redirect('/users/home');
 	 		}
 	 	}
 	 });

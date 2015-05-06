@@ -162,7 +162,7 @@ router.post('/process', function(req,res){
 			// User already exists in db, flashes error
 			// and redirects to make new user page
 			req.flash('auth', 'user already exists');
-			res.redirect('/index/new');
+			res.redirect('/index/login');
 		}
 	});
 

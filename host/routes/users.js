@@ -15,6 +15,8 @@ router.get('/home', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/index/login');
+	}else {
+		res.send('main');
 	}
 });
 

@@ -109,6 +109,7 @@ router.post('/auth', function(req, res) {
 	 		}
 	 		else{
 	 			// User is online, redirect to home
+			
 				res.redirect('/users/home');
 	 		}
 	 	}
@@ -140,8 +141,10 @@ router.post('/auth', function(req, res) {
 					else{
 						console.log(message);
 						req.session.user = user;
+						req.session.save();
+						console.log("USER OBJ SAVED "+user)
 						// Redirect to home.
-						res.redirect('/users/home');
+						res.redirect('../users/home');
 					}
 				});
 			} else { // user was not found
@@ -166,7 +169,9 @@ router.post('/process', function(req,res){
 					res.send(error);
 				}
 				else {
-					req.session.user = user;
+					req.session.user = newUser;
+					req.session.save();
+					console.log("OBJECT SAVED "+req.session.user);
 					res.redirect('../users/home');
 				}
 			});

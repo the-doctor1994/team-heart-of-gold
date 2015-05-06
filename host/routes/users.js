@@ -17,7 +17,6 @@ router.get('/home', function(req, res) {
 		res.redirect('/index/login');
 	}else {
 		res.render('main');
-		res.redirect('../index/login');
 	}
 });
 
@@ -305,3 +304,4 @@ router.post('/auth', function(req, res) {
       });
 
 module.exports = router;
+

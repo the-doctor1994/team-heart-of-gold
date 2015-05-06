@@ -13,7 +13,7 @@ router.get('/home', function(req, res) {
 	// added session support
 	var user = req.session.user;
 	if (user === undefined) {
-		req.flash('auth', 'Not logged in!'
+		req.flash('auth', 'Not logged in!');
 		res.redirect('/index/login');
 	}else {
 		res.render('main');

@@ -143,7 +143,6 @@ router.post('/auth', function(req, res) {
 					// there is exactly 1 user signed in with that username/password,
 					// so just redirect to home since the correct username/password
 					// were provided
-					req.session.user = user[0];
 					res.redirect('/users/home');
 				}
 			}

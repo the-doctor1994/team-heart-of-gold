@@ -4,11 +4,7 @@ var environment_settings = {
 	dbConnectionSettings: {
       host: 'localhost',
       user: 'studybuddy',
-<<<<<<< HEAD
       password: 'password',
-=======
-      password: '',
->>>>>>> 5d336c26aaa5175d4c8cf54f9f9afd3ac294b9cd
       database: 'main',
       connectionLimit: 10,
       supportBigNumbers: true

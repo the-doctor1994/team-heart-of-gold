@@ -144,7 +144,7 @@ router.post('/auth', function(req, res) {
 router.post('/process', function(req,res){
 	var newUser = req.body;
 	usersdb.get(newUser.username, function(error, user){
-		if(user[0] === undefined){
+		if(user === undefined){
 			// If user is an empty array, user does not exist
 			// adds user to db
 			usersdb.add(newUser, function(error, newUser) {

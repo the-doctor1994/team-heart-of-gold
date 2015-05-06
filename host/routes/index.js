@@ -153,7 +153,6 @@ router.post('/process', function(req,res){
 					res.send(error);
 				}
 				else {
-					res.json(newUser);
 					req.session.user = user;
 					res.redirect('users/home');
 				}

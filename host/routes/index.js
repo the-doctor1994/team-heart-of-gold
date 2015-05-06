@@ -59,7 +59,7 @@ router.get('/new', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-		usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
+		usersdb.query({username: user.username, password: user.password}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
@@ -144,7 +144,7 @@ router.post('/auth', function(req, res) {
 router.post('/process', function(req,res){
 	var newUser = req.body;
 	usersdb.get(newUser.username, function(error, user){
-		if(user[0] === undefined){
+		if(user === undefined){
 			// If user is an empty array, user does not exist
 			// adds user to db
 			usersdb.add(newUser, function(error, newUser) {
@@ -153,7 +153,6 @@ router.post('/process', function(req,res){
 					res.send(error);
 				}
 				else {
-					res.json(newUser);
 					req.session.user = user;
 					res.redirect('users/home');
 				}

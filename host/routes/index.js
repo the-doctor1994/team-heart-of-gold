@@ -174,6 +174,7 @@ router.post('/process', function(req,res){
 				else {
 					res.json(newUser);
 					req.session.user = user;
+					res.redirect('users/home');
 				}
 			});
 		}

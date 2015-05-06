@@ -165,8 +165,8 @@ router.post('/auth', function(req, res) {
 				user.online = true;
 				usersdb.put(user, function(user){
 					req.session.user = user;
-					// Redirect to main.
-					res.redirect('/users/main');
+					// Redirect to home.
+					res.redirect('/users/home');
 				});
 			}
 		});

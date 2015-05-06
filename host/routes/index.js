@@ -166,7 +166,7 @@ router.post('/process', function(req,res){
 				}
 				else {
 					req.session.user = user;
-					res.redirect('users/home');
+					res.redirect('../users/home');
 				}
 			});
 		}

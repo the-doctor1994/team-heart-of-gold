@@ -8,6 +8,7 @@
   padding: 0;
   border: 0;
   height: 100px; /* overview: controls the breadth of nav bar tabs.*/
+  width: auto;
 }
 
 
@@ -141,7 +142,7 @@
 }
 
 .flexbox-container > div {
-  width: 16%;
+/*  width: 16%;*/
   padding: 10px;
 }
 

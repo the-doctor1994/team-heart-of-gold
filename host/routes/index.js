@@ -162,16 +162,17 @@ router.post('/auth', function(req, res) {
 // Processes information to create a new account 
 router.post('/process', function(req,res){
 	var newUser = req.body;
-	usersdb.get(newUser, function(error, user){
-		if(error){
-			// If there is an error, user does not exist in db 
+	usersdb.get(newUser.username, function(error, user){
+		if(user[0] === undefined){
+			// If user is an empty array, user does not exist
 			// adds user to db
 			usersdb.add(newUser, function(error, newUser) {
 				if (error) {
 					console.log(error);
+					res.send(error);
 				}
 				else {
-					res.send(JSON.stringify.newUser);
+					res.json(newUser);
 					req.session.user = user;
 				}
 			});
@@ -179,7 +180,7 @@ router.post('/process', function(req,res){
 		else{
 			// User already exists in db, flashes error
 			// and redirects to make new user page
-			req.flash('auth', error);
+			req.flash('auth', 'user already exists');
 			res.redirect('/index/new');
 		}
 	});

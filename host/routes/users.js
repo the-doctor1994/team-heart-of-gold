@@ -165,8 +165,8 @@ router.post('/auth', function(req, res) {
 				user.online = true;
 				usersdb.put(user, function(user){
 					req.session.user = user;
-					// Redirect to main.
-					res.redirect('/users/main');
+					// Redirect to home.
+					res.redirect('/users/home');
 				});
 			}
 		});
@@ -197,7 +197,7 @@ router.post('/auth', function(req, res) {
  	.get(function(req, res) {
 		usersdb.query(req.query, function(error, results) {
 			if(error) { res.send(JSON.stringify([])); } //expects an "empty array" http://dojotoolkit.org/reference-guide/1.10/dojo/store/JsonRest.html#implementing-a-rest-server
-			else { es.send(JSON.stringify(results)); }
+			else { res.send(JSON.stringify(results)); }
 		}) 		
  	});
 

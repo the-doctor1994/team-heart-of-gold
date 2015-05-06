@@ -1,0 +1,12 @@
+40,41c40,47
+< 	delete req.session.user;
+< 	res.redirect('../index/login');
+---
+> 	req.session.destroy(function(error) {
+> 		if (error) {
+> 			console.log("can't delete session");
+> 		}
+> 		else {
+> 			res.redirect('../index/login');
+> 		}
+> 	});

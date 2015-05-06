@@ -69,7 +69,7 @@ exports.add = function(newUser, callback) {
 //returns all entries that match any set of key pairs
 exports.query = function(queryObj, callback) {
   var queryKeys = Object.keys(queryObj);
-  console.log('searching for:' + queryObj);
+  console.log('searching for:' + queryObj.username);
   var sql = "SELECT * FROM ?? WHERE ";
   queryKeys.forEach( function(key, index) {
     if(index > 0 && index < queryKeys.length){

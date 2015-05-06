@@ -8,7 +8,7 @@ var usersdb = require('../lib/users');
 //##defualt
 // in case index by itself is referenced
 router.get('/', function(req, res){
-	res.redirect('login');
+	res.redirect('/index/login');
 }); 
 
 
@@ -128,11 +128,20 @@ router.post('/auth', function(req, res) {
 			else if(results.length > 0){
 				var user = results[0];
 				user.online = true;
-				usersdb.put(user, function(message){
-					console.log(message);
-					req.session.user = user;
-					// Redirect to home.
-					res.redirect('/users/home');
+				//set the user to online
+				usersdb.put(user, function(error, message){
+					if (error) {
+						// If there is an error we "flash" a message to the
+						// redirected route `/user/login`
+						req.flash('auth', error);
+						res.redirect('/index/login');
+					}
+					else{
+						console.log(message);
+						req.session.user = user;
+						// Redirect to home.
+						res.redirect('/users/home');
+					}
 				});
 			}
 		});

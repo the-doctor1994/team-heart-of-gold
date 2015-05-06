@@ -23,29 +23,22 @@ router.get('/login', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 usersdb.query({username: user.username, password: user.password, online: true}, function(error, user){	
+	 usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
 	 		req.flash('auth', error);
 	 		res.redirect('/index/login');
 	 	}
-	 	else{
-	 		if (user.length > 1){
-	 			//oh my: user object should not return more than one user
-	 			console.log('there is a user signed in twice')
-	 		}
-	 		else if (user.length === 0){
-	 			// User is not online, redirect to login page
-	 			// Render the login view if this is a new login.
-    			res.render('login');
-	 		}
-	 		else{
-	 			// User is online, set current user and redirect to home
-	 			req.session.user = user[0];
-	 			res.redirect('/users/home');
-	 		}
-	 	}
+	 	else if (results.length === 0){
+			// User is not online, redirect to login page
+			// Render the login view if this is a new login.
+			res.render('login');
+		}
+		else{
+			// User is online, redirect to home
+			res.redirect('/users/home');
+		}
 	 });
 	}
 	else {
@@ -66,28 +59,22 @@ router.get('/new', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 usersdb.query({username: username, password: password, online: true}, function(error, user){
+		usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
 	 		req.flash('auth', error);
 	 		res.redirect('/index/login');
 	 	}
-	 	else{
-	 		if (user.length > 1){
-	 			//oh my: user object should not return more than one user
-	 		}
-	 		else if (user.length === 0){
-	 			// User is not online, redirect to login page
-	 			// Render the new user view to create new user.
-    			res.render('adduser');
-	 		}
-	 		else{
-	 			// User is online, set current user and redirect to home
-	 			req.session.user = user[0];
-	 			res.redirect('/users/home');
-	 		}
-	 	}
+	 	else if (results.length === 0){
+			// User is not online, redirect to login page
+			// Render the new user view to create new user.
+			res.render('adduser');
+		}
+		else{
+			// User is online, redirect to home
+			res.redirect('/users/home');
+		}
 	 });
 	}
 	else {
@@ -107,29 +94,21 @@ router.post('/auth', function(req, res) {
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 usersdb.query({username: username, password: password, online: true}, function(error, user){
+	 usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
 	 		req.flash('auth', error);
-	 		res.redirect('/index/home');
+	 		res.redirect('/index/login');
 	 	}
 	 	else{
-	 		if (user.length > 1){
-	 			//oh my: user object should not return more than one user
-	 		}
-	 		else if (user.length === 0){
-	 			// User is not online, refirect to login page
+	 		if (results.length === 0){
+	 			// User is not online, redirect to login page
 	 			res.redirect('/index/login');
 	 		}
 	 		else{
-	 			// User is online, set current user and redirect to home
-	 			req.session.user = user[0];
-	 			usersdb.put(user, function(user){
-					req.session.user = user;
-					// Redirect to home.
-					res.redirect('/users/home');
-				});
+	 			// User is online, redirect to home
+				res.redirect('/users/home');
 	 		}
 	 	}
 	 });
@@ -139,16 +118,18 @@ router.post('/auth', function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		usersdb.query({username: username, password: password}, function(error, user) {
+		usersdb.query({username: username, password: password}, function(error, results) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/user/login`
 				req.flash('auth', error);
 				res.redirect('/index/login');
 			}
-			else {
+			else if(results.length > 0){
+				var user = results[0];
 				user.online = true;
-				usersdb.put(user, function(user){
+				usersdb.put(user, function(message){
+					console.log(message);
 					req.session.user = user;
 					// Redirect to home.
 					res.redirect('/users/home');

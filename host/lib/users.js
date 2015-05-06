@@ -33,7 +33,7 @@ exports.get = function(username, callback) {
         }
         else{
           console.log('good query');
-          callback('', user);
+          callback('', user[0]);
         }
       });
     }
@@ -124,7 +124,7 @@ exports.put = function(updatedUser, callback) {
           else{
             console.log('good query');
             console.log('rows affected:' + results.changedRows);
-            callback('',results);
+            callback('',results.message);
           }
         });
       }

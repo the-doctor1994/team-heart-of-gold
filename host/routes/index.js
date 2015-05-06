@@ -38,7 +38,7 @@ router.get('/login', function(req, res){
 		}
 		else{
 			// User is online, redirect to home
-			res.redirect('users/home');
+			res.redirect('../users/home');
 		}
 	 });
 	}
@@ -74,7 +74,7 @@ router.get('/new', function(req, res){
 		}
 		else{
 			// User is online, redirect to home
-			res.redirect('/users/home');
+			res.redirect('../users/home');
 		}
 	 });
 	}
@@ -109,8 +109,7 @@ router.post('/auth', function(req, res) {
 	 		}
 	 		else{
 	 			// User is online, redirect to home
-			
-				res.redirect('/users/home');
+				res.redirect('../users/home');
 	 		}
 	 	}
 	 });

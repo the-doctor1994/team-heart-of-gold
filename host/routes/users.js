@@ -9,14 +9,15 @@ var indexJS = require('./index');
 // ## home
 // The main user view which will contain notifications and links to other views.
 router.get('/home', function(req, res) {
-	var message = req.flash('auth') || 'Login Successful';
+	//var message = req.flash('auth', ) || 'Login Successful';
 	// added session support
 	var user = req.session.user;
 	if (user === undefined) {
-		req.flash('auth', 'Not logged in!');
+		req.flash('auth', 'Not logged in!'
 		res.redirect('/index/login');
 	}else {
-		res.send('main');
+		res.render('main');
+		res.redirect('../index/login');
 	}
 });
 
@@ -26,19 +27,19 @@ router.get('/logout', function(req, res) {
 	var user = req.session.user;
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/index/login');
+		res.redirect('../index/login');
 	}
 
 	// pass in updated user
 	usersdb.put({username: user.username, online: false}, function(err, dbuser) {
 		if (err) {
 			req.flash('auth', error);
-			res.redirect('/index/login');
+			res.redirect('../index/login');
 		}
 	});
 
 	delete req.session.user;
-	res.redirect('/index/login');
+	res.redirect('../index/login');
 });
 
 // ## edit
@@ -47,7 +48,7 @@ router.get('/logout', function(req, res) {
 router.get('/edit', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/index/login');
+		res.redirect('../index/login');
 	}
 });
 
@@ -57,7 +58,7 @@ router.get('/edit', function(req, res) {
 router.get('/match', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/index/login');
+		res.redirect('../index/login');
 	}
 });
 
@@ -70,7 +71,7 @@ router.get('/match', function(req, res) {
 router.put('/match', function(req, res) {
 	if(user === undefined || online[user.id] === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/index/login');
+		res.redirect('../index/login');
 	}
 
 	var user = req.body;
@@ -108,7 +109,7 @@ router.put('/match', function(req, res) {
 router.get('/chat', function(req, res) {
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
-		res.redirect('/index/login');
+		res.redirect('../index/login');
 	}
 });
 
@@ -129,24 +130,17 @@ router.post('/auth', function(req, res) {
 		usersdb.query({username: user.username, password: user.password, online: true}, function(error, user) {
 			if (error) {
 				req.flash('auth', error);
-				res.redirect('/index/login');
+				res.redirect('../index/login');
+			}
+			else if (user.length === 0) {
+				// there is no user signed in with that username/password
+				res.redirect('/users/home');
 			}
 			else {
-				if (user.length > 1) {
-					// uh oh
-					// there is somehow a user signed in twice
-					console.log('there is a user signed in twice')
-				}
-				else if (user.length === 0) {
-					// there is no user signed in with that username/password
-					res.redirect('/users/home');
-				}
-				else {
-					// there is exactly 1 user signed in with that username/password,
-					// so just redirect to home since the correct username/password
-					// were provided
-					res.redirect('/users/home');
-				}
+				// there is exactly 1 user signed in with that username/password,
+				// so just redirect to home since the correct username/password
+				// were provided
+				res.redirect('/users/home');
 			}
 		});
 	}
@@ -155,19 +149,30 @@ router.post('/auth', function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
 		// Perform the user lookup.
-		usersdb.query({username: username, password: password}, function(error, user) {
+		usersdb.query({username: username, password: password}, function(error, results) {
 			if (error) {
 				// If there is an error we "flash" a message to the
 				// redirected route `/index/login`.
 				req.flash('auth', error);
-				res.redirect('/index/login');
+				res.redirect('../index/login');
 			}
-			else {
+			else if(results.length > 0){
+				var user = results[0];
 				user.online = true;
-				usersdb.put(user, function(user){
-					req.session.user = user;
-					// Redirect to home.
-					res.redirect('/users/home');
+				//set the user to online
+				usersdb.put(user, function(error, message){
+					if (error) {
+						// If there is an error we "flash" a message to the
+						// redirected route `/user/login`
+						req.flash('auth', error);
+						res.redirect('../index/login');
+					}
+					else{
+						console.log(message);
+						req.session.user = user;
+						// Redirect to home.
+						res.redirect('/users/home');
+					}
 				});
 			}
 		});

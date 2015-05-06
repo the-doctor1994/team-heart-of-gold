@@ -8,7 +8,7 @@ var usersdb = require('../lib/users');
 //##defualt
 // in case index by itself is referenced
 router.get('/', function(req, res){
-	res.redirect('login');
+	res.redirect('/index/login');
 }); 
 
 

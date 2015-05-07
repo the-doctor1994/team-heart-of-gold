@@ -16,7 +16,10 @@ require([
 		var convo;
 		
 		//helper functions
-		
+		on(dom.byId('chat_tag'), 'click', function(e) {
+			console.log('clicked on chat');
+		});
+
 		// create a regexp that is the array given | every object
 		function createOrExp(arr){
 			var string = "";
@@ -45,12 +48,12 @@ require([
 		function openChat(chatID){
 			list = dom.byId('convList');
 			user.conversations[chatID].forEach(function(curr, index, array){
-				domConstruct.place('li' {innerHTML: MessageWrapper(curr.name, curr.message)}, list, 'inside');
+				domConstruct.place("<li> {innerHTML: MessageWrapper(curr.name, curr.message)}</li>", list, 'inside');
 			});
 		}
 		
 		// convoObserveHandler. this is called enough times to constitute a name instantiation
-		function COH(object, removedFrom, insertedInto)){
+		function COH(object, removedFrom, insertedInto){
 			if(removedFrom == -1 && insertedInto > -1) {
 				//This is the first the convo was put into the store/JsonRest
 				this.convo = object;
@@ -80,7 +83,7 @@ require([
 				// Difference was found, so we update our local version
 				convo = object;		
 				
-			} else if (removedFrom > -1 && insertedInto == -1)){
+			} else if (removedFrom > -1 && insertedInto == -1){
 				//conversations were deleted. update.
 				convo = object;
 			}

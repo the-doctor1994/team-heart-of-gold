@@ -4,7 +4,8 @@
 ##"Study Buddy"
 
 #Running the Project
-> There are scripts (createdb, dropdb) provided in /host/lib/schema which will create and drop the relevant mysql database, and tables for you as long as mysql is already installed. The app expects a mysql user 'studybuddy'@'localhost' with password ''.
+> There are scripts (createdb, dropdb) provided in /host/lib/schema which will create and drop the relevant mysql user, database, and tables for you as long as mysql is already installed. Run them using:
+	> mysql -u root -p 'your-password' < /lib/schema/create1.sql or drop1.sql
 
 #Project Overview
 >*Heart of Gold* and "Study Buddy" aim to adapt the idea of the popular social media app Tinder and apply it to finding a compatible study partner. The app will collect personal information and class schedule from users and then offer them matches. If both matches pick each other, they will be able to chat and coordinate study sessions.

@@ -177,6 +177,8 @@ router.post('/auth', function(req, res) {
 // Processes information to create a new account 
 router.post('/process', function(req,res){
 	var newUser = req.body;
+	newUser.courses = JSON.stringify(newUser.courses);
+        console.log(newUser.courses);
 	usersdb.get(newUser.username, function(error, user){
 		if(user === undefined){
 			// If user is an empty array, user does not exist

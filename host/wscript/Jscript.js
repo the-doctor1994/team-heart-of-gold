@@ -104,7 +104,7 @@ require([
 		// set Observer handlers.
 		var convoObserveHandle = convores.observe(COH(object, removedFrom, insertedInto));
 		
-		userObserveHandle = userres.observe(function(object, removedFrom, insertedInto)){
+		userObserveHandle = userres.observe(function(object, removedFrom, insertedInto){
 			if(removedFrom == -1 && insertedInto > -1) {
 				//This is the first the user was put into the store/JsonRest
 				this.user = object;
@@ -126,10 +126,10 @@ require([
 				
 				// Difference was found, so we update our local version
 				user = object;
-			} else if (removedFrom > -1 && insertedInto == -1)){
+			} else if (removedFrom > -1 && insertedInto == -1){
 			//The user deleted their account while they were logged in
 			}
-		}
+		});
 		
 		// start the page on Main screen...
 		toMain();

@@ -93,16 +93,17 @@ require([
 		
 		// User and Convo stored locally and on server : 
 		
-		var user = Window.sessionStorage.getItem('user');
+		var user = window.user;
 		var userstore = new Observable(new JsonRest({target: "/users"})); 	
 		var userres = userstore.query({username:user.username});
 		
 		var convostore = new Observable(new JsonRest({target: "/chat"}));
-		var convores = convostore.query({convoUID:createOrExp(user.convUID)});
+		
+		if(user.convUid) var convores = convostore.query({convoUID:createOrExp(user.convUID)});
 		convo = convores; // set convo to the most recent version.
 		
 		// set Observer handlers.
-		var convoObserveHandle = convores.observe(COH(object, removedFrom, insertedInto));
+		if(convo) var convoObserveHandle = convores.observe(COH(object, removedFrom, insertedInto));
 		
 		userObserveHandle = userres.observe(function(object, removedFrom, insertedInto){
 			if(removedFrom == -1 && insertedInto > -1) {
@@ -132,5 +133,5 @@ require([
 		});
 		
 		// start the page on Main screen...
-		toMain();
+		//toMain();
 	});

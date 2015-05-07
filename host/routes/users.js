@@ -121,6 +121,7 @@ router.get('/chat', function(req, res) {
 	}
 });
 
+/*
 // ## auth
 // Performs **basic** user authentication. ##### might not need #####
 // We need to change this to interact with a real database.
@@ -186,7 +187,7 @@ router.post('/auth', function(req, res) {
 		});
 	}
 });
-
+*/
 
 /** 
  * ======USERS======

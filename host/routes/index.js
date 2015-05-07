@@ -17,12 +17,12 @@ router.get('/', function(req, res){
 // The login page for users to sign in
 router.get('/login', function(req, res){
 	var user  = req.session.user;
-	console.log('this is the user' + user);
 	// If the user is already logged in - we redirect to the
 	// main application view. We must check that the database has the user marked as online. The reason is that
 	// the cookie may still be stored on the client even if the
 	// server has been restarted.
 	if (user !== undefined){
+	 console.log('this is the user' + user);
 	 //Check DB to see if user is already online
 	 usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
 	 	if(error){
@@ -43,9 +43,10 @@ router.get('/login', function(req, res){
 	 });
 	}
 	else {
+		console.log('user not logged in');
 		// User is not online, redirect to login page
 	 	// Render the login view if this is a new login.
-    		res.render('login');
+		res.render('login');
 	}
 });
 

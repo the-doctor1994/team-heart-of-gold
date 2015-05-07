@@ -59,7 +59,7 @@ exports.add = function(newUser, callback) {
         }
         else{
           console.log('good insert');
-          callback('',result);
+          callback('',newUser);
         }
       });
     }

@@ -15,9 +15,9 @@ router.get('/home', function(req, res) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/index/login');
 	}else {
+		user.password="";
 		req.flash('auth', 'Login Successful');
-		req.flash('user', req.session.user);
-		res.render('main');
+		res.render('main', { secretobj : user } );
 	}
 });
 

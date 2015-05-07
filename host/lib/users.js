@@ -123,7 +123,7 @@ exports.put = function(updatedUser, callback) {
             callback(error);
           }
           else{
-            console.log('good query');
+            console.log('good edit');
             console.log('rows affected:' + results.changedRows);
             callback('',results.message);
           }

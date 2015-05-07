@@ -106,10 +106,13 @@ router.post('/auth', function(req, res) {
 	 	else{
 	 		if (results.length === 0){
 	 			// User is not online, redirect to login page
+	 			console.log('user object fields: ' + user.username + " " + user.password + " " + user.online);
+	 			console.log('no users found!!!!!!');
 	 			res.redirect('/index/login');
 	 		}
 	 		else{
 	 			// User is online, redirect to home
+	 			console.log('user already online, redirect to home');
 				res.redirect('../users/home');
 	 		}
 	 	}

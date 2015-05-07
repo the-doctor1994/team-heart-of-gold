@@ -145,7 +145,7 @@ router.post('/auth', function(req, res) {
 						console.log(message);
 						req.session.user = user;
 						req.session.save();
-						console.log("USER OBJ SAVED "+user)
+						console.log("USER OBJ SAVED "+ JSON.stringify(user));
 						// Redirect to home.
 						res.redirect('../users/home');
 					}

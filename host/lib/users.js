@@ -115,7 +115,7 @@ exports.put = function(updatedUser, callback) {
       }
       else{
         console.log('good users.put connection');
-        console.log('updated user is ' + Object.keys(updatedUser));
+        //console.log('updated user is ' + JSON.stringify(updatedUser));
         connection.query(sql, [db, updatedUser, uidOfObjectToUpdate], function(error, results){
           connection.release();
           if(error){

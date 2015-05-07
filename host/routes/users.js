@@ -32,6 +32,7 @@ router.get('/logout', function(req, res) {
 	// pass in updated user
 	usersdb.put({username: user.username, online: false}, function(error, message) {
 		if (error) {
+			console.log(message);
 			req.flash('auth', error);
 			res.redirect('../index/login');
 		}

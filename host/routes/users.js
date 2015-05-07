@@ -16,6 +16,7 @@ router.get('/home', function(req, res) {
 		res.redirect('/index/login');
 	}else {
 		req.flash('auth', 'Login Successful');
+		req.flash('user', req.session.user);
 		res.render('main');
 	}
 });

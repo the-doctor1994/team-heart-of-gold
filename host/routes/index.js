@@ -187,10 +187,13 @@ router.post('/process', function(req,res){
 					res.send(error);
 				}
 				else {
-					req.session.user = newUser;
-					req.session.save();
-					console.log("OBJECT SAVED "+req.session.user.username);
-					res.redirect('../users/home');
+					newUser.online = true;
+					usersdb.put(newUser,function(){ //we'll just assume it works
+						req.session.user = newUser;
+						req.session.save();
+						console.log("OBJECT SAVED " + req.session.user.username);
+						res.redirect('../users/home');
+					});
 				}
 			});
 		}

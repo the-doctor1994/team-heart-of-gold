@@ -22,10 +22,11 @@ router.get('/login', function(req, res){
 	// the cookie may still be stored on the client even if the
 	// server has been restarted.
 	if (user !== undefined){
-	 console.log('this is the user' + user);
+	 console.log('this is the stale user' + JSON.stringify(user));
 	 //Check DB to see if user is already online
-	 usersdb.query({username: user.username, online: true}, function(error, results){
-	 	if(error){
+	 usersdb.query({username: user.username, online: 1}, function(error, results){
+	 	console.log(JSON.stringify(results));
+		 if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
 	 		req.flash('auth', error);

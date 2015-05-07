@@ -9,13 +9,13 @@ var indexJS = require('./index');
 // ## home
 // The main user view which will contain notifications and links to other views.
 router.get('/home', function(req, res) {
-	//var message = req.flash('auth', ) || 'Login Successful';
-	// added session support
+	//session support
 	var user = req.session.user;
 	if (user === undefined) {
 		req.flash('auth', 'Not logged in!');
 		res.redirect('/index/login');
 	}else {
+		req.flash('auth', 'Login Successful');
 		res.render('main');
 	}
 });

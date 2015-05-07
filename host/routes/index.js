@@ -35,7 +35,8 @@ router.get('/login', function(req, res){
 	 	else if (results.length === 0){
 			// User is not online, redirect to login page
 			// Render the login view if this is a new login.
-			res.render('login');
+			 req.session.destroy();
+			 res.render('login');
 		}
 		else{
 			// User is online, redirect to home
@@ -62,7 +63,7 @@ router.get('/new', function(req, res){
 	// server has been restarted.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-		usersdb.query({username: user.username, password: user.password}, function(error, results){
+		usersdb.query({username: user.username, online:1}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
@@ -70,7 +71,8 @@ router.get('/new', function(req, res){
 	 		res.redirect('/index/login');
 	 	}
 	 	else if (results.length === 0){
-			// User is not online, redirect to login page
+			req.session.destroy();
+			// User is not online, redirect to adduser page
 			// Render the new user view to create new user.
 			res.render('adduser');
 		}
@@ -89,7 +91,7 @@ router.get('/new', function(req, res){
 
 
 // ## auth
-// Performs basic user authentication fo login
+// Performs basic user authentication for login
 router.post('/auth', function(req, res) {
 	// redirect if logged in:
 	var user = req.session.user;
@@ -97,7 +99,7 @@ router.post('/auth', function(req, res) {
 	// do the check as described in the `exports.login` function.
 	if (user !== undefined){
 	 //Check DB to see if user is already online
-	 usersdb.query({username: user.username, password: user.password, online: true}, function(error, results){
+	 usersdb.query({username: user.username, online: 1}, function(error, results){
 	 	if(error){
 	 		// If there is an error we "flash" a message to the
 			// redirected route `/index/login`.
@@ -107,8 +109,9 @@ router.post('/auth', function(req, res) {
 	 	else{
 	 		if (results.length === 0){
 	 			// User is not online, redirect to login page
-	 			console.log('user object fields: ' + user.username + " " + user.password + " " + user.online);
+	 			console.log('lying user object fields: ' + JSON.stringify(user));
 	 			console.log('no users found!!!!!!');
+				req.session.destroy();
 	 			res.redirect('/index/login');
 	 		}
 	 		else{
@@ -133,28 +136,35 @@ router.post('/auth', function(req, res) {
 			}
 			else if(results.length > 0){
 				var user = results[0];
-				user.online = true;
-				//var user = {username:username,online:true};
-				//console.log(user);
-				//user.online = true;
-				//console.log(user);
-				//set the user to online
-				usersdb.put(user, function(error, message){
-					if (error) {
-						// If there is an error we "flash" a message to the
-						// redirected route `/user/login`
-						req.flash('auth', error);
-						res.redirect('/index/login');
-					}
-					else{
-						console.log(message);
-						req.session.user = user;
-						req.session.save();
-						console.log("USER OBJ SAVED "+ JSON.stringify(user));
-						// Redirect to home.
-						res.redirect('../users/home');
-					}
-				});
+				//check if the user is already marked online
+				if(user.online === 1){
+					console.log("user was not logged out correctly last session");
+					req.session.user = user;
+					req.session.save();
+					console.log("USER OBJ SAVED TO SESSION" + JSON.stringify(user));
+					// Redirect to home.
+					res.redirect('../users/home');
+				}
+				else{
+					//set the user to online
+					user.online = true;
+					usersdb.put(user,function(error,message){
+						if(error){
+							// If there is an error we "flash" a message to the
+							// redirected route `/user/login`
+							req.flash('auth',error);
+							res.redirect('/index/login');
+						}
+						else{
+							console.log(message);
+							req.session.user = user;
+							req.session.save();
+							console.log("USER OBJ SAVED TO SESSION" + JSON.stringify(user));
+							// Redirect to home.
+							res.redirect('../users/home');
+						}
+					});
+				}
 			} else { // user was not found
 				console.log("User was not found");
 				res.redirect("/index/login");
